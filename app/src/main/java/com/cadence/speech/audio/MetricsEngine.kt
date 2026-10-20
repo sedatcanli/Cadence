@@ -1,0 +1,181 @@
+package com.cadence.speech.audio
+
+import com.cadence.speech.domain.ScoreCalculator
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlin.math.sqrt
+
+class MetricsEngine(
+    private val sampleRate: Int = 16_000,
+    private val cooldownMs: Long = 4_000L,
+    private val onEvent: (CoachingEvent) -> Unit
+) {
+
+    private val vad = VoiceActivityDetector()
+    private val pitchDetector = PitchDetector(sampleRate)
+    private val syllableCounter = SyllableCounter(sampleRate)
+    private val fillerDetector = FillerDetector()
+
+    private val _metrics = MutableStateFlow(LiveMetrics())
+    val metrics: StateFlow<LiveMetrics> = _metrics.asStateFlow()
+
+    private val pitchWindow = ArrayDeque<Pair<Long, Float>>()
+    private val cooldowns = mutableMapOf<CoachingEvent, Long>()
+
+    private var totalFrames = 0
+    private var speechFrames = 0
+    private var fillerCount = 0
+    private var pauseCount = 0
+    private var longPauseCount = 0
+
+    private var pauseStartMs = -1L
+    private var fastPaceStartMs = -1L
+    private var quietStartMs = -1L
+    private var lastSnapshotMs = 0L
+    private var lastRmsDb = -90f
+    private var lastSpeaking = false
+
+    fun process(frame: ShortArray, timestampMs: Long) {
+        if (totalFrames == 0) {
+            lastSnapshotMs = 0L
+        }
+        totalFrames++
+
+        val speaking = vad.isSpeech(frame)
+        val rmsDb = vad.rmsDb(frame)
+        lastSpeaking = speaking
+        lastRmsDb = rmsDb
+        if (speaking) speechFrames++
+
+        val pitch = if (speaking) {
+            pitchDetector.detect(FloatArray(frame.size) { frame[it] / 32768f })
+        } else {
+            null
+        }
+
+        if (pitch != null && pitch in 70f..400f) {
+            pitchWindow.addLast(timestampMs to pitch)
+            while (pitchWindow.isNotEmpty() && timestampMs - pitchWindow.first().first > PITCH_WINDOW_MS) {
+                pitchWindow.removeFirst()
+            }
+        }
+
+        updatePause(speaking, timestampMs)
+        syllableCounter.process(frame, timestampMs)
+
+        if (fillerDetector.update(speaking, timestampMs, pitch)) {
+            fillerCount++
+            emit(CoachingEvent.FILLER, timestampMs)
+        }
+
+        val pace = syllableCounter.syllablesPerMinute(timestampMs)
+        updatePace(pace, timestampMs)
+        updateVolume(speaking, rmsDb, timestampMs)
+
+        if (timestampMs - lastSnapshotMs >= SNAPSHOT_INTERVAL_MS) {
+            lastSnapshotMs = timestampMs
+            publish(timestampMs, pace)
+        }
+    }
+
+    fun snapshot(): LiveMetrics = _metrics.value
+
+    private fun updatePause(speaking: Boolean, timestampMs: Long) {
+        if (speaking) {
+            if (pauseStartMs >= 0) {
+                val duration = timestampMs - pauseStartMs
+                if (duration >= PAUSE_THRESHOLD_MS) {
+                    pauseCount++
+                    if (duration >= LONG_PAUSE_THRESHOLD_MS) {
+                        longPauseCount++
+                        emit(CoachingEvent.LONG_PAUSE, timestampMs)
+                    }
+                }
+                pauseStartMs = -1L
+            }
+        } else if (pauseStartMs < 0) {
+            pauseStartMs = timestampMs
+        }
+    }
+
+    private fun updatePace(pace: Int, timestampMs: Long) {
+        if (pace > FAST_PACE_THRESHOLD) {
+            if (fastPaceStartMs < 0) fastPaceStartMs = timestampMs
+            if (timestampMs - fastPaceStartMs > PACE_HOLD_MS) {
+                emit(CoachingEvent.PACE_FAST, timestampMs)
+                fastPaceStartMs = timestampMs
+            }
+        } else {
+            fastPaceStartMs = -1L
+        }
+    }
+
+    private fun updateVolume(speaking: Boolean, rmsDb: Float, timestampMs: Long) {
+        if (speaking && rmsDb < QUIET_THRESHOLD_DB) {
+            if (quietStartMs < 0) quietStartMs = timestampMs
+            if (timestampMs - quietStartMs > QUIET_HOLD_MS) {
+                emit(CoachingEvent.TOO_QUIET, timestampMs)
+                quietStartMs = timestampMs
+            }
+        } else {
+            quietStartMs = -1L
+        }
+    }
+
+    private fun emit(event: CoachingEvent, timestampMs: Long) {
+        val until = cooldowns[event] ?: 0L
+        if (timestampMs < until) return
+        cooldowns[event] = timestampMs + cooldownMs
+        onEvent(event)
+    }
+
+    private fun publish(timestampMs: Long, pace: Int) {
+        val speechRatio = if (totalFrames == 0) 0f else speechFrames.toFloat() / totalFrames
+        val pitchStd = pitchStdDeviation()
+        val duration = timestampMs.coerceAtLeast(1_000L)
+        val score = ScoreCalculator.score(
+            pace = pace,
+            fillerCount = fillerCount,
+            longPauseCount = longPauseCount,
+            pitchStdHz = pitchStd,
+            speechRatio = speechRatio,
+            durationMs = duration
+        )
+
+        _metrics.value = LiveMetrics(
+            elapsedMs = timestampMs,
+            pacePerMinute = pace,
+            fillerCount = fillerCount,
+            pauseCount = pauseCount,
+            longPauseCount = longPauseCount,
+            pitchStdHz = pitchStd,
+            rmsDb = lastRmsDb,
+            speechRatio = speechRatio,
+            isSpeaking = lastSpeaking,
+            liveScore = score
+        )
+    }
+
+    private fun pitchStdDeviation(): Float {
+        if (pitchWindow.size < 3) return 0f
+        val mean = pitchWindow.map { it.second }.average()
+        var sum = 0.0
+        for ((_, value) in pitchWindow) {
+            val delta = value - mean
+            sum += delta * delta
+        }
+        return sqrt(sum / pitchWindow.size).toFloat()
+    }
+
+    private companion object {
+        const val SNAPSHOT_INTERVAL_MS = 100L
+        const val PITCH_WINDOW_MS = 10_000L
+        const val PAUSE_THRESHOLD_MS = 700L
+        const val LONG_PAUSE_THRESHOLD_MS = 2_000L
+        const val FAST_PACE_THRESHOLD = 195
+        const val PACE_HOLD_MS = 2_500L
+        const val QUIET_THRESHOLD_DB = -38f
+        const val QUIET_HOLD_MS = 2_500L
+    }
+}

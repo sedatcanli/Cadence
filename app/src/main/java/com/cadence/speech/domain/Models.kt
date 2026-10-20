@@ -1,0 +1,44 @@
+package com.cadence.speech.domain
+
+enum class SessionMode {
+    INTERVIEW,
+    PRESENTATION,
+    FREE
+}
+
+data class SessionReport(
+    val id: String,
+    val startedAt: Long,
+    val durationMs: Long,
+    val mode: SessionMode,
+    val score: Int,
+    val pace: Int,
+    val fillerCount: Int,
+    val pauseCount: Int,
+    val longPauseCount: Int,
+    val pitchStdHz: Float,
+    val speechRatio: Float
+)
+
+enum class Insight {
+    FLUENCY,
+    PACE,
+    TONE,
+    CONTINUITY,
+    GOOD
+}
+
+fun SessionReport.insight(): Insight {
+    val minutes = (durationMs / 60_000f).coerceAtLeast(0.5f)
+    val fillersPerMinute = fillerCount / minutes
+
+    val scores = linkedMapOf(
+        Insight.FLUENCY to (100f - fillersPerMinute * 8f).coerceIn(0f, 100f),
+        Insight.PACE to ScoreCalculator.paceScore(pace),
+        Insight.TONE to ((pitchStdHz - 8f) / 32f * 100f).coerceIn(0f, 100f),
+        Insight.CONTINUITY to speechRatio.coerceIn(0f, 1f) * 100f
+    )
+
+    val weakest = scores.minByOrNull { it.value } ?: return Insight.GOOD
+    return if (weakest.value >= 70f) Insight.GOOD else weakest.key
+}

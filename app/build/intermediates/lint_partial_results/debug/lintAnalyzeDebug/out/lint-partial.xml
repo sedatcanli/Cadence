@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.5.2" type="partial_results">
+    <map id="UnsafeIntentLaunch">
+            <map id="unprotected">
+                <entry
+                    name="com.cadence.speech.MainActivity"
+                    boolean="true"/>
+            </map>
+    </map>
+    <map id="UnusedResources">
+        <entry
+            name="model"
+            string="color[ic_launcher_background(U)],drawable[ic_launcher_foreground(U),ic_stat_cadence(U)],mipmap[ic_launcher(U)],string[app_name(U),app_tagline(U),home_greeting(U),home_subtitle(U),home_last_score(U),home_no_sessions(U),mode_interview(U),mode_presentation(U),mode_free(U),start_session(U),stop_session(U),session_live(U),session_tip(U),metric_pace(U),metric_fillers(U),metric_pauses(U),metric_pitch(U),metric_speech(U),unit_per_min(U),unit_count(U),report_title(U),report_score(U),report_duration(U),report_insight(U),report_new(U),report_missing(U),insight_fluency(U),insight_pace(U),insight_tone(U),insight_continuity(U),insight_good(U),history_title(U),history_empty(U),settings_title(U),settings_feedback(U),settings_haptic(U),settings_haptic_desc(U),settings_audio(U),settings_audio_desc(U),settings_wear(U),settings_wear_desc(U),settings_sensitivity(U),settings_privacy(U),settings_privacy_body(U),settings_version(U),permission_mic(U),permission_mic_rationale(D),nav_home(U),nav_history(U),nav_settings(U),notification_channel(U),notification_title(U),notification_text(U),notification_stop(U)],style[Theme_Cadence(U)];3^0^1;;;"/>
+        <location id="R.string.permission_mic_rationale"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="59"
+            column="13"
+            startOffset="3258"
+            endLine="59"
+            endColumn="44"
+            endOffset="3289"/>
+    </map>
+
+</incidents>

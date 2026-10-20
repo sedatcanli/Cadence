@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Cadence</string>
+    <string name="app_tagline">Konuşma koçun</string>
+
+    <string name="home_greeting">Hazır mısın?</string>
+    <string name="home_subtitle">Konuşurken canlı titreşim koçluğu. Kimse fark etmez.</string>
+    <string name="home_last_score">Son skor</string>
+    <string name="home_no_sessions">Henüz seans yok</string>
+
+    <string name="mode_interview">Mülakat</string>
+    <string name="mode_presentation">Sunum</string>
+    <string name="mode_free">Serbest</string>
+
+    <string name="start_session">Seansı başlat</string>
+    <string name="stop_session">Durdur</string>
+    <string name="session_live">Canlı seans</string>
+    <string name="session_tip">Konuşmaya devam et. Kısa bir titreşim bir şey yakaladığımız anlamına gelir.</string>
+
+    <string name="metric_pace">Tempo</string>
+    <string name="metric_fillers">Dolgu</string>
+    <string name="metric_pauses">Uzun duraklama</string>
+    <string name="metric_pitch">Ton çeşitliliği</string>
+    <string name="metric_speech">Konuşma</string>
+
+    <string name="unit_per_min">/dk</string>
+    <string name="unit_count">×</string>
+
+    <string name="report_title">Seans raporu</string>
+    <string name="report_score">Skor</string>
+    <string name="report_duration">Süre</string>
+    <string name="report_insight">Neye çalışmalı</string>
+    <string name="report_new">Yeni seans</string>
+    <string name="report_missing">Rapor bulunamadı</string>
+
+    <string name="insight_fluency">Çok fazla dolgu sesi kullandın. Biraz yavaşla ve “ııı” yerine kısa bir sessizlik bırak.</string>
+    <string name="insight_pace">Tempon rahat aralığın dışına çıktı. Düzenli ve bilinçli konuşmayı hedefle.</string>
+    <string name="insight_tone">Tonun tek düzeydi. Önemli cümlelerin sonunda sesini hafifçe yükselt ve düşür.</string>
+    <string name="insight_continuity">Çok uzun durakladın. Uzun sessizlikler dinleyicinin dikkatini dağıtır.</string>
+    <string name="insight_good">Güçlü bir seans. Aynı ritmi koru ve bir sonraki sefer daha zor bir soru dene.</string>
+
+    <string name="history_title">Geçmiş</string>
+    <string name="history_empty">Henüz seans yok. İlk seansın burada görünecek.</string>
+
+    <string name="settings_title">Ayarlar</string>
+    <string name="settings_feedback">Geri bildirim</string>
+    <string name="settings_haptic">Telefon titreşimi</string>
+    <string name="settings_haptic_desc">Konuşurken kısa titreşim desenleri.</string>
+    <string name="settings_audio">Sesli uyarı</string>
+    <string name="settings_audio_desc">Kulaklıkta kısık bir ton.</string>
+    <string name="settings_wear">Wear OS</string>
+    <string name="settings_wear_desc">Sonraki güncellemede geliyor.</string>
+    <string name="settings_sensitivity">Hassasiyet</string>
+    <string name="settings_privacy">Gizlilik</string>
+    <string name="settings_privacy_body">Ses cihazında işlenir. Kayıt tutulmaz. Bulut transkripti isteğe bağlıdır ve yalnızca tam rapor istediğinde çalışır.</string>
+    <string name="settings_version">Sürüm</string>
+
+    <string name="permission_mic">Seansı başlatmak için mikrofon izni gerekli.</string>
+    <string name="permission_mic_rationale">Cadence yalnızca seans açıkken dinler ve ham sesi asla saklamaz.</string>
+
+    <string name="nav_home">Ana sayfa</string>
+    <string name="nav_history">Geçmiş</string>
+    <string name="nav_settings">Ayarlar</string>
+
+    <string name="notification_channel">Aktif seans</string>
+    <string name="notification_title">Cadence dinliyor</string>
+    <string name="notification_text">Canlı koçluk seansın çalışıyor.</string>
+    <string name="notification_stop">Durdur</string>
+</resources>
