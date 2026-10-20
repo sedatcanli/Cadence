@@ -30,6 +30,11 @@
     <string name="transcript_loading">Model yükleniyor…</string>
     <string name="transcript_error">Transkript kullanılamıyor: %1$s</string>
     <string name="settings_exit">Uygulamadan Çık</string>
+    <string name="home_exit">Çıkış</string>
+    <string name="settings_language">Dil</string>
+    <string name="settings_language_ready">Hazır</string>
+    <string name="settings_language_download">İndir</string>
+    <string name="settings_language_error">İndirilemedi: %1$s</string>
 
     <string name="unit_per_min">/dk</string>
     <string name="unit_count">×</string>

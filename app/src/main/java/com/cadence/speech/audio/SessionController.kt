@@ -10,6 +10,7 @@ import com.cadence.speech.service.SessionService
 import com.cadence.speech.settings.UserPreferences
 import com.cadence.speech.transcription.TranscriptionState
 import com.cadence.speech.transcription.VoskTranscriber
+import com.cadence.speech.transcription.voiceModelFor
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -65,7 +66,7 @@ class SessionController(
         )
         this.engine = engine
 
-        val transcriber = VoskTranscriber(context)
+        val transcriber = VoskTranscriber(context, voiceModelFor(preferences.transcriptionLanguage))
         this.transcriber = transcriber
 
         _state.value = SessionUiState(

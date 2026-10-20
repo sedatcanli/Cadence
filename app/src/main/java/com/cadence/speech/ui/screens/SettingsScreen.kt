@@ -1,8 +1,7 @@
 package com.cadence.speech.ui.screens
 
-import android.app.Activity
-import android.os.Process
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -14,17 +13,21 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Slider
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -36,7 +39,12 @@ import androidx.compose.ui.unit.dp
 import com.cadence.speech.BuildConfig
 import com.cadence.speech.R
 import com.cadence.speech.di.AppContainer
+import com.cadence.speech.transcription.VOICE_MODELS
+import com.cadence.speech.transcription.VoiceModel
+import com.cadence.speech.transcription.VoskModels
 import com.cadence.speech.ui.components.MainScaffold
+import com.cadence.speech.ui.exitApp
+import kotlinx.coroutines.launch
 
 @Composable
 fun SettingsScreen(
@@ -45,6 +53,7 @@ fun SettingsScreen(
 ) {
     MainScaffold(selectedRoute = "settings", onNavigate = onNavigate) { padding ->
         val preferences = container.preferences
+        val context = LocalContext.current
 
         var hapticEnabled by remember { mutableStateOf(preferences.hapticEnabled) }
         var audioEnabled by remember { mutableStateOf(preferences.audioCueEnabled) }
@@ -133,6 +142,110 @@ fun SettingsScreen(
             Spacer(Modifier.height(24.dp))
 
             Text(
+                text = stringResource(R.string.settings_language).uppercase(),
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.secondary
+            )
+            Spacer(Modifier.height(8.dp))
+
+            val scope = rememberCoroutineScope()
+            var selectedLanguage by remember { mutableStateOf(preferences.transcriptionLanguage) }
+            var readyModels by remember {
+                mutableStateOf(
+                    VOICE_MODELS.filter { VoskModels.isReady(context, it) }
+                        .map { it.code }
+                        .toSet()
+                )
+            }
+            var downloadingCode by remember { mutableStateOf<String?>(null) }
+            var downloadProgress by remember { mutableIntStateOf(0) }
+            var downloadError by remember { mutableStateOf<String?>(null) }
+
+            fun download(model: VoiceModel) {
+                if (downloadingCode != null) return
+                downloadingCode = model.code
+                downloadProgress = 0
+                downloadError = null
+                scope.launch {
+                    runCatching {
+                        VoskModels.ensure(context, model) { downloadProgress = it }
+                    }.onSuccess {
+                        readyModels = readyModels + model.code
+                    }.onFailure {
+                        downloadError = it.message
+                    }
+                    downloadingCode = null
+                }
+            }
+
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(18.dp))
+                    .background(MaterialTheme.colorScheme.surface)
+                    .padding(horizontal = 8.dp, vertical = 4.dp)
+            ) {
+                VOICE_MODELS.forEach { model ->
+                    val ready = model.code in readyModels
+                    val downloading = downloadingCode == model.code
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable {
+                                selectedLanguage = model.code
+                                preferences.transcriptionLanguage = model.code
+                                if (!ready) download(model)
+                            }
+                            .padding(horizontal = 8.dp, vertical = 4.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        RadioButton(
+                            selected = selectedLanguage == model.code,
+                            onClick = {
+                                selectedLanguage = model.code
+                                preferences.transcriptionLanguage = model.code
+                                if (!ready) download(model)
+                            }
+                        )
+                        Text(
+                            text = model.label,
+                            modifier = Modifier.weight(1f),
+                            style = MaterialTheme.typography.bodyLarge,
+                            color = MaterialTheme.colorScheme.onBackground
+                        )
+                        when {
+                            downloading -> Text(
+                                text = "$downloadProgress%",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.secondary
+                            )
+                            ready -> Text(
+                                text = stringResource(R.string.settings_language_ready),
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                            else -> TextButton(onClick = { download(model) }) {
+                                Text(stringResource(R.string.settings_language_download))
+                            }
+                        }
+                    }
+                }
+                if (downloadError != null) {
+                    Text(
+                        text = stringResource(
+                            R.string.settings_language_error,
+                            downloadError ?: ""
+                        ),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.error,
+                        modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp)
+                    )
+                }
+            }
+
+            Spacer(Modifier.height(24.dp))
+
+            Text(
                 text = stringResource(R.string.settings_privacy).uppercase(),
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.secondary
@@ -164,14 +277,8 @@ fun SettingsScreen(
 
             Spacer(Modifier.height(24.dp))
 
-            val context = LocalContext.current
             OutlinedButton(
-                onClick = {
-                    container.sessionController.stop()
-                    container.sessionController.dispose()
-                    (context as? Activity)?.finishAffinity()
-                    Process.killProcess(Process.myPid())
-                },
+                onClick = { exitApp(context, container) },
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text(

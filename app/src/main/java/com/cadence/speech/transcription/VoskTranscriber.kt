@@ -13,11 +13,6 @@ import org.vosk.LibVosk
 import org.vosk.LogLevel
 import org.vosk.Model
 import org.vosk.Recognizer
-import java.io.File
-import java.net.HttpURLConnection
-import java.net.URL
-import java.util.Locale
-import java.util.zip.ZipInputStream
 
 enum class TranscriptionStatus { IDLE, DOWNLOADING, LOADING, READY, ERROR }
 
@@ -28,7 +23,10 @@ data class TranscriptionState(
     val error: String? = null
 )
 
-class VoskTranscriber(private val context: Context) {
+class VoskTranscriber(
+    private val context: Context,
+    private val voiceModel: VoiceModel
+) {
 
     private val _state = MutableStateFlow(TranscriptionState())
     val state: StateFlow<TranscriptionState> = _state.asStateFlow()
@@ -38,32 +36,25 @@ class VoskTranscriber(private val context: Context) {
     private val committed = StringBuilder()
     private var lastEmitAt = 0L
 
-    private val modelId: String = when (Locale.getDefault().language) {
-        "tr" -> "vosk-model-small-tr-0.3"
-        "de" -> "vosk-model-small-de-0.15"
-        "fr" -> "vosk-model-small-fr-0.22"
-        "es" -> "vosk-model-small-es-0.42"
-        "ru" -> "vosk-model-small-ru-0.22"
-        else -> "vosk-model-small-en-us-0.15"
-    }
-
     suspend fun prepare() {
         if (recognizer != null) return
         withContext(Dispatchers.IO) {
             runCatching {
-                val dir = modelDir()
-                if (!isModelReady(dir)) {
+                val dir = VoskModels.dir(context, voiceModel)
+                if (!VoskModels.isReady(dir)) {
                     _state.update {
                         it.copy(status = TranscriptionStatus.DOWNLOADING, progress = 0, error = null)
                     }
-                    downloadAndUnzip(dir)
+                    VoskModels.ensure(context, voiceModel) { progress ->
+                        _state.update { it.copy(progress = progress) }
+                    }
                 }
                 _state.update { it.copy(status = TranscriptionStatus.LOADING) }
                 LibVosk.setLogLevel(LogLevel.WARNINGS)
                 val loaded = Model(dir.absolutePath)
                 model = loaded
                 recognizer = Recognizer(loaded, SAMPLE_RATE)
-                Log.i(TAG, "Vosk ready with model $modelId")
+                Log.i(TAG, "Vosk ready with model ${voiceModel.id}")
                 _state.update { it.copy(status = TranscriptionStatus.READY, progress = 100) }
             }.onFailure { error ->
                 Log.e(TAG, "Vosk init failed", error)
@@ -116,91 +107,10 @@ class VoskTranscriber(private val context: Context) {
         committed.clear()
     }
 
-    private fun modelDir(): File = File(context.filesDir, modelId)
-
-    private fun isModelReady(dir: File): Boolean =
-        File(dir, "final.mdl").isFile ||
-            File(dir, "am/final.mdl").isFile ||
-            File(dir, "conf/model.conf").isFile
-
-    private fun downloadAndUnzip(target: File) {
-        val archive = File(context.cacheDir, "$modelId.zip")
-        if (!archive.exists()) {
-            download(archive)
-        }
-
-        val temp = File(context.cacheDir, "$modelId-tmp")
-        temp.deleteRecursively()
-        temp.mkdirs()
-        ZipInputStream(archive.inputStream().buffered()).use { zip ->
-            var entry = zip.nextEntry
-            while (entry != null) {
-                val outFile = File(temp, entry.name)
-                if (!outFile.canonicalPath.startsWith(temp.canonicalPath + File.separator)) {
-                    error("Gecersiz model arsivi")
-                }
-                if (entry.isDirectory) {
-                    outFile.mkdirs()
-                } else {
-                    outFile.parentFile?.mkdirs()
-                    outFile.outputStream().use { zip.copyTo(it) }
-                }
-                zip.closeEntry()
-                entry = zip.nextEntry
-            }
-        }
-
-        val root = temp.listFiles()?.firstOrNull { it.isDirectory }
-            ?: error("Model arsivi bos")
-        target.deleteRecursively()
-        if (!root.renameTo(target)) {
-            root.copyRecursively(target, overwrite = true)
-        }
-        temp.deleteRecursively()
-        archive.delete()
-    }
-
-    private fun download(archive: File) {
-        val partial = File(context.cacheDir, "$modelId.zip.part")
-        partial.delete()
-        val connection = URL("$MODEL_BASE_URL$modelId.zip").openConnection() as HttpURLConnection
-        connection.connectTimeout = 15_000
-        connection.readTimeout = 30_000
-        connection.instanceFollowRedirects = true
-        try {
-            val code = connection.responseCode
-            if (code !in 200..299) error("Model indirilemedi (HTTP $code)")
-            val total = connection.contentLengthLong
-            var copied = 0L
-            connection.inputStream.use { input ->
-                partial.outputStream().use { output ->
-                    val buffer = ByteArray(64 * 1024)
-                    while (true) {
-                        val read = input.read(buffer)
-                        if (read < 0) break
-                        output.write(buffer, 0, read)
-                        copied += read
-                        if (total > 0) {
-                            val progress = (copied * 100 / total).toInt().coerceIn(0, 100)
-                            _state.update { it.copy(progress = progress) }
-                        }
-                    }
-                }
-            }
-            if (!partial.renameTo(archive)) {
-                partial.copyTo(archive, overwrite = true)
-                partial.delete()
-            }
-        } finally {
-            connection.disconnect()
-        }
-    }
-
     private companion object {
         const val TAG = "VoskTranscriber"
         const val SAMPLE_RATE = 16000f
         const val MAX_CHARS = 400
         const val EMIT_INTERVAL_MS = 120L
-        const val MODEL_BASE_URL = "https://alphacephei.com/vosk/models/"
     }
 }
