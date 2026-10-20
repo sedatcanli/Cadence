@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_tagline">Mów z pewnością siebie</string>
+    <string name="home_greeting">Gotowy do ćwiczeń?</string>
+    <string name="home_subtitle">Na żywo coaching haptyczny podczas mówienia. Nikt tego nie zauważy.</string>
+    <string name="home_last_score">Ostatni wynik</string>
+    <string name="mode_interview">Rozmowa kwalifikacyjna</string>
+    <string name="mode_presentation">Prezentacja</string>
+    <string name="mode_free">Swobodna rozmowa</string>
+    <string name="start_session">Rozpocznij sesję</string>
+    <string name="stop_session">Zatrzymaj</string>
+    <string name="session_live">Sesja na żywo</string>
+    <string name="session_recent">Ostatnie 10 s</string>
+    <string name="session_now">Teraz</string>
+    <string name="session_overall">Śr.</string>
+    <string name="metric_pace">Tempo</string>
+    <string name="nav_home">Główna</string>
+    <string name="nav_history">Historia</string>
+    <string name="nav_settings">Ustawienia</string>
+    <string name="settings_title">Ustawienia</string>
+    <string name="history_title">Historia</string>
+    <string name="progress_title">Postęp w czasie</string>
+    <string name="paywall_title">Twój darmowy tydzień minął</string>
+    <string name="paywall_cta">Rozumiem</string>
+    <string name="settings_profile">Profil</string>
+    <string name="settings_ui_language">Język aplikacji</string>
+</resources>

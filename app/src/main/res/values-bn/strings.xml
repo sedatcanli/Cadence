@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_tagline">আত্মবিশ্বাসের সাথে কথা বলুন</string>
+    <string name="home_greeting">অনুশীলন করতে প্রস্তুত?</string>
+    <string name="home_subtitle">কথা বলার সময় লাইভ স্পর্শ কোচিং। কেউ বুঝবে না।</string>
+    <string name="home_last_score">শেষ স্কোর</string>
+    <string name="mode_interview">সাক্ষাৎকার</string>
+    <string name="mode_presentation">উপস্থাপনা</string>
+    <string name="mode_free">মুক্ত আলাপ</string>
+    <string name="start_session">সেশন শুরু করুন</string>
+    <string name="stop_session">থামুন</string>
+    <string name="session_live">লাইভ সেশন</string>
+    <string name="session_recent">শেষ ১০ সেকেন্ড</string>
+    <string name="session_now">এখন</string>
+    <string name="session_overall">গড়</string>
+    <string name="metric_pace">গতি</string>
+    <string name="nav_home">হোম</string>
+    <string name="nav_history">ইতিহাস</string>
+    <string name="nav_settings">সেটিংস</string>
+    <string name="settings_title">সেটিংস</string>
+    <string name="history_title">ইতিহাস</string>
+    <string name="progress_title">সময়ের সাথে অগ্রগতি</string>
+    <string name="paywall_title">আপনার বিনামূল্যের সপ্তাহ শেষ</string>
+    <string name="paywall_cta">বুঝেছি</string>
+    <string name="settings_profile">প্রোফাইল</string>
+    <string name="settings_ui_language">অ্যাপের ভাষা</string>
+</resources>

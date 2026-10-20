@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_tagline">พูดอย่างมั่นใจ</string>
+    <string name="home_greeting">พร้อมฝึกหรือยัง?</string>
+    <string name="home_subtitle">โค้ชสัมผัสแบบเรียลไทม์ขณะคุณพูด ไม่มีใครสังเกต</string>
+    <string name="home_last_score">คะแนนล่าสุด</string>
+    <string name="mode_interview">สัมภาษณ์</string>
+    <string name="mode_presentation">นำเสนอ</string>
+    <string name="mode_free">พูดคุยอิสระ</string>
+    <string name="start_session">เริ่มเซสชัน</string>
+    <string name="stop_session">หยุด</string>
+    <string name="session_live">เซสชันสด</string>
+    <string name="session_recent">10 วินาทีล่าสุด</string>
+    <string name="session_now">ตอนนี้</string>
+    <string name="session_overall">เฉลี่ย</string>
+    <string name="metric_pace">จังหวะ</string>
+    <string name="nav_home">หน้าแรก</string>
+    <string name="nav_history">ประวัติ</string>
+    <string name="nav_settings">ตั้งค่า</string>
+    <string name="settings_title">ตั้งค่า</string>
+    <string name="history_title">ประวัติ</string>
+    <string name="progress_title">ความก้าวหน้าตามเวลา</string>
+    <string name="paywall_title">สัปดาห์ฟรีของคุณสิ้นสุดแล้ว</string>
+    <string name="paywall_cta">เข้าใจแล้ว</string>
+    <string name="settings_profile">โปรไฟล์</string>
+    <string name="settings_ui_language">ภาษาของแอป</string>
+</resources>

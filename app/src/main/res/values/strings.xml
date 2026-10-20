@@ -4,9 +4,12 @@
     <string name="app_tagline">Speak with confidence</string>
 
     <string name="home_greeting">Ready to practice?</string>
+    <string name="home_greeting_named">Ready, %1$s?</string>
     <string name="home_subtitle">Live haptic coaching while you speak. No one notices.</string>
     <string name="home_last_score">Last score</string>
     <string name="home_no_sessions">No sessions yet</string>
+    <string name="trial_days_left">Free trial: %1$d days left</string>
+    <string name="free_plan_limit">Free plan: %1$d/%2$d sessions used today</string>
 
     <string name="mode_interview">Interview</string>
     <string name="mode_presentation">Presentation</string>
@@ -27,6 +30,9 @@
     <string name="metric_speech">Speech</string>
     <string name="session_live_score">LIVE</string>
     <string name="session_avg_score">AVG.</string>
+    <string name="session_recent">Last 10 s</string>
+    <string name="session_now">Now</string>
+    <string name="session_overall">Avg</string>
     <string name="transcript_label">Transkript</string>
     <string name="transcript_listening">Dinliyorum…</string>
     <string name="transcript_downloading">Model indiriliyor… %1$d%%</string>
@@ -38,6 +44,14 @@
     <string name="settings_language_ready">Ready</string>
     <string name="settings_language_download">Download</string>
     <string name="settings_language_error">Download failed: %1$s</string>
+    <string name="settings_ui_language">App language</string>
+    <string name="settings_language_change">Change</string>
+    <string name="settings_language_system">System default</string>
+    <string name="settings_transcription_language">Transcription language</string>
+    <string name="settings_profile">Profile</string>
+    <string name="settings_profile_name">Your name</string>
+    <string name="settings_profile_save">Save profile</string>
+    <string name="settings_profile_saved">Profile saved</string>
 
     <string name="unit_per_min">/min</string>
     <string name="unit_count">×</string>
@@ -45,12 +59,12 @@
     <string name="report_title">Session report</string>
     <string name="report_score">Score</string>
     <string name="report_duration">Duration</string>
-    <string name="report_chart">Score and pace over time</string>
+    <string name="report_chart">Last 10 seconds and pace</string>
     <string name="report_chart_save">Save chart as image</string>
     <string name="report_chart_saved">Chart saved to Pictures/Cadence</string>
     <string name="report_chart_share">Share chart</string>
     <string name="report_chart_title">Cadence session report</string>
-    <string name="chart_legend_score">Score</string>
+    <string name="chart_legend_score">Last 10 s</string>
     <string name="chart_legend_pace">Pace</string>
     <string name="chart_legend_filler">Filler</string>
     <string name="chart_legend_pause">Pause</string>
@@ -73,6 +87,15 @@
 
     <string name="history_title">History</string>
     <string name="history_empty">No sessions yet. Your first session will appear here.</string>
+    <string name="progress_title">Progress over time</string>
+    <string name="progress_stats">%1$d sessions · avg %2$d · best %3$d</string>
+    <string name="progress_locked_title">Progress is part of the free week</string>
+    <string name="progress_locked_body">Your sessions are still saved, but the progress chart is hidden after the 7-day trial. The free plan allows 1 session per day.</string>
+    <string name="progress_unlock">See plans</string>
+
+    <string name="paywall_title">Your free week is over</string>
+    <string name="paywall_body">Progress charts are now hidden and the free plan allows 1 session per day. Your data is still saved — upgrade to unlock unlimited sessions and full progress.</string>
+    <string name="paywall_cta">Got it</string>
 
     <string name="settings_title">Settings</string>
     <string name="settings_feedback">Feedback</string>

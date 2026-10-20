@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_tagline">Beszélj magabiztosan</string>
+    <string name="home_greeting">Kész a gyakorlásra?</string>
+    <string name="home_subtitle">Élő haptikus coaching beszéd közben. Senki sem veszi észre.</string>
+    <string name="home_last_score">Utolsó pontszám</string>
+    <string name="mode_interview">Interjú</string>
+    <string name="mode_presentation">Előadás</string>
+    <string name="mode_free">Szabad beszélgetés</string>
+    <string name="start_session">Munkamenet indítása</string>
+    <string name="stop_session">Leállítás</string>
+    <string name="session_live">Élő munkamenet</string>
+    <string name="session_recent">Utolsó 10 mp</string>
+    <string name="session_now">Most</string>
+    <string name="session_overall">Átlag</string>
+    <string name="metric_pace">Tempó</string>
+    <string name="nav_home">Kezdőlap</string>
+    <string name="nav_history">Előzmények</string>
+    <string name="nav_settings">Beállítások</string>
+    <string name="settings_title">Beállítások</string>
+    <string name="history_title">Előzmények</string>
+    <string name="progress_title">Fejlődés időben</string>
+    <string name="paywall_title">Az ingyenes hét véget ért</string>
+    <string name="paywall_cta">Értem</string>
+    <string name="settings_profile">Profil</string>
+    <string name="settings_ui_language">Alkalmazás nyelve</string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_tagline">تحدَّث بثقة</string>
+    <string name="home_greeting">جاهز للتدريب؟</string>
+    <string name="home_subtitle">تدريب لمسي مباشر أثناء حديثك. لا يلاحظ أحد.</string>
+    <string name="home_last_score">آخر نتيجة</string>
+    <string name="mode_interview">مقابلة</string>
+    <string name="mode_presentation">عرض تقديمي</string>
+    <string name="mode_free">حديث حر</string>
+    <string name="start_session">ابدأ الجلسة</string>
+    <string name="stop_session">إيقاف</string>
+    <string name="session_live">جلسة مباشرة</string>
+    <string name="session_recent">آخر 10 ثوانٍ</string>
+    <string name="session_now">الآن</string>
+    <string name="session_overall">المتوسط</string>
+    <string name="metric_pace">الإيقاع</string>
+    <string name="nav_home">الرئيسية</string>
+    <string name="nav_history">السجل</string>
+    <string name="nav_settings">الإعدادات</string>
+    <string name="settings_title">الإعدادات</string>
+    <string name="history_title">السجل</string>
+    <string name="progress_title">التقدّم مع الوقت</string>
+    <string name="paywall_title">انتهى أسبوعك المجاني</string>
+    <string name="paywall_cta">حسنًا</string>
+    <string name="settings_profile">الملف الشخصي</string>
+    <string name="settings_ui_language">لغة التطبيق</string>
+</resources>

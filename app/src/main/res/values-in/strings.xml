@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_tagline">Bicara dengan percaya diri</string>
+    <string name="home_greeting">Siap berlatih?</string>
+    <string name="home_subtitle">Coaching haptik langsung saat Anda berbicara. Tak ada yang menyadari.</string>
+    <string name="home_last_score">Skor terakhir</string>
+    <string name="mode_interview">Wawancara</string>
+    <string name="mode_presentation">Presentasi</string>
+    <string name="mode_free">Obrolan bebas</string>
+    <string name="start_session">Mulai sesi</string>
+    <string name="stop_session">Hentikan</string>
+    <string name="session_live">Sesi langsung</string>
+    <string name="session_recent">10 dtk terakhir</string>
+    <string name="session_now">Sekarang</string>
+    <string name="session_overall">Rata-rata</string>
+    <string name="metric_pace">Tempo</string>
+    <string name="nav_home">Beranda</string>
+    <string name="nav_history">Riwayat</string>
+    <string name="nav_settings">Pengaturan</string>
+    <string name="settings_title">Pengaturan</string>
+    <string name="history_title">Riwayat</string>
+    <string name="progress_title">Kemajuan seiring waktu</string>
+    <string name="paywall_title">Minggu gratis Anda berakhir</string>
+    <string name="paywall_cta">Mengerti</string>
+    <string name="settings_profile">Profil</string>
+    <string name="settings_ui_language">Bahasa aplikasi</string>
+</resources>

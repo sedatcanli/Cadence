@@ -51,10 +51,13 @@ class MetricsEngine(
 
     private val scoreHistory = ArrayDeque<Int>()
     private val paceHistory = ArrayDeque<Int>()
+    private val recentScores = ArrayDeque<Pair<Long, Int>>()
     private val fillerMarkers = mutableListOf<Int>()
     private val pauseMarkers = mutableListOf<Int>()
     private var chartStartMs = -1L
+    private var historyBaseSecond = 0
     private var lastHistoryMs = 0L
+    private var recentScore = 0
 
     fun process(frame: ShortArray, timestampMs: Long) {
         if (totalFrames == 0) {
@@ -171,7 +174,8 @@ class MetricsEngine(
 
     private fun chartSecond(timestampMs: Long): Int {
         val start = if (chartStartMs >= 0) chartStartMs else timestampMs
-        return ((timestampMs - start) / 1_000L).toInt().coerceAtLeast(0)
+        val absoluteSecond = ((timestampMs - start) / 1_000L).toInt()
+        return (absoluteSecond - historyBaseSecond).coerceAtLeast(0)
     }
 
     private fun publish(timestampMs: Long, pace: Int) {
@@ -197,13 +201,26 @@ class MetricsEngine(
             scoreSnapshotCount++
             averageScore = (scoreSum / scoreSnapshotCount).roundToInt()
 
+            recentScores.addLast(timestampMs to liveScore)
+            while (recentScores.isNotEmpty() &&
+                recentScores.first().first < timestampMs - RECENT_SCORE_WINDOW_MS
+            ) {
+                recentScores.removeFirst()
+            }
+            recentScore = if (recentScores.isEmpty()) {
+                liveScore
+            } else {
+                (recentScores.sumOf { it.second } / recentScores.size.toFloat()).roundToInt()
+            }
+
             if (scoreHistory.isEmpty() || timestampMs - lastHistoryMs >= SCORE_HISTORY_INTERVAL_MS) {
                 lastHistoryMs = timestampMs
-                scoreHistory.addLast(averageScore)
+                scoreHistory.addLast(recentScore)
                 paceHistory.addLast(pace)
                 while (scoreHistory.size > SCORE_HISTORY_MAX) {
                     scoreHistory.removeFirst()
                     paceHistory.removeFirst()
+                    historyBaseSecond++
                     shiftMarkers(fillerMarkers)
                     shiftMarkers(pauseMarkers)
                 }
@@ -221,6 +238,7 @@ class MetricsEngine(
             speechRatio = speechRatio,
             isSpeaking = lastSpeaking,
             liveScore = liveScore,
+            recentScore = recentScore,
             averageScore = averageScore,
             hasAnySpeech = anySpeechDetected,
             transcript = "",
@@ -248,5 +266,6 @@ class MetricsEngine(
         const val PAUSE_THRESHOLD_MS = 700L
         const val SCORE_HISTORY_INTERVAL_MS = 1_000L
         const val SCORE_HISTORY_MAX = 300
+        const val RECENT_SCORE_WINDOW_MS = 10_000L
     }
 }

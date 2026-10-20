@@ -45,8 +45,8 @@ import com.cadence.speech.transcription.TranscriptionStatus
 import com.cadence.speech.transcription.fillerRanges
 import com.cadence.speech.transcription.formatPause
 import com.cadence.speech.ui.components.ChartLegend
+import com.cadence.speech.ui.components.LiveScoreRing
 import com.cadence.speech.ui.components.ScoreChart
-import com.cadence.speech.ui.components.ScoreRing
 import com.cadence.speech.ui.components.StatPill
 import com.cadence.speech.ui.theme.Primary
 
@@ -104,32 +104,23 @@ fun SessionScreen(
 
         Spacer(Modifier.height(24.dp))
 
-        ScoreRing(
-                score = if (metrics.hasAnySpeech) metrics.averageScore else 0,
-                size = 144.dp,
-                strokeWidth = 12.dp,
-                caption = if (metrics.hasAnySpeech) stringResource(R.string.session_avg_score) else ""
-            )
+        LiveScoreRing(
+            live = metrics.liveScore,
+            recent = metrics.recentScore,
+            overall = metrics.averageScore,
+            hasSpeech = metrics.hasAnySpeech,
+            size = 156.dp,
+            strokeWidth = 12.dp
+        )
 
         if (metrics.hasAnySpeech) {
             Spacer(Modifier.height(8.dp))
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween
-            ) {
-                Text(
-                    text = stringResource(R.string.session_avg_score),
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-                Text(
-                    text = stringResource(R.string.session_live_score) + " " +
-                        metrics.liveScore + " · " +
-                        stringResource(R.string.metric_pace) + " " + metrics.pacePerMinute,
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.secondary
-                )
-            }
+            Text(
+                text = (stringResource(R.string.session_recent) + " · " +
+                    stringResource(R.string.metric_pace)).uppercase(),
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
             Spacer(Modifier.height(6.dp))
             ScoreChart(
                 scoreHistory = metrics.scoreHistory,
@@ -142,7 +133,7 @@ fun SessionScreen(
             )
             Spacer(Modifier.height(6.dp))
             ChartLegend(
-                score = metrics.averageScore,
+                score = metrics.recentScore,
                 pace = metrics.pacePerMinute,
                 fillerCount = metrics.fillerCount,
                 pauseCount = metrics.longPauseCount

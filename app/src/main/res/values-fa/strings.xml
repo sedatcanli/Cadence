@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_tagline">با اعتماد به نفس صحبت کن</string>
+    <string name="home_greeting">برای تمرین آماده‌ای؟</string>
+    <string name="home_subtitle">آموزش لمسی زنده هنگام صحبت. کسی متوجه نمی‌شود.</string>
+    <string name="home_last_score">آخرین امتیاز</string>
+    <string name="mode_interview">مصاحبه</string>
+    <string name="mode_presentation">ارائه</string>
+    <string name="mode_free">گفتگوی آزاد</string>
+    <string name="start_session">شروع جلسه</string>
+    <string name="stop_session">توقف</string>
+    <string name="session_live">جلسه زنده</string>
+    <string name="session_recent">۱۰ ثانیه آخر</string>
+    <string name="session_now">اکنون</string>
+    <string name="session_overall">میانگین</string>
+    <string name="metric_pace">سرعت</string>
+    <string name="nav_home">خانه</string>
+    <string name="nav_history">تاریخچه</string>
+    <string name="nav_settings">تنظیمات</string>
+    <string name="settings_title">تنظیمات</string>
+    <string name="history_title">تاریخچه</string>
+    <string name="progress_title">پیشرفت در طول زمان</string>
+    <string name="paywall_title">هفته رایگان شما تمام شد</string>
+    <string name="paywall_cta">متوجه شدم</string>
+    <string name="settings_profile">پروفایل</string>
+    <string name="settings_ui_language">زبان برنامه</string>
+</resources>

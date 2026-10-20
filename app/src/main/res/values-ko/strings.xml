@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_tagline">자신 있게 말하세요</string>
+    <string name="home_greeting">연습할 준비가 되셨나요?</string>
+    <string name="home_subtitle">말하는 동안 실시간 햅틱 코칭. 아무도 눈치채지 못합니다.</string>
+    <string name="home_last_score">최근 점수</string>
+    <string name="mode_interview">면접</string>
+    <string name="mode_presentation">발표</string>
+    <string name="mode_free">자유 대화</string>
+    <string name="start_session">세션 시작</string>
+    <string name="stop_session">중지</string>
+    <string name="session_live">실시간 세션</string>
+    <string name="session_recent">최근 10초</string>
+    <string name="session_now">지금</string>
+    <string name="session_overall">평균</string>
+    <string name="metric_pace">속도</string>
+    <string name="nav_home">홈</string>
+    <string name="nav_history">기록</string>
+    <string name="nav_settings">설정</string>
+    <string name="settings_title">설정</string>
+    <string name="history_title">기록</string>
+    <string name="progress_title">시간에 따른 발전</string>
+    <string name="paywall_title">무료 주간이 끝났습니다</string>
+    <string name="paywall_cta">확인</string>
+    <string name="settings_profile">프로필</string>
+    <string name="settings_ui_language">앱 언어</string>
+</resources>

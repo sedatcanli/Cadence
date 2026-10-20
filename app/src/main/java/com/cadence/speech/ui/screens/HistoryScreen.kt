@@ -16,10 +16,14 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -30,7 +34,13 @@ import com.cadence.speech.R
 import com.cadence.speech.di.AppContainer
 import com.cadence.speech.domain.SessionReport
 import com.cadence.speech.ui.components.MainScaffold
+import com.cadence.speech.ui.components.PaywallDialog
+import com.cadence.speech.ui.components.ProgressChart
 import com.cadence.speech.ui.components.ScoreChart
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
+import kotlin.math.roundToInt
 
 @Composable
 fun HistoryScreen(
@@ -40,6 +50,7 @@ fun HistoryScreen(
 ) {
     MainScaffold(selectedRoute = "history", onNavigate = onNavigate) { padding ->
         val sessions by container.repository.sessions.collectAsState()
+        var showPaywall by remember { mutableStateOf(false) }
 
         Column(
             modifier = Modifier
@@ -55,6 +66,18 @@ fun HistoryScreen(
             )
 
             Spacer(Modifier.height(18.dp))
+
+            val trialActive = container.preferences.isTrialActive()
+
+            if (sessions.isNotEmpty()) {
+                val ascending = sessions.sortedBy { it.startedAt }
+                if (trialActive) {
+                    ProgressCard(sessions = ascending)
+                } else {
+                    LockedProgressCard(onUnlock = { showPaywall = true })
+                }
+                Spacer(Modifier.height(18.dp))
+            }
 
             if (sessions.isEmpty()) {
                 Box(
@@ -79,8 +102,93 @@ fun HistoryScreen(
                 }
             }
         }
+
+        if (showPaywall) {
+            PaywallDialog(onDismiss = { showPaywall = false })
+        }
     }
 }
+
+@Composable
+private fun ProgressCard(sessions: List<SessionReport>) {
+    val scores = sessions.map { it.score }
+    val average = scores.average().roundToInt()
+    val best = scores.maxOrNull() ?: 0
+
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(18.dp))
+            .background(MaterialTheme.colorScheme.surface)
+            .padding(18.dp)
+    ) {
+        Text(
+            text = stringResource(R.string.progress_title).uppercase(),
+            style = MaterialTheme.typography.labelSmall,
+            color = MaterialTheme.colorScheme.secondary
+        )
+        Spacer(Modifier.height(6.dp))
+        Text(
+            text = stringResource(R.string.progress_stats, sessions.size, average, best),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant
+        )
+        Spacer(Modifier.height(12.dp))
+        ProgressChart(
+            scores = scores,
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(104.dp)
+        )
+        Spacer(Modifier.height(6.dp))
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Text(
+                text = formatShortDate(sessions.first().startedAt),
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            Text(
+                text = formatShortDate(sessions.last().startedAt),
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+        }
+    }
+}
+
+@Composable
+private fun LockedProgressCard(onUnlock: () -> Unit) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(18.dp))
+            .background(MaterialTheme.colorScheme.surface)
+            .padding(18.dp)
+    ) {
+        Text(
+            text = stringResource(R.string.progress_locked_title),
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.SemiBold,
+            color = MaterialTheme.colorScheme.onBackground
+        )
+        Spacer(Modifier.height(6.dp))
+        Text(
+            text = stringResource(R.string.progress_locked_body),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant
+        )
+        Spacer(Modifier.height(12.dp))
+        OutlinedButton(onClick = onUnlock) {
+            Text(stringResource(R.string.progress_unlock))
+        }
+    }
+}
+
+private fun formatShortDate(timestamp: Long): String =
+    SimpleDateFormat("d MMM", Locale.getDefault()).format(Date(timestamp))
 
 @Composable
 private fun HistoryRow(report: SessionReport, onClick: () -> Unit) {

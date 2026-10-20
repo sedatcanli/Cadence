@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_tagline">Hovor sebavedomo</string>
+    <string name="home_greeting">Pripravený trénovať?</string>
+    <string name="home_subtitle">Živé haptické koučovanie počas reči. Nikto si to nevšimne.</string>
+    <string name="home_last_score">Posledné skóre</string>
+    <string name="mode_interview">Pohovor</string>
+    <string name="mode_presentation">Prezentácia</string>
+    <string name="mode_free">Voľný rozhovor</string>
+    <string name="start_session">Spustiť reláciu</string>
+    <string name="stop_session">Zastaviť</string>
+    <string name="session_live">Živá relácia</string>
+    <string name="session_recent">Posledných 10 s</string>
+    <string name="session_now">Teraz</string>
+    <string name="session_overall">Priemer</string>
+    <string name="metric_pace">Tempo</string>
+    <string name="nav_home">Domov</string>
+    <string name="nav_history">História</string>
+    <string name="nav_settings">Nastavenia</string>
+    <string name="settings_title">Nastavenia</string>
+    <string name="history_title">História</string>
+    <string name="progress_title">Pokrok v čase</string>
+    <string name="paywall_title">Tvoj bezplatný týždeň skončil</string>
+    <string name="paywall_cta">Rozumiem</string>
+    <string name="settings_profile">Profil</string>
+    <string name="settings_ui_language">Jazyk aplikácie</string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_tagline">Mluvte sebevědomě</string>
+    <string name="home_greeting">Připraveni trénovat?</string>
+    <string name="home_subtitle">Živé haptické koučování během řeči. Nikdo si nevšimne.</string>
+    <string name="home_last_score">Poslední skóre</string>
+    <string name="mode_interview">Pohovor</string>
+    <string name="mode_presentation">Prezentace</string>
+    <string name="mode_free">Volná konverzace</string>
+    <string name="start_session">Spustit sezení</string>
+    <string name="stop_session">Zastavit</string>
+    <string name="session_live">Živé sezení</string>
+    <string name="session_recent">Posledních 10 s</string>
+    <string name="session_now">Teď</string>
+    <string name="session_overall">Průměr</string>
+    <string name="metric_pace">Tempo</string>
+    <string name="nav_home">Domů</string>
+    <string name="nav_history">Historie</string>
+    <string name="nav_settings">Nastavení</string>
+    <string name="settings_title">Nastavení</string>
+    <string name="history_title">Historie</string>
+    <string name="progress_title">Pokrok v čase</string>
+    <string name="paywall_title">Tvůj bezplatný týden skončil</string>
+    <string name="paywall_cta">Rozumím</string>
+    <string name="settings_profile">Profil</string>
+    <string name="settings_ui_language">Jazyk aplikace</string>
+</resources>

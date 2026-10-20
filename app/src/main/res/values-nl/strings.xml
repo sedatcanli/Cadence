@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_tagline">Spreek met vertrouwen</string>
+    <string name="home_greeting">Klaar om te oefenen?</string>
+    <string name="home_subtitle">Live haptische coaching terwijl je spreekt. Niemand merkt het.</string>
+    <string name="home_last_score">Laatste score</string>
+    <string name="mode_interview">Sollicitatie</string>
+    <string name="mode_presentation">Presentatie</string>
+    <string name="mode_free">Vrij gesprek</string>
+    <string name="start_session">Sessie starten</string>
+    <string name="stop_session">Stoppen</string>
+    <string name="session_live">Live sessie</string>
+    <string name="session_recent">Laatste 10 s</string>
+    <string name="session_now">Nu</string>
+    <string name="session_overall">Gem.</string>
+    <string name="metric_pace">Tempo</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_history">Geschiedenis</string>
+    <string name="nav_settings">Instellingen</string>
+    <string name="settings_title">Instellingen</string>
+    <string name="history_title">Geschiedenis</string>
+    <string name="progress_title">Voortgang in de tijd</string>
+    <string name="paywall_title">Je gratis week is voorbij</string>
+    <string name="paywall_cta">Begrepen</string>
+    <string name="settings_profile">Profiel</string>
+    <string name="settings_ui_language">App-taal</string>
+</resources>

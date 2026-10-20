@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_tagline">Puhu itsevarmasti</string>
+    <string name="home_greeting">Valmis harjoittelemaan?</string>
+    <string name="home_subtitle">Live-haptinen valmennus puhuessasi. Kukaan ei huomaa.</string>
+    <string name="home_last_score">Viimeisin pistemäärä</string>
+    <string name="mode_interview">Haastattelu</string>
+    <string name="mode_presentation">Esitys</string>
+    <string name="mode_free">Vapaa keskustelu</string>
+    <string name="start_session">Aloita istunto</string>
+    <string name="stop_session">Lopeta</string>
+    <string name="session_live">Live-istunto</string>
+    <string name="session_recent">Viimeiset 10 s</string>
+    <string name="session_now">Nyt</string>
+    <string name="session_overall">Keskiarvo</string>
+    <string name="metric_pace">Tempo</string>
+    <string name="nav_home">Koti</string>
+    <string name="nav_history">Historia</string>
+    <string name="nav_settings">Asetukset</string>
+    <string name="settings_title">Asetukset</string>
+    <string name="history_title">Historia</string>
+    <string name="progress_title">Kehitys ajan myötä</string>
+    <string name="paywall_title">Ilmainen viikkosi päättyi</string>
+    <string name="paywall_cta">Selvä</string>
+    <string name="settings_profile">Profiili</string>
+    <string name="settings_ui_language">Sovelluksen kieli</string>
+</resources>

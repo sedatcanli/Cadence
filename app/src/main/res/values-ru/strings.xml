@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_tagline">Говори уверенно</string>
+    <string name="home_greeting">Готовы тренироваться?</string>
+    <string name="home_subtitle">Живой тактильный коучинг во время речи. Никто не заметит.</string>
+    <string name="home_last_score">Последний балл</string>
+    <string name="mode_interview">Собеседование</string>
+    <string name="mode_presentation">Презентация</string>
+    <string name="mode_free">Свободный разговор</string>
+    <string name="start_session">Начать сеанс</string>
+    <string name="stop_session">Стоп</string>
+    <string name="session_live">Живой сеанс</string>
+    <string name="session_recent">Последние 10 с</string>
+    <string name="session_now">Сейчас</string>
+    <string name="session_overall">Сред.</string>
+    <string name="metric_pace">Темп</string>
+    <string name="nav_home">Главная</string>
+    <string name="nav_history">История</string>
+    <string name="nav_settings">Настройки</string>
+    <string name="settings_title">Настройки</string>
+    <string name="history_title">История</string>
+    <string name="progress_title">Прогресс во времени</string>
+    <string name="paywall_title">Бесплатная неделя закончилась</string>
+    <string name="paywall_cta">Понятно</string>
+    <string name="settings_profile">Профиль</string>
+    <string name="settings_ui_language">Язык приложения</string>
+</resources>

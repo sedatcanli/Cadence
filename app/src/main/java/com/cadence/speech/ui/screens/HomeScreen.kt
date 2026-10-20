@@ -41,8 +41,12 @@ import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import com.cadence.speech.R
 import com.cadence.speech.di.AppContainer
+import com.cadence.speech.domain.FREE_SESSIONS_PER_DAY
 import com.cadence.speech.domain.SessionMode
+import com.cadence.speech.domain.isDailyLimitReached
+import com.cadence.speech.domain.sessionsToday
 import com.cadence.speech.ui.components.MainScaffold
+import com.cadence.speech.ui.components.PaywallDialog
 import com.cadence.speech.ui.components.ScoreRing
 import com.cadence.speech.ui.exitApp
 import java.text.SimpleDateFormat
@@ -58,6 +62,18 @@ fun HomeScreen(
     MainScaffold(selectedRoute = "home", onNavigate = onNavigate) { padding ->
         val sessions by container.repository.sessions.collectAsState()
         val last = sessions.firstOrNull()
+        val preferences = container.preferences
+        val trialActive = preferences.isTrialActive()
+        val todayCount = sessionsToday(sessions)
+        val limitReached = isDailyLimitReached(sessions, trialActive)
+        var showPaywall by remember { mutableStateOf(false) }
+
+        androidx.compose.runtime.LaunchedEffect(Unit) {
+            if (!trialActive && !preferences.paywallAcknowledged) {
+                preferences.paywallAcknowledged = true
+                showPaywall = true
+            }
+        }
 
         var selectedModeName by rememberSaveable { mutableStateOf(SessionMode.INTERVIEW.name) }
         val selectedMode = SessionMode.valueOf(selectedModeName)
@@ -112,7 +128,11 @@ fun HomeScreen(
                 Spacer(Modifier.height(28.dp))
 
                 Text(
-                    text = stringResource(R.string.home_greeting),
+                    text = if (preferences.profileName.isBlank()) {
+                        stringResource(R.string.home_greeting)
+                    } else {
+                        stringResource(R.string.home_greeting_named, preferences.profileName)
+                    },
                     style = MaterialTheme.typography.headlineSmall,
                     fontWeight = FontWeight.SemiBold,
                     color = MaterialTheme.colorScheme.onBackground
@@ -144,10 +164,29 @@ fun HomeScreen(
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
 
-                Spacer(Modifier.height(24.dp))
+                Spacer(Modifier.height(10.dp))
+                Text(
+                    text = if (trialActive) {
+                        stringResource(R.string.trial_days_left, preferences.trialDaysLeft())
+                    } else {
+                        stringResource(
+                            R.string.free_plan_limit,
+                            todayCount,
+                            FREE_SESSIONS_PER_DAY
+                        )
+                    },
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.secondary
+                )
+
+                Spacer(Modifier.height(20.dp))
 
                 Button(
                     onClick = {
+                        if (limitReached) {
+                            showPaywall = true
+                            return@Button
+                        }
                         val granted = ContextCompat.checkSelfPermission(
                             context,
                             Manifest.permission.RECORD_AUDIO
@@ -233,6 +272,10 @@ fun HomeScreen(
             ) {
                 Text(stringResource(R.string.home_exit))
             }
+        }
+
+        if (showPaywall) {
+            PaywallDialog(onDismiss = { showPaywall = false })
         }
     }
 }

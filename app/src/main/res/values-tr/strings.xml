@@ -4,9 +4,12 @@
     <string name="app_tagline">Konuşma koçun</string>
 
     <string name="home_greeting">Hazır mısın?</string>
+    <string name="home_greeting_named">Hazır mısın, %1$s?</string>
     <string name="home_subtitle">Konuşurken canlı titreşim koçluğu. Kimse fark etmez.</string>
     <string name="home_last_score">Son skor</string>
     <string name="home_no_sessions">Henüz seans yok</string>
+    <string name="trial_days_left">Ücretsiz deneme: %1$d gün kaldı</string>
+    <string name="free_plan_limit">Ücretsiz plan: bugün %1$d/%2$d seans kullanıldı</string>
 
     <string name="mode_interview">Mülakat</string>
     <string name="mode_presentation">Sunum</string>
@@ -27,6 +30,9 @@
     <string name="metric_speech">Konuşma</string>
     <string name="session_live_score">CANLI</string>
     <string name="session_avg_score">ORT.</string>
+    <string name="session_recent">Son 10 sn</string>
+    <string name="session_now">Anlık</string>
+    <string name="session_overall">Genel</string>
     <string name="transcript_label">Transkript</string>
     <string name="transcript_listening">Dinliyorum…</string>
     <string name="transcript_downloading">Model indiriliyor… %1$d%%</string>
@@ -38,6 +44,14 @@
     <string name="settings_language_ready">Hazır</string>
     <string name="settings_language_download">İndir</string>
     <string name="settings_language_error">İndirilemedi: %1$s</string>
+    <string name="settings_ui_language">Uygulama dili</string>
+    <string name="settings_language_change">Değiştir</string>
+    <string name="settings_language_system">Sistem varsayılanı</string>
+    <string name="settings_transcription_language">Transkript dili</string>
+    <string name="settings_profile">Profil</string>
+    <string name="settings_profile_name">Adın</string>
+    <string name="settings_profile_save">Profili kaydet</string>
+    <string name="settings_profile_saved">Profil kaydedildi</string>
 
     <string name="unit_per_min">/dk</string>
     <string name="unit_count">×</string>
@@ -45,12 +59,12 @@
     <string name="report_title">Seans raporu</string>
     <string name="report_score">Skor</string>
     <string name="report_duration">Süre</string>
-    <string name="report_chart">Skor ve tempo değişimi</string>
+    <string name="report_chart">Son 10 saniye ve tempo</string>
     <string name="report_chart_save">Grafiği görsel olarak kaydet</string>
     <string name="report_chart_saved">Grafik Pictures/Cadence klasörüne kaydedildi</string>
     <string name="report_chart_share">Grafiği paylaş</string>
     <string name="report_chart_title">Cadence seans raporu</string>
-    <string name="chart_legend_score">Skor</string>
+    <string name="chart_legend_score">Son 10 sn</string>
     <string name="chart_legend_pace">Tempo</string>
     <string name="chart_legend_filler">Dolgu</string>
     <string name="chart_legend_pause">Durak</string>
@@ -73,6 +87,15 @@
 
     <string name="history_title">Geçmiş</string>
     <string name="history_empty">Henüz seans yok. İlk seansın burada görünecek.</string>
+    <string name="progress_title">Zamana göre gelişim</string>
+    <string name="progress_stats">%1$d seans · ort. %2$d · en iyi %3$d</string>
+    <string name="progress_locked_title">Gelişim grafiği deneme süresine dahil</string>
+    <string name="progress_locked_body">Seansların kaydedilmeye devam ediyor, ancak 7 günlük denemeden sonra gelişim grafiği gizlenir. Ücretsiz planda günde 1 seans hakkı var.</string>
+    <string name="progress_unlock">Planları gör</string>
+
+    <string name="paywall_title">Ücretsiz haftan doldu</string>
+    <string name="paywall_body">Gelişim grafikleri artık gizli ve ücretsiz plan günde 1 seansa izin veriyor. Verilerin kaydedilmeye devam ediyor — sınırsız seans ve tam gelişim için yükselt.</string>
+    <string name="paywall_cta">Anladım</string>
 
     <string name="settings_title">Ayarlar</string>
     <string name="settings_feedback">Geri bildirim</string>

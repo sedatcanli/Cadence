@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_tagline">Μίλα με αυτοπεποίθηση</string>
+    <string name="home_greeting">Έτοιμος για εξάσκηση;</string>
+    <string name="home_subtitle">Ζωντανή απτική καθοδήγηση όσο μιλάς. Κανείς δεν το προσέχει.</string>
+    <string name="home_last_score">Τελευταίο σκορ</string>
+    <string name="mode_interview">Συνέντευξη</string>
+    <string name="mode_presentation">Παρουσίαση</string>
+    <string name="mode_free">Ελεύθερη συζήτηση</string>
+    <string name="start_session">Έναρξη συνεδρίας</string>
+    <string name="stop_session">Διακοπή</string>
+    <string name="session_live">Ζωντανή συνεδρία</string>
+    <string name="session_recent">Τελευταία 10 δ.</string>
+    <string name="session_now">Τώρα</string>
+    <string name="session_overall">Μ.ό.</string>
+    <string name="metric_pace">Ρυθμός</string>
+    <string name="nav_home">Αρχική</string>
+    <string name="nav_history">Ιστορικό</string>
+    <string name="nav_settings">Ρυθμίσεις</string>
+    <string name="settings_title">Ρυθμίσεις</string>
+    <string name="history_title">Ιστορικό</string>
+    <string name="progress_title">Πρόοδος στον χρόνο</string>
+    <string name="paywall_title">Η δωρεάν εβδομάδα σου τελείωσε</string>
+    <string name="paywall_cta">Κατανοητό</string>
+    <string name="settings_profile">Προφίλ</string>
+    <string name="settings_ui_language">Γλώσσα εφαρμογής</string>
+</resources>

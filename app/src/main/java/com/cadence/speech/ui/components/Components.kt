@@ -97,6 +97,131 @@ fun ScoreRing(
 }
 
 @Composable
+fun LiveScoreRing(
+    live: Int,
+    recent: Int,
+    overall: Int,
+    hasSpeech: Boolean,
+    modifier: Modifier = Modifier,
+    size: Dp = 144.dp,
+    strokeWidth: Dp = 12.dp
+) {
+    val target = if (hasSpeech) recent.coerceIn(0, 100) / 100f else 0f
+    val animated by animateFloatAsState(targetValue = target, label = "recentScore")
+    Box(contentAlignment = Alignment.Center, modifier = modifier.size(size)) {
+        Canvas(Modifier.fillMaxSize()) {
+            val stroke = strokeWidth.toPx()
+            val arcSize = Size(this.size.width - stroke, this.size.height - stroke)
+            drawArc(
+                color = Color.White.copy(alpha = 0.08f),
+                startAngle = 135f,
+                sweepAngle = 270f,
+                useCenter = false,
+                topLeft = androidx.compose.ui.geometry.Offset(stroke / 2, stroke / 2),
+                size = arcSize,
+                style = Stroke(stroke, cap = StrokeCap.Round)
+            )
+            drawArc(
+                color = if (animated > 0.6f) Primary else Accent,
+                startAngle = 135f,
+                sweepAngle = 270f * animated,
+                useCenter = false,
+                topLeft = androidx.compose.ui.geometry.Offset(stroke / 2, stroke / 2),
+                size = arcSize,
+                style = Stroke(stroke, cap = StrokeCap.Round)
+            )
+        }
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            Text(
+                text = if (hasSpeech) recent.toString() else "0",
+                style = MaterialTheme.typography.displaySmall,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onBackground
+            )
+            Text(
+                text = stringResource(R.string.session_recent).uppercase(),
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            Spacer(Modifier.height(4.dp))
+            Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                Text(
+                    text = "${stringResource(R.string.session_now)} $live",
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.secondary
+                )
+                Text(
+                    text = "${stringResource(R.string.session_overall)} $overall",
+                    style = MaterialTheme.typography.labelSmall,
+                    color = Primary
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun ProgressChart(
+    scores: List<Int>,
+    modifier: Modifier = Modifier
+) {
+    val lineColor = Primary
+    val gridColor = Color.White.copy(alpha = 0.07f)
+
+    Canvas(modifier = modifier) {
+        val gridStroke = 1.dp.toPx()
+        for (index in 1..3) {
+            val y = size.height * index / 4f
+            drawLine(
+                color = gridColor,
+                start = androidx.compose.ui.geometry.Offset(0f, y),
+                end = androidx.compose.ui.geometry.Offset(size.width, y),
+                strokeWidth = gridStroke
+            )
+        }
+
+        if (scores.size < 2) return@Canvas
+
+        val denominator = (scores.size - 1).toFloat()
+        val path = androidx.compose.ui.graphics.Path()
+        scores.forEachIndexed { index, score ->
+            val x = index / denominator * size.width
+            val y = size.height - (score.coerceIn(0, 100) / 100f) * size.height
+            if (index == 0) path.moveTo(x, y) else path.lineTo(x, y)
+        }
+        drawPath(
+            path = path,
+            color = lineColor,
+            style = Stroke(width = 2.dp.toPx(), cap = StrokeCap.Round)
+        )
+
+        scores.forEachIndexed { index, score ->
+            val x = index / denominator * size.width
+            val y = size.height - (score.coerceIn(0, 100) / 100f) * size.height
+            drawCircle(
+                color = lineColor,
+                radius = 2.dp.toPx(),
+                center = androidx.compose.ui.geometry.Offset(x, y)
+            )
+        }
+    }
+}
+
+@Composable
+fun PaywallDialog(onDismiss: () -> Unit) {
+    androidx.compose.material3.AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(stringResource(R.string.paywall_title)) },
+        text = { Text(stringResource(R.string.paywall_body)) },
+        confirmButton = {
+            androidx.compose.material3.TextButton(onClick = onDismiss) {
+                Text(stringResource(R.string.paywall_cta))
+            }
+        }
+    )
+}
+
+@Composable
 fun ScoreChart(
     scoreHistory: List<Int>,
     paceHistory: List<Int>,

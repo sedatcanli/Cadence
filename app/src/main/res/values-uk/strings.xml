@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_tagline">Говори впевнено</string>
+    <string name="home_greeting">Готові тренуватися?</string>
+    <string name="home_subtitle">Живий тактильний коучинг під час мовлення. Ніхто не помітить.</string>
+    <string name="home_last_score">Останній бал</string>
+    <string name="mode_interview">Співбесіда</string>
+    <string name="mode_presentation">Презентація</string>
+    <string name="mode_free">Вільна розмова</string>
+    <string name="start_session">Почати сеанс</string>
+    <string name="stop_session">Стоп</string>
+    <string name="session_live">Живий сеанс</string>
+    <string name="session_recent">Останні 10 с</string>
+    <string name="session_now">Зараз</string>
+    <string name="session_overall">Сер.</string>
+    <string name="metric_pace">Темп</string>
+    <string name="nav_home">Головна</string>
+    <string name="nav_history">Історія</string>
+    <string name="nav_settings">Налаштування</string>
+    <string name="settings_title">Налаштування</string>
+    <string name="history_title">Історія</string>
+    <string name="progress_title">Прогрес у часі</string>
+    <string name="paywall_title">Безкоштовний тиждень минув</string>
+    <string name="paywall_cta">Зрозуміло</string>
+    <string name="settings_profile">Профіль</string>
+    <string name="settings_ui_language">Мова застосунку</string>
+</resources>

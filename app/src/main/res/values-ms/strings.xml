@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_tagline">Bercakap dengan yakin</string>
+    <string name="home_greeting">Sedia untuk berlatih?</string>
+    <string name="home_subtitle">Coaching haptik langsung semasa anda bercakap. Tiada siapa perasan.</string>
+    <string name="home_last_score">Skor terakhir</string>
+    <string name="mode_interview">Temuduga</string>
+    <string name="mode_presentation">Pembentangan</string>
+    <string name="mode_free">Perbualan bebas</string>
+    <string name="start_session">Mulakan sesi</string>
+    <string name="stop_session">Henti</string>
+    <string name="session_live">Sesi langsung</string>
+    <string name="session_recent">10 saat terakhir</string>
+    <string name="session_now">Sekarang</string>
+    <string name="session_overall">Purata</string>
+    <string name="metric_pace">Tempo</string>
+    <string name="nav_home">Utama</string>
+    <string name="nav_history">Sejarah</string>
+    <string name="nav_settings">Tetapan</string>
+    <string name="settings_title">Tetapan</string>
+    <string name="history_title">Sejarah</string>
+    <string name="progress_title">Kemajuan mengikut masa</string>
+    <string name="paywall_title">Minggu percuma anda tamat</string>
+    <string name="paywall_cta">Faham</string>
+    <string name="settings_profile">Profil</string>
+    <string name="settings_ui_language">Bahasa aplikasi</string>
+</resources>

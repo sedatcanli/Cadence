@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_tagline">Parlez avec assurance</string>
+    <string name="home_greeting">Prêt à vous entraîner ?</string>
+    <string name="home_subtitle">Coaching haptique en direct pendant que vous parlez. Personne ne le remarque.</string>
+    <string name="home_last_score">Dernier score</string>
+    <string name="mode_interview">Entretien</string>
+    <string name="mode_presentation">Présentation</string>
+    <string name="mode_free">Discussion libre</string>
+    <string name="start_session">Démarrer la session</string>
+    <string name="stop_session">Arrêter</string>
+    <string name="session_live">Session en direct</string>
+    <string name="session_recent">10 dernières s</string>
+    <string name="session_now">Maintenant</string>
+    <string name="session_overall">Moy.</string>
+    <string name="metric_pace">Rythme</string>
+    <string name="nav_home">Accueil</string>
+    <string name="nav_history">Historique</string>
+    <string name="nav_settings">Réglages</string>
+    <string name="settings_title">Réglages</string>
+    <string name="history_title">Historique</string>
+    <string name="progress_title">Progression dans le temps</string>
+    <string name="paywall_title">Votre semaine gratuite est terminée</string>
+    <string name="paywall_cta">Compris</string>
+    <string name="settings_profile">Profil</string>
+    <string name="settings_ui_language">Langue de l\'app</string>
+</resources>

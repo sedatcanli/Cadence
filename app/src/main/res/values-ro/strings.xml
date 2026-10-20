@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_tagline">Vorbește cu încredere</string>
+    <string name="home_greeting">Pregătit de exersat?</string>
+    <string name="home_subtitle">Coaching haptic live în timp ce vorbești. Nimeni nu observă.</string>
+    <string name="home_last_score">Ultimul scor</string>
+    <string name="mode_interview">Interviu</string>
+    <string name="mode_presentation">Prezentare</string>
+    <string name="mode_free">Conversație liberă</string>
+    <string name="start_session">Începe sesiunea</string>
+    <string name="stop_session">Oprește</string>
+    <string name="session_live">Sesiune live</string>
+    <string name="session_recent">Ultimele 10 s</string>
+    <string name="session_now">Acum</string>
+    <string name="session_overall">Medie</string>
+    <string name="metric_pace">Ritm</string>
+    <string name="nav_home">Acasă</string>
+    <string name="nav_history">Istoric</string>
+    <string name="nav_settings">Setări</string>
+    <string name="settings_title">Setări</string>
+    <string name="history_title">Istoric</string>
+    <string name="progress_title">Progres în timp</string>
+    <string name="paywall_title">Săptămâna ta gratuită s-a încheiat</string>
+    <string name="paywall_cta">Am înțeles</string>
+    <string name="settings_profile">Profil</string>
+    <string name="settings_ui_language">Limba aplicației</string>
+</resources>

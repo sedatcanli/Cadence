@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_tagline">आत्मविश्वास से बोलें</string>
+    <string name="home_greeting">अभ्यास के लिए तैयार?</string>
+    <string name="home_subtitle">बोलते समय लाइव हैप्टिक कोचिंग। किसी को पता नहीं चलेगा।</string>
+    <string name="home_last_score">पिछला स्कोर</string>
+    <string name="mode_interview">साक्षात्कार</string>
+    <string name="mode_presentation">प्रस्तुति</string>
+    <string name="mode_free">मुक्त बातचीत</string>
+    <string name="start_session">सत्र शुरू करें</string>
+    <string name="stop_session">रोकें</string>
+    <string name="session_live">लाइव सत्र</string>
+    <string name="session_recent">पिछले 10 सेकंड</string>
+    <string name="session_now">अभी</string>
+    <string name="session_overall">औसत</string>
+    <string name="metric_pace">गति</string>
+    <string name="nav_home">होम</string>
+    <string name="nav_history">इतिहास</string>
+    <string name="nav_settings">सेटिंग्स</string>
+    <string name="settings_title">सेटिंग्स</string>
+    <string name="history_title">इतिहास</string>
+    <string name="progress_title">समय के साथ प्रगति</string>
+    <string name="paywall_title">आपका मुफ़्त सप्ताह खत्म</string>
+    <string name="paywall_cta">समझ गया</string>
+    <string name="settings_profile">प्रोफ़ाइल</string>
+    <string name="settings_ui_language">ऐप की भाषा</string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_tagline">Fale com confiança</string>
+    <string name="home_greeting">Pronto para praticar?</string>
+    <string name="home_subtitle">Coaching háptico ao vivo enquanto fala. Ninguém percebe.</string>
+    <string name="home_last_score">Última pontuação</string>
+    <string name="mode_interview">Entrevista</string>
+    <string name="mode_presentation">Apresentação</string>
+    <string name="mode_free">Conversa livre</string>
+    <string name="start_session">Iniciar sessão</string>
+    <string name="stop_session">Parar</string>
+    <string name="session_live">Sessão ao vivo</string>
+    <string name="session_recent">Últimos 10 s</string>
+    <string name="session_now">Agora</string>
+    <string name="session_overall">Média</string>
+    <string name="metric_pace">Ritmo</string>
+    <string name="nav_home">Início</string>
+    <string name="nav_history">Histórico</string>
+    <string name="nav_settings">Configurações</string>
+    <string name="settings_title">Configurações</string>
+    <string name="history_title">Histórico</string>
+    <string name="progress_title">Progresso ao longo do tempo</string>
+    <string name="paywall_title">Sua semana grátis acabou</string>
+    <string name="paywall_cta">Entendi</string>
+    <string name="settings_profile">Perfil</string>
+    <string name="settings_ui_language">Idioma do app</string>
+</resources>

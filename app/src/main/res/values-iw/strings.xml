@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_tagline">דבר בביטחון</string>
+    <string name="home_greeting">מוכן להתאמן?</string>
+    <string name="home_subtitle">אימון מגע חי בזמן שאתה מדבר. אף אחד לא שם לב.</string>
+    <string name="home_last_score">הציון האחרון</string>
+    <string name="mode_interview">ראיון</string>
+    <string name="mode_presentation">מצגת</string>
+    <string name="mode_free">שיחה חופשית</string>
+    <string name="start_session">התחל סשן</string>
+    <string name="stop_session">עצור</string>
+    <string name="session_live">סשן חי</string>
+    <string name="session_recent">10 השניות האחרונות</string>
+    <string name="session_now">עכשיו</string>
+    <string name="session_overall">ממוצע</string>
+    <string name="metric_pace">קצב</string>
+    <string name="nav_home">בית</string>
+    <string name="nav_history">היסטוריה</string>
+    <string name="nav_settings">הגדרות</string>
+    <string name="settings_title">הגדרות</string>
+    <string name="history_title">היסטוריה</string>
+    <string name="progress_title">התקדמות לאורך זמן</string>
+    <string name="paywall_title">השבוע החינמי שלך הסתיים</string>
+    <string name="paywall_cta">הבנתי</string>
+    <string name="settings_profile">פרופיל</string>
+    <string name="settings_ui_language">שפת האפליקציה</string>
+</resources>

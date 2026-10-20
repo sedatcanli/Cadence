@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_tagline">Nói với sự tự tin</string>
+    <string name="home_greeting">Sẵn sàng luyện tập?</string>
+    <string name="home_subtitle">Huấn luyện xúc giác trực tiếp khi bạn nói. Không ai nhận ra.</string>
+    <string name="home_last_score">Điểm gần nhất</string>
+    <string name="mode_interview">Phỏng vấn</string>
+    <string name="mode_presentation">Thuyết trình</string>
+    <string name="mode_free">Trò chuyện tự do</string>
+    <string name="start_session">Bắt đầu phiên</string>
+    <string name="stop_session">Dừng</string>
+    <string name="session_live">Phiên trực tiếp</string>
+    <string name="session_recent">10 giây qua</string>
+    <string name="session_now">Bây giờ</string>
+    <string name="session_overall">TB</string>
+    <string name="metric_pace">Nhịp độ</string>
+    <string name="nav_home">Trang chủ</string>
+    <string name="nav_history">Lịch sử</string>
+    <string name="nav_settings">Cài đặt</string>
+    <string name="settings_title">Cài đặt</string>
+    <string name="history_title">Lịch sử</string>
+    <string name="progress_title">Tiến bộ theo thời gian</string>
+    <string name="paywall_title">Tuần miễn phí của bạn đã hết</string>
+    <string name="paywall_cta">Đã hiểu</string>
+    <string name="settings_profile">Hồ sơ</string>
+    <string name="settings_ui_language">Ngôn ngữ ứng dụng</string>
+</resources>

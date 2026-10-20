@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_tagline">Snakk med selvtillit</string>
+    <string name="home_greeting">Klar til å øve?</string>
+    <string name="home_subtitle">Live haptisk coaching mens du snakker. Ingen merker det.</string>
+    <string name="home_last_score">Siste poengsum</string>
+    <string name="mode_interview">Intervju</string>
+    <string name="mode_presentation">Presentasjon</string>
+    <string name="mode_free">Fri samtale</string>
+    <string name="start_session">Start økt</string>
+    <string name="stop_session">Stopp</string>
+    <string name="session_live">Live-økt</string>
+    <string name="session_recent">Siste 10 s</string>
+    <string name="session_now">Nå</string>
+    <string name="session_overall">Snitt</string>
+    <string name="metric_pace">Tempo</string>
+    <string name="nav_home">Hjem</string>
+    <string name="nav_history">Historikk</string>
+    <string name="nav_settings">Innstillinger</string>
+    <string name="settings_title">Innstillinger</string>
+    <string name="history_title">Historikk</string>
+    <string name="progress_title">Fremgang over tid</string>
+    <string name="paywall_title">Din gratis uke er over</string>
+    <string name="paywall_cta">Forstått</string>
+    <string name="settings_profile">Profil</string>
+    <string name="settings_ui_language">App-språk</string>
+</resources>
