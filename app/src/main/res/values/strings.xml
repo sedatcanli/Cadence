@@ -24,6 +24,7 @@
     <string name="metric_speech">Speech</string>
     <string name="session_live_score">LIVE</string>
     <string name="session_avg_score">AVG.</string>
+    <string name="transcript_label">Transkript</string>
 
     <string name="unit_per_min">/min</string>
     <string name="unit_count">×</string>

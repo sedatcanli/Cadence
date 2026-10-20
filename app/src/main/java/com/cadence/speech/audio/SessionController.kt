@@ -30,7 +30,8 @@ data class SessionUiState(
     val startedAt: Long = 0L,
     val metrics: LiveMetrics = LiveMetrics(),
     val lastReportId: String? = null,
-    val error: String? = null
+    val error: String? = null,
+    val transcript: String = ""
 )
 
 class SessionController(
@@ -67,7 +68,7 @@ class SessionController(
         )
         this.engine = engine
 
-        _state.value = SessionUiState(isRunning = true, startedAt = startedAtWallClock)
+        _state.value = SessionUiState(isRunning = true, startedAt = startedAtWallClock, transcript = "")
 
         SessionService.start(context)
 
@@ -122,15 +123,14 @@ class SessionController(
             override fun onResults(results: Bundle?) {
                 val matches = results?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
                 matches?.firstOrNull()?.let { finalText ->
-                    // Update transcript in MetricsEngine via state update
-                    // The transcript will be picked up in the next metrics publish
+                    _state.update { it.copy(transcript = finalText) }
                 }
             }
 
             override fun onPartialResults(partialResults: Bundle?) {
                 val matches = partialResults?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
                 matches?.firstOrNull()?.let { partialText ->
-                    // Partial results handled similarly
+                    _state.update { it.copy(transcript = partialText) }
                 }
             }
 

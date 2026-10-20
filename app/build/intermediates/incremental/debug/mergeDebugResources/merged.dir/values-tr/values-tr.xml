@@ -139,6 +139,7 @@
     <string msgid="5946805113151406391" name="template_percent">"Yüzde <ns1:g id="PERCENTAGE">%1$d</ns1:g>."</string>
     <string msgid="3765533235322692011" name="tooltip_description">"ipucu"</string>
     <string msgid="3124740595719787496" name="tooltip_label">"ipucunu göster"</string>
+    <string name="transcript_label">Transkript</string>
     <string name="unit_count">×</string>
     <string name="unit_per_min">/dk</string>
 </resources>

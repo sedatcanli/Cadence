@@ -25,7 +25,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.cadence.speech.R
 import com.cadence.speech.di.AppContainer
@@ -130,6 +132,31 @@ fun SessionScreen(
                 }
             }
             Spacer(Modifier.height(8.dp))
+        }
+
+        // Transcript display
+        val transcript = state.transcript
+        if (transcript.isNotBlank()) {
+            Spacer(Modifier.height(16.dp))
+            Column(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Text(
+                    text = stringResource(R.string.transcript_label),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    text = transcript,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onBackground,
+                    textAlign = TextAlign.Center,
+                    maxLines = 5,
+                    overflow = TextOverflow.Ellipsis
+                )
+            }
         }
 
         Spacer(Modifier.height(32.dp))

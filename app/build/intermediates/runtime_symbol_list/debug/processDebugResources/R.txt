@@ -330,8 +330,9 @@ int string tab 0x7f090088
 int string template_percent 0x7f090089
 int string tooltip_description 0x7f09008a
 int string tooltip_label 0x7f09008b
-int string unit_count 0x7f09008c
-int string unit_per_min 0x7f09008d
+int string transcript_label 0x7f09008c
+int string unit_count 0x7f09008d
+int string unit_per_min 0x7f09008e
 int style DialogWindowTheme 0x7f0a0000
 int style EdgeToEdgeFloatingDialogTheme 0x7f0a0001
 int style EdgeToEdgeFloatingDialogWindowTheme 0x7f0a0002

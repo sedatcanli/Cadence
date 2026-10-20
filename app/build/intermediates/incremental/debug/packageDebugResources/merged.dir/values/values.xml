@@ -55,6 +55,7 @@
     <string name="settings_wear_desc">Coming in a later update.</string>
     <string name="start_session">Start session</string>
     <string name="stop_session">Stop</string>
+    <string name="transcript_label">Transkript</string>
     <string name="unit_count">×</string>
     <string name="unit_per_min">/min</string>
     <style name="Theme.Cadence" parent="android:Theme.Material.NoActionBar">

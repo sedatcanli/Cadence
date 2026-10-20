@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cadence.speech"
-    android:versionCode="9"
-    android:versionName="d513cec-dirty" >
+    android:versionCode="10"
+    android:versionName="5484bba-dirty" >
 
     <uses-sdk
         android:minSdkVersion="26"

@@ -58,6 +58,7 @@ string settings_wear
 string settings_wear_desc
 string start_session
 string stop_session
+string transcript_label
 string unit_count
 string unit_per_min
 style Theme.Cadence

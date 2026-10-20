@@ -331,6 +331,7 @@ string tab
 string template_percent
 string tooltip_description
 string tooltip_label
+string transcript_label
 string unit_count
 string unit_per_min
 style DialogWindowTheme
