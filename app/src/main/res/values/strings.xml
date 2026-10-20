@@ -11,6 +11,9 @@
     <string name="mode_interview">Interview</string>
     <string name="mode_presentation">Presentation</string>
     <string name="mode_free">Free talk</string>
+    <string name="mode_hint_interview">Target 110–150 wpm · pause alert over 2.5 s · strict on fillers</string>
+    <string name="mode_hint_presentation">Target 120–170 wpm · tone and emphasis focused · pause alert over 1.8 s</string>
+    <string name="mode_hint_free">Comfort range 110–190 wpm · pause alert over 4 s · relaxed feedback</string>
 
     <string name="start_session">Start session</string>
     <string name="stop_session">Stop</string>
@@ -43,6 +46,13 @@
     <string name="report_score">Score</string>
     <string name="report_duration">Duration</string>
     <string name="report_insight">What to work on</string>
+    <string name="report_transcript">Transcript</string>
+    <string name="report_transcript_hint">This session\'s transcript was saved.</string>
+    <string name="report_export">Export transcript</string>
+    <string name="report_export_title">Export transcript</string>
+    <string name="transcript_export_marks">Mark pauses and fillers</string>
+    <string name="transcript_export_share">Share</string>
+    <string name="transcript_export_cancel">Cancel</string>
     <string name="report_new">New session</string>
     <string name="report_missing">Report not found</string>
 

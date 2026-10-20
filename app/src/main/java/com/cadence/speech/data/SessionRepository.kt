@@ -59,6 +59,8 @@ class SessionRepository(context: Context) {
         put("longPauseCount", longPauseCount)
         put("pitchStdHz", pitchStdHz.toDouble())
         put("speechRatio", speechRatio.toDouble())
+        put("transcript", transcript)
+        put("transcriptMarked", transcriptMarked)
     }
 
     private fun JSONObject.toReport() = SessionReport(
@@ -72,6 +74,8 @@ class SessionRepository(context: Context) {
         pauseCount = getInt("pauseCount"),
         longPauseCount = getInt("longPauseCount"),
         pitchStdHz = getDouble("pitchStdHz").toFloat(),
-        speechRatio = getDouble("speechRatio").toFloat()
+        speechRatio = getDouble("speechRatio").toFloat(),
+        transcript = optString("transcript"),
+        transcriptMarked = optString("transcriptMarked")
     )
 }

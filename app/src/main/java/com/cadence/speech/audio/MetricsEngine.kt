@@ -1,6 +1,9 @@
 package com.cadence.speech.audio
 
+import com.cadence.speech.domain.ModeProfile
 import com.cadence.speech.domain.ScoreCalculator
+import com.cadence.speech.domain.SessionMode
+import com.cadence.speech.domain.profile
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -10,6 +13,7 @@ import kotlin.math.roundToInt
 class MetricsEngine(
     private val sampleRate: Int = 16_000,
     private val cooldownMs: Long = 4_000L,
+    private val profile: ModeProfile = SessionMode.FREE.profile(),
     private val onEvent: (CoachingEvent) -> Unit
 ) {
 
@@ -105,7 +109,7 @@ class MetricsEngine(
                 val duration = timestampMs - pauseStartMs
                 if (duration >= PAUSE_THRESHOLD_MS) {
                     pauseCount++
-                    if (duration >= LONG_PAUSE_THRESHOLD_MS) {
+                    if (duration >= profile.longPauseThresholdMs) {
                         longPauseCount++
                         emit(CoachingEvent.LONG_PAUSE, timestampMs)
                     }
@@ -118,9 +122,9 @@ class MetricsEngine(
     }
 
     private fun updatePace(pace: Int, timestampMs: Long) {
-        if (pace > FAST_PACE_THRESHOLD) {
+        if (pace > profile.fastPaceThreshold) {
             if (fastPaceStartMs < 0) fastPaceStartMs = timestampMs
-            if (timestampMs - fastPaceStartMs > PACE_HOLD_MS) {
+            if (timestampMs - fastPaceStartMs > profile.paceHoldMs) {
                 emit(CoachingEvent.PACE_FAST, timestampMs)
                 fastPaceStartMs = timestampMs
             }
@@ -130,9 +134,9 @@ class MetricsEngine(
     }
 
     private fun updateVolume(speaking: Boolean, rmsDb: Float, timestampMs: Long) {
-        if (speaking && rmsDb < QUIET_THRESHOLD_DB) {
+        if (speaking && rmsDb < profile.quietThresholdDb) {
             if (quietStartMs < 0) quietStartMs = timestampMs
-            if (timestampMs - quietStartMs > QUIET_HOLD_MS) {
+            if (timestampMs - quietStartMs > profile.quietHoldMs) {
                 emit(CoachingEvent.TOO_QUIET, timestampMs)
                 quietStartMs = timestampMs
             }
@@ -163,7 +167,8 @@ class MetricsEngine(
                 longPauseCount = longPauseCount,
                 pitchStdHz = pitchStd,
                 speechRatio = speechRatio,
-                durationMs = duration
+                durationMs = duration,
+                profile = profile
             )
 
             scoreSum += liveScore
@@ -203,10 +208,5 @@ class MetricsEngine(
         const val SNAPSHOT_INTERVAL_MS = 100L
         const val PITCH_WINDOW_MS = 10_000L
         const val PAUSE_THRESHOLD_MS = 700L
-        const val LONG_PAUSE_THRESHOLD_MS = 2_000L
-        const val FAST_PACE_THRESHOLD = 195
-        const val PACE_HOLD_MS = 2_500L
-        const val QUIET_THRESHOLD_DB = -38f
-        const val QUIET_HOLD_MS = 2_500L
     }
 }

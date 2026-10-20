@@ -11,6 +11,9 @@
     <string name="mode_interview">Mülakat</string>
     <string name="mode_presentation">Sunum</string>
     <string name="mode_free">Serbest</string>
+    <string name="mode_hint_interview">Hedef 110–150 kelime/dk · 2,5 sn üzeri duraklarda uyarı · dolguda sıkı</string>
+    <string name="mode_hint_presentation">Hedef 120–170 kelime/dk · ton ve vurgu odaklı · 1,8 sn üzeri duraklarda uyarı</string>
+    <string name="mode_hint_free">Rahat aralık 110–190 kelime/dk · 4 sn üzeri duraklar · gevşek uyarılar</string>
 
     <string name="start_session">Seansı başlat</string>
     <string name="stop_session">Durdur</string>
@@ -43,6 +46,13 @@
     <string name="report_score">Skor</string>
     <string name="report_duration">Süre</string>
     <string name="report_insight">Neye çalışmalı</string>
+    <string name="report_transcript">Transkript</string>
+    <string name="report_transcript_hint">Bu seansın metni kaydedildi.</string>
+    <string name="report_export">Transkripti dışa aktar</string>
+    <string name="report_export_title">Transkripti dışa aktar</string>
+    <string name="transcript_export_marks">Durak ve dolguları işaretle</string>
+    <string name="transcript_export_share">Paylaş</string>
+    <string name="transcript_export_cancel">Vazgeç</string>
     <string name="report_new">Yeni seans</string>
     <string name="report_missing">Rapor bulunamadı</string>
 

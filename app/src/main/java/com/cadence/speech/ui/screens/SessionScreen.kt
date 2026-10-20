@@ -22,6 +22,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.withFrameNanos
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -30,12 +31,19 @@ import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import com.cadence.speech.R
 import com.cadence.speech.di.AppContainer
+import com.cadence.speech.transcription.LONG_PAUSE_MS
 import com.cadence.speech.transcription.TranscriptionStatus
+import com.cadence.speech.transcription.fillerRanges
+import com.cadence.speech.transcription.formatPause
 import com.cadence.speech.ui.components.ScoreRing
 import com.cadence.speech.ui.components.StatPill
 import com.cadence.speech.ui.theme.Primary
@@ -147,7 +155,40 @@ fun SessionScreen(
             MaterialTheme.typography.bodyMedium.lineHeight.toDp()
         }
         val transcriptHeight = transcriptLineHeight * 3
-        LaunchedEffect(transcription.text) {
+
+        val fillerColor = MaterialTheme.colorScheme.error
+        val pauseColor = MaterialTheme.colorScheme.onSurfaceVariant
+        val transcriptText = remember(
+            transcription.segments,
+            transcription.partial,
+            transcription.language,
+            fillerColor,
+            pauseColor
+        ) {
+            buildAnnotatedString {
+                transcription.segments.takeLast(MAX_TRANSCRIPT_SEGMENTS).forEach { segment ->
+                    if (segment.pauseBeforeMs >= LONG_PAUSE_MS) {
+                        withStyle(SpanStyle(color = pauseColor, fontStyle = FontStyle.Italic)) {
+                            append("⏸ ${formatPause(segment.pauseBeforeMs)}  ")
+                        }
+                    }
+                    val offset = length
+                    append(segment.text)
+                    fillerRanges(segment.text, transcription.language).forEach { range ->
+                        addStyle(
+                            SpanStyle(color = fillerColor, fontWeight = FontWeight.SemiBold),
+                            offset + range.first,
+                            offset + range.last + 1
+                        )
+                    }
+                    append(' ')
+                }
+                if (transcription.partial.isNotBlank()) append(transcription.partial)
+            }
+        }
+        val hasTranscript = transcriptText.isNotBlank()
+
+        LaunchedEffect(transcription.segments.size, transcription.partial) {
             withFrameNanos { }
             transcriptScroll.scrollTo(transcriptScroll.maxValue)
         }
@@ -158,9 +199,9 @@ fun SessionScreen(
             TranscriptionStatus.ERROR ->
                 stringResource(R.string.transcript_error, transcription.error ?: "")
             TranscriptionStatus.READY, TranscriptionStatus.IDLE ->
-                if (transcription.text.isBlank()) stringResource(R.string.transcript_listening) else null
+                if (!hasTranscript) stringResource(R.string.transcript_listening) else null
         }
-        if (state.isRunning || transcription.text.isNotBlank()) {
+        if (state.isRunning || hasTranscript) {
             Spacer(Modifier.height(16.dp))
             Column(
                 modifier = Modifier.fillMaxWidth(),
@@ -172,7 +213,7 @@ fun SessionScreen(
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
                 Spacer(Modifier.height(4.dp))
-                if (transcription.text.isNotBlank()) {
+                if (hasTranscript) {
                     Column(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -181,7 +222,7 @@ fun SessionScreen(
                             .verticalScroll(transcriptScroll)
                     ) {
                         Text(
-                            text = transcription.text,
+                            text = transcriptText,
                             style = MaterialTheme.typography.bodyMedium,
                             color = MaterialTheme.colorScheme.onBackground,
                             textAlign = TextAlign.Center,
@@ -270,3 +311,6 @@ internal fun formatDuration(ms: Long): String {
     val seconds = totalSeconds % 60
     return "%02d:%02d".format(minutes, seconds)
 }
+
+private const val MAX_TRANSCRIPT_SEGMENTS = 40
+

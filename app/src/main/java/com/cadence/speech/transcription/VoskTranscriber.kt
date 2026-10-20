@@ -19,7 +19,9 @@ enum class TranscriptionStatus { IDLE, DOWNLOADING, LOADING, READY, ERROR }
 data class TranscriptionState(
     val status: TranscriptionStatus = TranscriptionStatus.IDLE,
     val progress: Int = 0,
-    val text: String = "",
+    val segments: List<TranscriptSegment> = emptyList(),
+    val partial: String = "",
+    val language: String = "en",
     val error: String? = null
 )
 
@@ -28,12 +30,13 @@ class VoskTranscriber(
     private val voiceModel: VoiceModel
 ) {
 
-    private val _state = MutableStateFlow(TranscriptionState())
+    private val _state = MutableStateFlow(TranscriptionState(language = voiceModel.code))
     val state: StateFlow<TranscriptionState> = _state.asStateFlow()
 
     private var model: Model? = null
     private var recognizer: Recognizer? = null
-    private val committed = StringBuilder()
+    private val segments = mutableListOf<TranscriptSegment>()
+    private var lastEndMs = 0L
     private var lastEmitAt = 0L
 
     suspend fun prepare() {
@@ -53,7 +56,7 @@ class VoskTranscriber(
                 LibVosk.setLogLevel(LogLevel.WARNINGS)
                 val loaded = Model(dir.absolutePath)
                 model = loaded
-                recognizer = Recognizer(loaded, SAMPLE_RATE)
+                recognizer = Recognizer(loaded, SAMPLE_RATE).apply { setWords(true) }
                 Log.i(TAG, "Vosk ready with model ${voiceModel.id}")
                 _state.update { it.copy(status = TranscriptionStatus.READY, progress = 100) }
             }.onFailure { error ->
@@ -70,17 +73,12 @@ class VoskTranscriber(
         val rec = recognizer ?: return
         runCatching {
             if (rec.acceptWaveForm(samples, samples.size)) {
-                val text = JSONObject(rec.result).optString("text").trim()
-                if (text.isNotEmpty()) {
-                    if (committed.isNotEmpty()) committed.append(' ')
-                    committed.append(text)
-                    _state.update { it.copy(text = trim(committed.toString())) }
-                }
+                appendFinal(JSONObject(rec.result))
+                _state.update { it.copy(segments = segments.toList(), partial = "") }
             } else {
                 val partial = JSONObject(rec.partialResult).optString("partial").trim()
                 if (partial.isNotEmpty()) {
-                    val full = if (committed.isEmpty()) partial else "$committed $partial"
-                    emitThrottled(trim(full))
+                    emitThrottled(partial)
                 }
             }
         }.onFailure { error ->
@@ -88,15 +86,50 @@ class VoskTranscriber(
         }
     }
 
-    private fun emitThrottled(text: String) {
+    @Synchronized
+    fun flush() {
+        val rec = recognizer ?: return
+        runCatching {
+            appendFinal(JSONObject(rec.finalResult))
+            _state.update { it.copy(segments = segments.toList(), partial = "") }
+        }.onFailure { error ->
+            Log.w(TAG, "flush failed", error)
+        }
+    }
+
+    fun plainText(): String = plainTranscript(segments)
+
+    fun markedText(): String = markedTranscript(segments, voiceModel.code)
+
+    private fun appendFinal(json: JSONObject) {
+        val text = json.optString("text").trim()
+        if (text.isEmpty()) return
+
+        var startMs = lastEndMs
+        var endMs = lastEndMs
+        val words = json.optJSONArray("result")
+        if (words != null && words.length() > 0) {
+            val firstStart = words.optJSONObject(0)?.optDouble("start", -1.0) ?: -1.0
+            val lastEnd = words.optJSONObject(words.length() - 1)?.optDouble("end", -1.0) ?: -1.0
+            if (firstStart >= 0) startMs = (firstStart * 1000).toLong()
+            if (lastEnd >= 0) endMs = (lastEnd * 1000).toLong()
+        }
+        if (endMs < startMs) endMs = startMs
+
+        val gap = if (lastEndMs > 0 && startMs > lastEndMs) startMs - lastEndMs else 0L
+        val pause = if (gap >= LONG_PAUSE_MS) gap else 0L
+
+        segments += TranscriptSegment(text, startMs, endMs, pause)
+        lastEndMs = maxOf(lastEndMs, endMs)
+    }
+
+    private fun emitThrottled(partial: String) {
+        if (_state.value.partial == partial) return
         val now = System.currentTimeMillis()
         if (now - lastEmitAt < EMIT_INTERVAL_MS) return
         lastEmitAt = now
-        _state.update { it.copy(text = text) }
+        _state.update { it.copy(partial = partial) }
     }
-
-    private fun trim(text: String): String =
-        if (text.length <= MAX_CHARS) text else text.takeLast(MAX_CHARS).trimStart()
 
     @Synchronized
     fun close() {
@@ -104,13 +137,13 @@ class VoskTranscriber(
         runCatching { model?.close() }
         recognizer = null
         model = null
-        committed.clear()
+        segments.clear()
+        lastEndMs = 0L
     }
 
     private companion object {
         const val TAG = "VoskTranscriber"
         const val SAMPLE_RATE = 16000f
-        const val MAX_CHARS = 400
         const val EMIT_INTERVAL_MS = 120L
     }
 }

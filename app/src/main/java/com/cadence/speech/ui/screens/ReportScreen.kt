@@ -12,15 +12,22 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -29,8 +36,10 @@ import com.cadence.speech.di.AppContainer
 import com.cadence.speech.domain.Insight
 import com.cadence.speech.domain.ScoreCalculator
 import com.cadence.speech.domain.insight
+import com.cadence.speech.domain.profile
 import com.cadence.speech.ui.components.MetricRow
 import com.cadence.speech.ui.components.ScoreRing
+import com.cadence.speech.ui.shareTranscript
 
 @Composable
 fun ReportScreen(
@@ -40,6 +49,9 @@ fun ReportScreen(
     onBack: () -> Unit
 ) {
     val report = remember(reportId) { container.repository.get(reportId) }
+    val context = LocalContext.current
+    var showExport by remember { mutableStateOf(false) }
+    var markPausesAndFillers by remember { mutableStateOf(true) }
 
     Column(
         modifier = Modifier
@@ -93,7 +105,7 @@ fun ReportScreen(
             MetricRow(
                 label = stringResource(R.string.metric_pace),
                 value = "${report.pace} ${stringResource(R.string.unit_per_min)}",
-                progress = ScoreCalculator.paceScore(report.pace) / 100f
+                progress = ScoreCalculator.paceScore(report.pace, report.mode.profile()) / 100f
             )
             MetricRow(
                 label = stringResource(R.string.metric_fillers),
@@ -139,6 +151,28 @@ fun ReportScreen(
 
         Spacer(Modifier.height(24.dp))
 
+        if (report.transcript.isNotBlank() || report.transcriptMarked.isNotBlank()) {
+            Text(
+                text = stringResource(R.string.report_transcript).uppercase(),
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.secondary
+            )
+            Spacer(Modifier.height(8.dp))
+            Text(
+                text = stringResource(R.string.report_transcript_hint),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            Spacer(Modifier.height(12.dp))
+            OutlinedButton(
+                onClick = { showExport = true },
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(stringResource(R.string.report_export))
+            }
+            Spacer(Modifier.height(24.dp))
+        }
+
         Text(
             text = stringResource(R.string.report_insight).uppercase(),
             style = MaterialTheme.typography.labelSmall,
@@ -163,6 +197,50 @@ fun ReportScreen(
             Text(
                 text = stringResource(R.string.report_new),
                 fontWeight = FontWeight.SemiBold
+            )
+        }
+
+        if (showExport) {
+            AlertDialog(
+                onDismissRequest = { showExport = false },
+                title = { Text(stringResource(R.string.report_export_title)) },
+                text = {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(
+                            text = stringResource(R.string.transcript_export_marks),
+                            style = MaterialTheme.typography.bodyMedium,
+                            modifier = Modifier.weight(1f)
+                        )
+                        Switch(
+                            checked = markPausesAndFillers,
+                            onCheckedChange = { markPausesAndFillers = it }
+                        )
+                    }
+                },
+                confirmButton = {
+                    TextButton(
+                        onClick = {
+                            val text = if (markPausesAndFillers) {
+                                report.transcriptMarked.ifBlank { report.transcript }
+                            } else {
+                                report.transcript.ifBlank { report.transcriptMarked }
+                            }
+                            shareTranscript(context, report.id, text)
+                            showExport = false
+                        }
+                    ) {
+                        Text(stringResource(R.string.transcript_export_share))
+                    }
+                },
+                dismissButton = {
+                    TextButton(onClick = { showExport = false }) {
+                        Text(stringResource(R.string.transcript_export_cancel))
+                    }
+                }
             )
         }
 

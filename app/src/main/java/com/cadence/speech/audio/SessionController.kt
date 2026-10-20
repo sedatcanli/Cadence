@@ -5,6 +5,7 @@ import android.os.SystemClock
 import com.cadence.speech.data.SessionRepository
 import com.cadence.speech.domain.SessionMode
 import com.cadence.speech.domain.SessionReport
+import com.cadence.speech.domain.profile
 import com.cadence.speech.feedback.FeedbackDispatcher
 import com.cadence.speech.service.SessionService
 import com.cadence.speech.settings.UserPreferences
@@ -59,9 +60,11 @@ class SessionController(
         startedAtElapsed = SystemClock.elapsedRealtime()
         preferences.onboardingDone = true
 
-        val cooldown = (4_000f / preferences.sensitivity).toLong().coerceIn(1_500L, 8_000L)
+        val profile = mode.profile()
+        val cooldown = (profile.cooldownMs / preferences.sensitivity).toLong().coerceIn(1_500L, 10_000L)
         val engine = MetricsEngine(
             cooldownMs = cooldown,
+            profile = profile,
             onEvent = { event -> dispatcher.dispatch(event) }
         )
         this.engine = engine
@@ -118,6 +121,9 @@ class SessionController(
         jobs.clear()
         SessionService.stop(context)
 
+        transcriber?.flush()
+        val transcript = transcriber?.plainText().orEmpty()
+        val transcriptMarked = transcriber?.markedText().orEmpty()
         transcriber?.close()
         transcriber = null
 
@@ -135,7 +141,9 @@ class SessionController(
             pauseCount = metrics.pauseCount,
             longPauseCount = metrics.longPauseCount,
             pitchStdHz = metrics.pitchStdHz,
-            speechRatio = metrics.speechRatio
+            speechRatio = metrics.speechRatio,
+            transcript = transcript,
+            transcriptMarked = transcriptMarked
         )
         repository.save(report)
 

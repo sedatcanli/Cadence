@@ -17,7 +17,9 @@ data class SessionReport(
     val pauseCount: Int,
     val longPauseCount: Int,
     val pitchStdHz: Float,
-    val speechRatio: Float
+    val speechRatio: Float,
+    val transcript: String = "",
+    val transcriptMarked: String = ""
 )
 
 enum class Insight {
@@ -31,10 +33,11 @@ enum class Insight {
 fun SessionReport.insight(): Insight {
     val minutes = (durationMs / 60_000f).coerceAtLeast(0.5f)
     val fillersPerMinute = fillerCount / minutes
+    val profile = mode.profile()
 
     val scores = linkedMapOf(
-        Insight.FLUENCY to (100f - fillersPerMinute * 8f).coerceIn(0f, 100f),
-        Insight.PACE to ScoreCalculator.paceScore(pace),
+        Insight.FLUENCY to (100f - fillersPerMinute * profile.fillerPenaltyPerMinute).coerceIn(0f, 100f),
+        Insight.PACE to ScoreCalculator.paceScore(pace, profile),
         Insight.TONE to ((pitchStdHz - 8f) / 32f * 100f).coerceIn(0f, 100f),
         Insight.CONTINUITY to speechRatio.coerceIn(0f, 1f) * 100f
     )

@@ -137,6 +137,13 @@ fun HomeScreen(
                     }
                 }
 
+                Spacer(Modifier.height(8.dp))
+                Text(
+                    text = stringResource(modeHint(selectedMode)),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+
                 Spacer(Modifier.height(24.dp))
 
                 Button(
@@ -262,6 +269,12 @@ internal fun modeLabel(mode: SessionMode): Int = when (mode) {
     SessionMode.INTERVIEW -> R.string.mode_interview
     SessionMode.PRESENTATION -> R.string.mode_presentation
     SessionMode.FREE -> R.string.mode_free
+}
+
+internal fun modeHint(mode: SessionMode): Int = when (mode) {
+    SessionMode.INTERVIEW -> R.string.mode_hint_interview
+    SessionMode.PRESENTATION -> R.string.mode_hint_presentation
+    SessionMode.FREE -> R.string.mode_hint_free
 }
 
 internal fun formatDate(timestamp: Long): String =
