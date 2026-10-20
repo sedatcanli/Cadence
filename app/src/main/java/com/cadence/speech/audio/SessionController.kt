@@ -103,7 +103,7 @@ class SessionController(
             startedAt = startedAtWallClock,
             durationMs = duration,
             mode = mode,
-            score = metrics.liveScore,
+            score = metrics.averageScore,
             pace = metrics.pacePerMinute,
             fillerCount = metrics.fillerCount,
             pauseCount = metrics.pauseCount,
