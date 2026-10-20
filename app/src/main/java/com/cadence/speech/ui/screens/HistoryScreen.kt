@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -29,6 +30,7 @@ import com.cadence.speech.R
 import com.cadence.speech.di.AppContainer
 import com.cadence.speech.domain.SessionReport
 import com.cadence.speech.ui.components.MainScaffold
+import com.cadence.speech.ui.components.ScoreChart
 
 @Composable
 fun HistoryScreen(
@@ -105,6 +107,18 @@ private fun HistoryRow(report: SessionReport, onClick: () -> Unit) {
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
+            if (report.scoreHistory.size >= 2) {
+                Spacer(Modifier.height(6.dp))
+                ScoreChart(
+                    scoreHistory = report.scoreHistory,
+                    paceHistory = report.paceHistory,
+                    fillerMarkers = report.fillerMarkers,
+                    pauseMarkers = report.pauseMarkers,
+                    modifier = Modifier
+                        .width(180.dp)
+                        .height(32.dp)
+                )
+            }
         }
         Text(
             text = report.score.toString(),

@@ -44,7 +44,8 @@ import com.cadence.speech.transcription.LONG_PAUSE_MS
 import com.cadence.speech.transcription.TranscriptionStatus
 import com.cadence.speech.transcription.fillerRanges
 import com.cadence.speech.transcription.formatPause
-import com.cadence.speech.ui.components.AverageScoreChart
+import com.cadence.speech.ui.components.ChartLegend
+import com.cadence.speech.ui.components.ScoreChart
 import com.cadence.speech.ui.components.ScoreRing
 import com.cadence.speech.ui.components.StatPill
 import com.cadence.speech.ui.theme.Primary
@@ -101,11 +102,11 @@ fun SessionScreen(
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
 
-        Spacer(Modifier.height(32.dp))
+        Spacer(Modifier.height(24.dp))
 
         ScoreRing(
                 score = if (metrics.hasAnySpeech) metrics.averageScore else 0,
-                size = 156.dp,
+                size = 144.dp,
                 strokeWidth = 12.dp,
                 caption = if (metrics.hasAnySpeech) stringResource(R.string.session_avg_score) else ""
             )
@@ -122,17 +123,29 @@ fun SessionScreen(
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
                 Text(
-                    text = stringResource(R.string.session_live_score) + " " + metrics.liveScore,
+                    text = stringResource(R.string.session_live_score) + " " +
+                        metrics.liveScore + " · " +
+                        stringResource(R.string.metric_pace) + " " + metrics.pacePerMinute,
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.secondary
                 )
             }
             Spacer(Modifier.height(6.dp))
-            AverageScoreChart(
-                history = metrics.scoreHistory,
+            ScoreChart(
+                scoreHistory = metrics.scoreHistory,
+                paceHistory = metrics.paceHistory,
+                fillerMarkers = metrics.fillerMarkers,
+                pauseMarkers = metrics.pauseMarkers,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(64.dp)
+                    .height(56.dp)
+            )
+            Spacer(Modifier.height(6.dp))
+            ChartLegend(
+                score = metrics.averageScore,
+                pace = metrics.pacePerMinute,
+                fillerCount = metrics.fillerCount,
+                pauseCount = metrics.longPauseCount
             )
             Spacer(Modifier.height(8.dp))
         }
@@ -230,7 +243,7 @@ fun SessionScreen(
             }
         }
 
-        Spacer(Modifier.height(32.dp))
+        Spacer(Modifier.height(24.dp))
 
         Row(
             modifier = Modifier.fillMaxWidth(),

@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange
@@ -96,11 +97,17 @@ fun ScoreRing(
 }
 
 @Composable
-fun AverageScoreChart(
-    history: List<Int>,
+fun ScoreChart(
+    scoreHistory: List<Int>,
+    paceHistory: List<Int>,
+    fillerMarkers: List<Int>,
+    pauseMarkers: List<Int>,
     modifier: Modifier = Modifier
 ) {
-    val lineColor = Primary
+    val scoreColor = Primary
+    val paceColor = Accent
+    val fillerColor = MaterialTheme.colorScheme.error
+    val pauseColor = PauseMarker
     val gridColor = Color.White.copy(alpha = 0.07f)
 
     Canvas(modifier = modifier) {
@@ -115,33 +122,129 @@ fun AverageScoreChart(
             )
         }
 
-        if (history.size < 2) return@Canvas
+        if (scoreHistory.size < 2) return@Canvas
 
-        val points = history.takeLast(MAX_CHART_POINTS)
-        val stepX = size.width / (points.size - 1).coerceAtLeast(1)
-        val path = androidx.compose.ui.graphics.Path()
-        points.forEachIndexed { index, score ->
-            val x = index * stepX
-            val y = size.height - (score.coerceIn(0, 100) / 100f) * size.height
-            if (index == 0) path.moveTo(x, y) else path.lineTo(x, y)
+        val count = scoreHistory.size
+        val denominators = (count - 1).toFloat()
+        fun xForSecond(second: Int): Float =
+            (second / denominators * size.width).coerceIn(0f, size.width)
+
+        fun scoreY(value: Int): Float =
+            size.height - (value.coerceIn(0, 100) / 100f) * size.height
+
+        fun paceY(value: Int): Float =
+            size.height - (value.coerceIn(0, PACE_CHART_MAX) / PACE_CHART_MAX.toFloat()) * size.height
+
+        pauseMarkers.distinct().forEach { second ->
+            val x = xForSecond(second)
+            drawLine(
+                color = pauseColor.copy(alpha = 0.5f),
+                start = androidx.compose.ui.geometry.Offset(x, size.height - 12.dp.toPx()),
+                end = androidx.compose.ui.geometry.Offset(x, size.height),
+                strokeWidth = 1.5.dp.toPx()
+            )
+        }
+
+        if (paceHistory.size == count) {
+            val pacePath = androidx.compose.ui.graphics.Path()
+            paceHistory.forEachIndexed { index, value ->
+                val x = index / denominators * size.width
+                val y = paceY(value)
+                if (index == 0) pacePath.moveTo(x, y) else pacePath.lineTo(x, y)
+            }
+            drawPath(
+                path = pacePath,
+                color = paceColor.copy(alpha = 0.9f),
+                style = Stroke(width = 1.5.dp.toPx(), cap = StrokeCap.Round)
+            )
+        }
+
+        val scorePath = androidx.compose.ui.graphics.Path()
+        scoreHistory.forEachIndexed { index, value ->
+            val x = index / denominators * size.width
+            val y = scoreY(value)
+            if (index == 0) scorePath.moveTo(x, y) else scorePath.lineTo(x, y)
         }
         drawPath(
-            path = path,
-            color = lineColor,
+            path = scorePath,
+            color = scoreColor,
             style = Stroke(width = 2.dp.toPx(), cap = StrokeCap.Round)
         )
 
-        val lastX = (points.size - 1) * stepX
-        val lastY = size.height - (points.last().coerceIn(0, 100) / 100f) * size.height
+        fillerMarkers.distinct().forEach { second ->
+            drawCircle(
+                color = fillerColor,
+                radius = 2.5.dp.toPx(),
+                center = androidx.compose.ui.geometry.Offset(
+                    xForSecond(second),
+                    size.height - 3.dp.toPx()
+                )
+            )
+        }
+
+        val lastX = size.width
+        val lastY = scoreY(scoreHistory.last())
         drawCircle(
-            color = lineColor,
+            color = scoreColor,
             radius = 3.dp.toPx(),
             center = androidx.compose.ui.geometry.Offset(lastX, lastY)
         )
     }
 }
 
-private const val MAX_CHART_POINTS = 180
+@Composable
+fun ChartLegend(
+    score: Int,
+    pace: Int,
+    fillerCount: Int,
+    pauseCount: Int,
+    modifier: Modifier = Modifier
+) {
+    Row(
+        modifier = modifier,
+        horizontalArrangement = Arrangement.spacedBy(12.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        LegendItem(
+            color = Primary,
+            text = "${stringResource(R.string.chart_legend_score)} $score"
+        )
+        LegendItem(
+            color = Accent,
+            text = "${stringResource(R.string.chart_legend_pace)} $pace"
+        )
+        LegendItem(
+            color = MaterialTheme.colorScheme.error,
+            text = "${stringResource(R.string.chart_legend_filler)} $fillerCount"
+        )
+        LegendItem(
+            color = PauseMarker,
+            text = "${stringResource(R.string.chart_legend_pause)} $pauseCount"
+        )
+    }
+}
+
+@Composable
+private fun LegendItem(color: Color, text: String) {
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        Box(
+            modifier = Modifier
+                .size(6.dp)
+                .clip(RoundedCornerShape(3.dp))
+                .background(color)
+        )
+        Spacer(Modifier.width(4.dp))
+        Text(
+            text = text,
+            style = MaterialTheme.typography.labelSmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant
+        )
+    }
+}
+
+private val PauseMarker = Color(0xFF38BDF8)
+
+private const val PACE_CHART_MAX = 240
 
 @Composable
 fun MetricRow(

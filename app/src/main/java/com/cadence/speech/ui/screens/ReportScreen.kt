@@ -1,5 +1,6 @@
 package com.cadence.speech.ui.screens
 
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -37,8 +38,12 @@ import com.cadence.speech.domain.Insight
 import com.cadence.speech.domain.ScoreCalculator
 import com.cadence.speech.domain.insight
 import com.cadence.speech.domain.profile
+import com.cadence.speech.ui.components.ChartLegend
 import com.cadence.speech.ui.components.MetricRow
+import com.cadence.speech.ui.components.ScoreChart
 import com.cadence.speech.ui.components.ScoreRing
+import com.cadence.speech.ui.saveChartImage
+import com.cadence.speech.ui.shareChartImage
 import com.cadence.speech.ui.shareTranscript
 
 @Composable
@@ -127,6 +132,50 @@ fun ReportScreen(
                 value = "${(report.speechRatio * 100).toInt()}%",
                 progress = report.speechRatio.coerceIn(0f, 1f)
             )
+        }
+
+        if (report.scoreHistory.size >= 2) {
+            Spacer(Modifier.height(20.dp))
+            Text(
+                text = stringResource(R.string.report_chart).uppercase(),
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.secondary
+            )
+            Spacer(Modifier.height(8.dp))
+            ChartLegend(
+                score = report.scoreHistory.last(),
+                pace = report.paceHistory.lastOrNull() ?: report.pace,
+                fillerCount = report.fillerCount,
+                pauseCount = report.longPauseCount
+            )
+            Spacer(Modifier.height(8.dp))
+            ScoreChart(
+                scoreHistory = report.scoreHistory,
+                paceHistory = report.paceHistory,
+                fillerMarkers = report.fillerMarkers,
+                pauseMarkers = report.pauseMarkers,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(120.dp)
+            )
+            Spacer(Modifier.height(12.dp))
+            OutlinedButton(
+                onClick = {
+                    val saved = saveChartImage(context, report)
+                    if (saved) {
+                        Toast.makeText(
+                            context,
+                            R.string.report_chart_saved,
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    } else {
+                        shareChartImage(context, report)
+                    }
+                },
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(stringResource(R.string.report_chart_save))
+            }
         }
 
         Spacer(Modifier.height(20.dp))

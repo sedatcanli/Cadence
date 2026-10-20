@@ -21,7 +21,11 @@ data class SessionReport(
     val transcript: String = "",
     val transcriptMarked: String = "",
     val recommendation: String = "",
-    val recommendationId: String = ""
+    val recommendationId: String = "",
+    val scoreHistory: List<Int> = emptyList(),
+    val paceHistory: List<Int> = emptyList(),
+    val fillerMarkers: List<Int> = emptyList(),
+    val pauseMarkers: List<Int> = emptyList()
 )
 
 enum class Insight {

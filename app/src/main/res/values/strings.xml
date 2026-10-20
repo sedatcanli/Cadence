@@ -45,6 +45,15 @@
     <string name="report_title">Session report</string>
     <string name="report_score">Score</string>
     <string name="report_duration">Duration</string>
+    <string name="report_chart">Score and pace over time</string>
+    <string name="report_chart_save">Save chart as image</string>
+    <string name="report_chart_saved">Chart saved to Pictures/Cadence</string>
+    <string name="report_chart_share">Share chart</string>
+    <string name="report_chart_title">Cadence session report</string>
+    <string name="chart_legend_score">Score</string>
+    <string name="chart_legend_pace">Pace</string>
+    <string name="chart_legend_filler">Filler</string>
+    <string name="chart_legend_pause">Pause</string>
     <string name="report_insight">What to work on</string>
     <string name="report_transcript">Transcript</string>
     <string name="report_transcript_hint">This session\'s transcript was saved.</string>

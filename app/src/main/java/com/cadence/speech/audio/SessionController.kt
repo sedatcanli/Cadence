@@ -144,7 +144,11 @@ class SessionController(
             pitchStdHz = metrics.pitchStdHz,
             speechRatio = metrics.speechRatio,
             transcript = transcript,
-            transcriptMarked = transcriptMarked
+            transcriptMarked = transcriptMarked,
+            scoreHistory = metrics.scoreHistory,
+            paceHistory = metrics.paceHistory,
+            fillerMarkers = metrics.fillerMarkers,
+            pauseMarkers = metrics.pauseMarkers
         )
 
         val language = context.resources.configuration.locales[0].language

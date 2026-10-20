@@ -50,6 +50,10 @@ class MetricsEngine(
     private var scoreSnapshotCount = 0
 
     private val scoreHistory = ArrayDeque<Int>()
+    private val paceHistory = ArrayDeque<Int>()
+    private val fillerMarkers = mutableListOf<Int>()
+    private val pauseMarkers = mutableListOf<Int>()
+    private var chartStartMs = -1L
     private var lastHistoryMs = 0L
 
     fun process(frame: ShortArray, timestampMs: Long) {
@@ -67,6 +71,7 @@ class MetricsEngine(
             if (!hasSpeechStarted) {
                 hasSpeechStarted = true
                 anySpeechDetected = true
+                chartStartMs = timestampMs
             }
         }
 
@@ -90,6 +95,7 @@ class MetricsEngine(
 
             if (fillerDetector.update(speaking, timestampMs, pitch)) {
                 fillerCount++
+                fillerMarkers += chartSecond(timestampMs)
                 emit(CoachingEvent.FILLER, timestampMs)
             }
 
@@ -114,6 +120,7 @@ class MetricsEngine(
                     pauseCount++
                     if (duration >= profile.longPauseThresholdMs) {
                         longPauseCount++
+                        pauseMarkers += chartSecond(timestampMs)
                         emit(CoachingEvent.LONG_PAUSE, timestampMs)
                     }
                 }
@@ -155,6 +162,18 @@ class MetricsEngine(
         onEvent(event)
     }
 
+    private fun shiftMarkers(markers: MutableList<Int>) {
+        for (index in markers.indices) {
+            markers[index] = (markers[index] - 1).coerceAtLeast(0)
+        }
+        markers.removeAll { it == 0 }
+    }
+
+    private fun chartSecond(timestampMs: Long): Int {
+        val start = if (chartStartMs >= 0) chartStartMs else timestampMs
+        return ((timestampMs - start) / 1_000L).toInt().coerceAtLeast(0)
+    }
+
     private fun publish(timestampMs: Long, pace: Int) {
         val speechRatio = if (totalFrames == 0) 0f else speechFrames.toFloat() / totalFrames
         val pitchStd = pitchStdDeviation()
@@ -178,11 +197,15 @@ class MetricsEngine(
             scoreSnapshotCount++
             averageScore = (scoreSum / scoreSnapshotCount).roundToInt()
 
-            if (timestampMs - lastHistoryMs >= SCORE_HISTORY_INTERVAL_MS) {
+            if (scoreHistory.isEmpty() || timestampMs - lastHistoryMs >= SCORE_HISTORY_INTERVAL_MS) {
                 lastHistoryMs = timestampMs
                 scoreHistory.addLast(averageScore)
+                paceHistory.addLast(pace)
                 while (scoreHistory.size > SCORE_HISTORY_MAX) {
                     scoreHistory.removeFirst()
+                    paceHistory.removeFirst()
+                    shiftMarkers(fillerMarkers)
+                    shiftMarkers(pauseMarkers)
                 }
             }
         }
@@ -201,7 +224,10 @@ class MetricsEngine(
             averageScore = averageScore,
             hasAnySpeech = anySpeechDetected,
             transcript = "",
-            scoreHistory = scoreHistory.toList()
+            scoreHistory = scoreHistory.toList(),
+            paceHistory = paceHistory.toList(),
+            fillerMarkers = fillerMarkers.toList(),
+            pauseMarkers = pauseMarkers.toList()
         )
     }
 

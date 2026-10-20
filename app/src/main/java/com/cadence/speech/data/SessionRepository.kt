@@ -63,6 +63,25 @@ class SessionRepository(context: Context) {
         put("transcriptMarked", transcriptMarked)
         put("recommendation", recommendation)
         put("recommendationId", recommendationId)
+        put("scoreHistory", scoreHistory.toJsonArray())
+        put("paceHistory", paceHistory.toJsonArray())
+        put("fillerMarkers", fillerMarkers.toJsonArray())
+        put("pauseMarkers", pauseMarkers.toJsonArray())
+    }
+
+    private fun List<Int>.toJsonArray(): JSONArray {
+        val array = JSONArray()
+        forEach { array.put(it) }
+        return array
+    }
+
+    private fun JSONObject.optIntList(key: String): List<Int> {
+        val array = optJSONArray(key) ?: return emptyList()
+        return buildList {
+            for (index in 0 until array.length()) {
+                add(array.optInt(index))
+            }
+        }
     }
 
     private fun JSONObject.toReport() = SessionReport(
@@ -80,6 +99,10 @@ class SessionRepository(context: Context) {
         transcript = optString("transcript"),
         transcriptMarked = optString("transcriptMarked"),
         recommendation = optString("recommendation"),
-        recommendationId = optString("recommendationId")
+        recommendationId = optString("recommendationId"),
+        scoreHistory = optIntList("scoreHistory"),
+        paceHistory = optIntList("paceHistory"),
+        fillerMarkers = optIntList("fillerMarkers"),
+        pauseMarkers = optIntList("pauseMarkers")
     )
 }

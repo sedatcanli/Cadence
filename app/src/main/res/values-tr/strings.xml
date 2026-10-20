@@ -45,6 +45,15 @@
     <string name="report_title">Seans raporu</string>
     <string name="report_score">Skor</string>
     <string name="report_duration">Süre</string>
+    <string name="report_chart">Skor ve tempo değişimi</string>
+    <string name="report_chart_save">Grafiği görsel olarak kaydet</string>
+    <string name="report_chart_saved">Grafik Pictures/Cadence klasörüne kaydedildi</string>
+    <string name="report_chart_share">Grafiği paylaş</string>
+    <string name="report_chart_title">Cadence seans raporu</string>
+    <string name="chart_legend_score">Skor</string>
+    <string name="chart_legend_pace">Tempo</string>
+    <string name="chart_legend_filler">Dolgu</string>
+    <string name="chart_legend_pause">Durak</string>
     <string name="report_insight">Neye çalışmalı</string>
     <string name="report_transcript">Transkript</string>
     <string name="report_transcript_hint">Bu seansın metni kaydedildi.</string>
