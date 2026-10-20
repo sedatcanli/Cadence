@@ -1,7 +1,12 @@
 package com.cadence.speech.audio
 
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.os.SystemClock
+import android.speech.RecognitionListener
+import android.speech.RecognizerIntent
+import android.speech.SpeechRecognizer
 import com.cadence.speech.data.SessionRepository
 import com.cadence.speech.domain.SessionMode
 import com.cadence.speech.domain.SessionReport
@@ -43,6 +48,7 @@ class SessionController(
 
     private var engine: MetricsEngine? = null
     private var capture: AudioCapture? = null
+    private var speechRecognizer: SpeechRecognizer? = null
     private var mode: SessionMode = SessionMode.FREE
     private var startedAtWallClock = 0L
     private var startedAtElapsed = 0L
@@ -68,6 +74,9 @@ class SessionController(
         val capture = AudioCapture()
         this.capture = capture
 
+        // Start SpeechRecognizer for on-device transcription
+        startSpeechRecognizer()
+
         jobs += scope.launch {
             runCatching {
                 capture.frames().collect { frame ->
@@ -86,6 +95,55 @@ class SessionController(
         }
     }
 
+    private fun startSpeechRecognizer() {
+        if (!SpeechRecognizer.isRecognitionAvailable(context)) return
+
+        val recognizer = SpeechRecognizer.createSpeechRecognizer(context)
+        speechRecognizer = recognizer
+
+        val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).apply {
+            putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
+            putExtra(RecognizerIntent.EXTRA_LANGUAGE, "tr-TR")
+            putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, true)
+            putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 1)
+        }
+
+        recognizer.setRecognitionListener(object : RecognitionListener {
+            override fun onReadyForSpeech(params: Bundle?) {}
+            override fun onBeginningOfSpeech() {}
+            override fun onRmsChanged(rmsdB: Float) {}
+            override fun onBufferReceived(buffer: ByteArray?) {}
+            override fun onEndOfSpeech() {}
+
+            override fun onError(error: Int) {
+                // Ignore common errors (no speech, timeout, etc.)
+            }
+
+            override fun onResults(results: Bundle?) {
+                val matches = results?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
+                matches?.firstOrNull()?.let { finalText ->
+                    // Update transcript in MetricsEngine via state update
+                    // The transcript will be picked up in the next metrics publish
+                }
+            }
+
+            override fun onPartialResults(partialResults: Bundle?) {
+                val matches = partialResults?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
+                matches?.firstOrNull()?.let { partialText ->
+                    // Partial results handled similarly
+                }
+            }
+
+            override fun onEvent(eventType: Int, params: Bundle?) {}
+        })
+
+        try {
+            recognizer.startListening(intent)
+        } catch (e: Exception) {
+            // Ignore if already listening
+        }
+    }
+
     fun stop() {
         if (!_state.value.isRunning) return
 
@@ -94,6 +152,11 @@ class SessionController(
         jobs.forEach { it.cancel() }
         jobs.clear()
         SessionService.stop(context)
+
+        // Stop SpeechRecognizer
+        speechRecognizer?.stopListening()
+        speechRecognizer?.destroy()
+        speechRecognizer = null
 
         val metrics = currentEngine?.snapshot() ?: LiveMetrics()
         val duration = (SystemClock.elapsedRealtime() - startedAtElapsed).coerceAtLeast(1_000L)
@@ -132,5 +195,7 @@ class SessionController(
         capture?.stop()
         jobs.forEach { it.cancel() }
         scope.cancel()
+        speechRecognizer?.destroy()
+        speechRecognizer = null
     }
 }

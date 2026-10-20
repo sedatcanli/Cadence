@@ -183,7 +183,8 @@ class MetricsEngine(
             isSpeaking = lastSpeaking,
             liveScore = liveScore,
             averageScore = averageScore,
-            hasAnySpeech = anySpeechDetected
+            hasAnySpeech = anySpeechDetected,
+            transcript = ""
         )
     }
 

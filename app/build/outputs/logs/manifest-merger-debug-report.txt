@@ -4,57 +4,57 @@ ADDED from C:\Users\Sedat CANLI\Documents\Cadence\app\src\main\AndroidManifest.x
 INJECTED from C:\Users\Sedat CANLI\Documents\Cadence\app\src\main\AndroidManifest.xml:2:1-36:12
 INJECTED from C:\Users\Sedat CANLI\Documents\Cadence\app\src\main\AndroidManifest.xml:2:1-36:12
 INJECTED from C:\Users\Sedat CANLI\Documents\Cadence\app\src\main\AndroidManifest.xml:2:1-36:12
-MERGED from [androidx.navigation:navigation-common:2.8.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\68198164631d0c9bda4c3f91b7aaa21c\transformed\navigation-common-2.8.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.navigation:navigation-runtime:2.8.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\d5fe48cc449305d3e4199b2ad2eb8436\transformed\navigation-runtime-2.8.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.navigation:navigation-common-ktx:2.8.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\6f7bef1055798c105e42950302f68838\transformed\navigation-common-ktx-2.8.0\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.navigation:navigation-runtime-ktx:2.8.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\6f1d99cfb80383e8a9fd02ed089d2243\transformed\navigation-runtime-ktx-2.8.0\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.navigation:navigation-compose:2.8.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\0c149f34e14c345db23a23d2163f0e28\transformed\navigation-compose-2.8.0\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.material3:material3-android:1.3.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\1bc859da3b169652d47c8b7874238923\transformed\material3-release\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.compose.material:material-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\75668fcce8dbe545574d0837232bc084\transformed\material-release\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.animation:animation-core-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\f9f263b85b97046bed994cfceae2e3ca\transformed\animation-core-release\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.material:material-ripple-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\fcbd3296ca8c5418841db49ed3febed4\transformed\material-ripple-release\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.animation:animation-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\0b64d9a77446aca32efdb00f2295e164\transformed\animation-release\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\465a4cede898096f0554cc3582f63f7c\transformed\foundation-layout-release\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.foundation:foundation-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\759a25d6925a0845f8b5505ddd05d2a8\transformed\foundation-release\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.ui:ui-tooling-data-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\9861dc889ff9ec8f21ae10779bcc30f7\transformed\ui-tooling-data-release\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.ui:ui-unit-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\78d980ae147f072897e08d91c8c30a7e\transformed\ui-unit-release\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.ui:ui-geometry-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\25a1a7c2d23b071036b0263f5be81542\transformed\ui-geometry-release\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.ui:ui-util-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\4979012cc9d896e91abefeba6720946f\transformed\ui-util-release\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\bcabaf8fdfe5509616a5c4a54d32bfcc\transformed\ui-tooling-preview-release\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.compose.ui:ui-graphics-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\50e241a9345fd4e50c32c2a67a79823d\transformed\ui-graphics-release\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.ui:ui-text-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\16ab357cd67455dc0b56170107bde416\transformed\ui-text-release\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\298af2b270f00b61434235e2561e375b\transformed\emoji2-1.3.0\AndroidManifest.xml:17:1-35:12
-MERGED from [androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\268fefb4d639beb7c04ceb4fb8aee00d\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:17:1-35:12
-MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\21c5b39ae16710fa9e097dc4a18b15ee\transformed\lifecycle-runtime-compose-release\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\9c2031fd02b1c418dd5bab756403eadc\transformed\lifecycle-livedata-core-2.8.6\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\93a08e2044b04acb94315972e9b35b51\transformed\savedstate-ktx-1.2.1\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\23b7808bfd5ada904ce3ed2aaa05c5e3\transformed\savedstate-1.2.1\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\f225759e2da16845d49f1a4b73b1cd10\transformed\lifecycle-viewmodel-release\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\9a4fede67e5e0026c4b1dc38a93bf740\transformed\lifecycle-runtime-release\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\daa43f5956b6e138c8a09159298622a7\transformed\lifecycle-viewmodel-ktx-2.8.6\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\6a95a8e30d911affec203e8aec9082b7\transformed\lifecycle-viewmodel-savedstate-2.8.6\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\6a1ddada72e80ee648f9098545a5be3a\transformed\lifecycle-runtime-ktx-release\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\ca48b1c40d74e53443046b3b791c7b44\transformed\lifecycle-viewmodel-compose-release\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.material:material-icons-core-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\e5288109cb5934201553b2689c1088e5\transformed\material-icons-core-release\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.ui:ui-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\e9dd3176d0c51e71fcde9686e554ec87\transformed\ui-release\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.ui:ui-tooling-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\c07dfaaabecef9159defd68248e60482\transformed\ui-tooling-release\AndroidManifest.xml:17:1-28:12
-MERGED from [androidx.activity:activity-compose:1.9.2] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\d601503487ff714288822965ed62f78c\transformed\activity-compose-1.9.2\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.activity:activity-ktx:1.9.2] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\b3ec75803ff1ce95b0f3620b377ff8ef\transformed\activity-ktx-1.9.2\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.activity:activity:1.9.2] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\b134e0beb1c9319d4920e52672c60b55\transformed\activity-1.9.2\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\98ea118377253af46800177c22d66e58\transformed\autofill-1.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.graphics:graphics-path:1.0.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\dd82a857236a433665dcc0b84055183f\transformed\graphics-path-1.0.1\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.core:core:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\70506222e6844a22a941eb444887e810\transformed\core-1.13.1\AndroidManifest.xml:17:1-30:12
-MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\4b7c4d9c2bd9147d0513f44c56c304c2\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:17:1-23:12
-MERGED from [androidx.core:core-ktx:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\70c759bc2b3d1b33705b52d77bf59deb\transformed\core-ktx-1.13.1\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\79f1f80cb33e95b9fff8378f8e2e410d\transformed\runtime-saveable-release\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.runtime:runtime-android:1.7.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\1750d987de86986b464dd78b834b11e8\transformed\runtime-release\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.annotation:annotation-experimental:1.4.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\f0c6696d0d7c214aae6b859aeded78b9\transformed\annotation-experimental-1.4.1\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\e43511cd447f286a6bd612636180c505\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
-MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\9d715a5c2709df4f293b5e5953d43534\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\3852184f221ed60779eac34947b7f6b2\transformed\profileinstaller-1.3.1\AndroidManifest.xml:17:1-55:12
-MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\728e75ee62774bd76748dca7456236f1\transformed\startup-runtime-1.1.1\AndroidManifest.xml:17:1-33:12
-MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\04763920dfa9571598362c88430ea9e2\transformed\tracing-1.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\833d4dc7f7678a10d28164296165d8c9\transformed\core-runtime-2.2.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-common:2.8.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\f3a03691ed06395f62f665546661239d\transformed\navigation-common-2.8.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-runtime:2.8.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\4068d9de4c06fffc23b1b28db745ed89\transformed\navigation-runtime-2.8.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-common-ktx:2.8.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\33d3e4b72a730f5eaa7a0febd1db3239\transformed\navigation-common-ktx-2.8.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.8.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\e7a114fdee0325a123cbdf7f2d8d71db\transformed\navigation-runtime-ktx-2.8.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-compose:2.8.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\9c0384ffe69caf5f43186cc97b2945c4\transformed\navigation-compose-2.8.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material3:material3-android:1.3.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\213aa47bcc53a423b66d374af4426f91\transformed\material3-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.material:material-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\2d3c23a7a91b3092c097ab69ab98858a\transformed\material-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-core-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\443baeeabd06953d80cca9397e7db2d0\transformed\animation-core-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-ripple-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\1c4eb0f2a2992962aaa9ad1317569774\transformed\material-ripple-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\384d4f51e0ac943389950a6645db721d\transformed\animation-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\afe437ee6dd55a7dba9d240cd407d5ac\transformed\foundation-layout-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\57802f90bc2252a4231dddbbfdc5624f\transformed\foundation-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\529ac6f4c768acb18ba7c572541202af\transformed\ui-tooling-data-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-unit-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\6ba648c7cb3a8ceae0982204a3f0b773\transformed\ui-unit-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-geometry-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\52a3498986275349856d0f9050d164b0\transformed\ui-geometry-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-util-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\c959d94a2eb5baa8cc45806172103965\transformed\ui-util-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\e0cd379131024fc1a69571f10257e660\transformed\ui-tooling-preview-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.ui:ui-graphics-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\9fd7e7dce5e7d9f68ca73fe155fe4313\transformed\ui-graphics-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-text-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\c87f76b118a5ef4457d45bb5d32b40dc\transformed\ui-text-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\e00fc5561e5feeb371de445190c8b5f0\transformed\emoji2-1.3.0\AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\616cc4d00d5f0861f22f6a9d12ef3911\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\116cba9cc5588985391c637a7f6da692\transformed\lifecycle-runtime-compose-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\956eff1e777770557dcfa82a5e63fbd1\transformed\lifecycle-livedata-core-2.8.6\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\c995ab0f53cd7507544c4e819d7f5258\transformed\savedstate-ktx-1.2.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\687a98319893a3e0b6136d15fa0e862e\transformed\savedstate-1.2.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\c8510ac6fc0a2dda9b3fed332a2da644\transformed\lifecycle-viewmodel-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\57a8843529e3c1afd482c80f110b4568\transformed\lifecycle-runtime-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\fe3071f5cc98ee671691a598e584106e\transformed\lifecycle-viewmodel-ktx-2.8.6\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\8d46e5ebb68d435a68bcd96356a09f31\transformed\lifecycle-viewmodel-savedstate-2.8.6\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\988f2f15103c4343045be8d1ba33cf96\transformed\lifecycle-runtime-ktx-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\9a7bec974a7ebb87df7f58f04d94f134\transformed\lifecycle-viewmodel-compose-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\c8e69f9246368b8285324ff29ad08e90\transformed\material-icons-core-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\a28aa8f50ef5fd7cd852cc36ab4a302b\transformed\ui-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\447b0977b81cc9e8760c2258012b2386\transformed\ui-tooling-release\AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.activity:activity-compose:1.9.2] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\145e73bf6e170812c6f37abbcc265d5d\transformed\activity-compose-1.9.2\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity-ktx:1.9.2] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\877675ef2848908f6d10aae550cc2384\transformed\activity-ktx-1.9.2\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity:1.9.2] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\9eed681bafbc919a372122a376a1fd4c\transformed\activity-1.9.2\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\73e62024c68ecf5d7a003f029c617d5f\transformed\autofill-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.graphics:graphics-path:1.0.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\4e1f18e70d3c4c78bcdd276c3f25a7e5\transformed\graphics-path-1.0.1\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.core:core:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\21fd497e32b43db2991abaf10388e80e\transformed\core-1.13.1\AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\5c5473cd04853367ca02a45468b794a9\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.core:core-ktx:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\059e292f1df68f0f202f7cdc4a0dc6bc\transformed\core-ktx-1.13.1\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\f86e16945ac60f711a93a910b87b9cd3\transformed\runtime-saveable-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-android:1.7.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\5c0f945af3da4f65d54f05afc9bd1aa3\transformed\runtime-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\afd90faada88d2a4e1a083185e11f468\transformed\annotation-experimental-1.4.1\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\8711b825638103dfe722c4a27f897c5c\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\ebb3da754cf0e9f25d4d6564c042c56d\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\7a08057dc7201b6b1495bf5c179e9b69\transformed\profileinstaller-1.3.1\AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\36370c915b9901676289058282471b78\transformed\startup-runtime-1.1.1\AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\2942e5c1b7e7cecc0ce9ebde394ae2a8\transformed\tracing-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\a862623e549913722fd2c0a6d7ca2ae4\transformed\core-runtime-2.2.0\AndroidManifest.xml:17:1-22:12
 	package
 		INJECTED from C:\Users\Sedat CANLI\Documents\Cadence\app\src\main\AndroidManifest.xml
 	android:versionName
@@ -90,24 +90,24 @@ ADDED from C:\Users\Sedat CANLI\Documents\Cadence\app\src\main\AndroidManifest.x
 application
 ADDED from C:\Users\Sedat CANLI\Documents\Cadence\app\src\main\AndroidManifest.xml:11:5-34:19
 INJECTED from C:\Users\Sedat CANLI\Documents\Cadence\app\src\main\AndroidManifest.xml:11:5-34:19
-MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\298af2b270f00b61434235e2561e375b\transformed\emoji2-1.3.0\AndroidManifest.xml:23:5-33:19
-MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\298af2b270f00b61434235e2561e375b\transformed\emoji2-1.3.0\AndroidManifest.xml:23:5-33:19
-MERGED from [androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\268fefb4d639beb7c04ceb4fb8aee00d\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:23:5-33:19
-MERGED from [androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\268fefb4d639beb7c04ceb4fb8aee00d\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:23:5-33:19
-MERGED from [androidx.compose.ui:ui-tooling-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\c07dfaaabecef9159defd68248e60482\transformed\ui-tooling-release\AndroidManifest.xml:22:5-26:19
-MERGED from [androidx.compose.ui:ui-tooling-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\c07dfaaabecef9159defd68248e60482\transformed\ui-tooling-release\AndroidManifest.xml:22:5-26:19
-MERGED from [androidx.core:core:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\70506222e6844a22a941eb444887e810\transformed\core-1.13.1\AndroidManifest.xml:28:5-89
-MERGED from [androidx.core:core:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\70506222e6844a22a941eb444887e810\transformed\core-1.13.1\AndroidManifest.xml:28:5-89
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\e43511cd447f286a6bd612636180c505\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\e43511cd447f286a6bd612636180c505\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
-MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\3852184f221ed60779eac34947b7f6b2\transformed\profileinstaller-1.3.1\AndroidManifest.xml:23:5-53:19
-MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\3852184f221ed60779eac34947b7f6b2\transformed\profileinstaller-1.3.1\AndroidManifest.xml:23:5-53:19
-MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\728e75ee62774bd76748dca7456236f1\transformed\startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
-MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\728e75ee62774bd76748dca7456236f1\transformed\startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\e00fc5561e5feeb371de445190c8b5f0\transformed\emoji2-1.3.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\e00fc5561e5feeb371de445190c8b5f0\transformed\emoji2-1.3.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\616cc4d00d5f0861f22f6a9d12ef3911\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\616cc4d00d5f0861f22f6a9d12ef3911\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\447b0977b81cc9e8760c2258012b2386\transformed\ui-tooling-release\AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\447b0977b81cc9e8760c2258012b2386\transformed\ui-tooling-release\AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.core:core:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\21fd497e32b43db2991abaf10388e80e\transformed\core-1.13.1\AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\21fd497e32b43db2991abaf10388e80e\transformed\core-1.13.1\AndroidManifest.xml:28:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\8711b825638103dfe722c4a27f897c5c\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\8711b825638103dfe722c4a27f897c5c\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\7a08057dc7201b6b1495bf5c179e9b69\transformed\profileinstaller-1.3.1\AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\7a08057dc7201b6b1495bf5c179e9b69\transformed\profileinstaller-1.3.1\AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\36370c915b9901676289058282471b78\transformed\startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\36370c915b9901676289058282471b78\transformed\startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
 	android:extractNativeLibs
 		INJECTED from C:\Users\Sedat CANLI\Documents\Cadence\app\src\main\AndroidManifest.xml
 	android:appComponentFactory
-		ADDED from [androidx.core:core:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\70506222e6844a22a941eb444887e810\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
+		ADDED from [androidx.core:core:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\21fd497e32b43db2991abaf10388e80e\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
 	android:supportsRtl
 		ADDED from C:\Users\Sedat CANLI\Documents\Cadence\app\src\main\AndroidManifest.xml:17:9-35
 	android:label
@@ -152,205 +152,205 @@ uses-sdk
 INJECTED from C:\Users\Sedat CANLI\Documents\Cadence\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Sedat CANLI\Documents\Cadence\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\Sedat CANLI\Documents\Cadence\app\src\main\AndroidManifest.xml
-MERGED from [androidx.navigation:navigation-common:2.8.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\68198164631d0c9bda4c3f91b7aaa21c\transformed\navigation-common-2.8.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.navigation:navigation-common:2.8.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\68198164631d0c9bda4c3f91b7aaa21c\transformed\navigation-common-2.8.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.navigation:navigation-runtime:2.8.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\d5fe48cc449305d3e4199b2ad2eb8436\transformed\navigation-runtime-2.8.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.navigation:navigation-runtime:2.8.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\d5fe48cc449305d3e4199b2ad2eb8436\transformed\navigation-runtime-2.8.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.navigation:navigation-common-ktx:2.8.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\6f7bef1055798c105e42950302f68838\transformed\navigation-common-ktx-2.8.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.navigation:navigation-common-ktx:2.8.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\6f7bef1055798c105e42950302f68838\transformed\navigation-common-ktx-2.8.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.navigation:navigation-runtime-ktx:2.8.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\6f1d99cfb80383e8a9fd02ed089d2243\transformed\navigation-runtime-ktx-2.8.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.navigation:navigation-runtime-ktx:2.8.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\6f1d99cfb80383e8a9fd02ed089d2243\transformed\navigation-runtime-ktx-2.8.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.navigation:navigation-compose:2.8.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\0c149f34e14c345db23a23d2163f0e28\transformed\navigation-compose-2.8.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.navigation:navigation-compose:2.8.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\0c149f34e14c345db23a23d2163f0e28\transformed\navigation-compose-2.8.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.material3:material3-android:1.3.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\1bc859da3b169652d47c8b7874238923\transformed\material3-release\AndroidManifest.xml:20:5-44
-MERGED from [androidx.compose.material3:material3-android:1.3.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\1bc859da3b169652d47c8b7874238923\transformed\material3-release\AndroidManifest.xml:20:5-44
-MERGED from [androidx.compose.material:material-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\75668fcce8dbe545574d0837232bc084\transformed\material-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.material:material-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\75668fcce8dbe545574d0837232bc084\transformed\material-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.animation:animation-core-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\f9f263b85b97046bed994cfceae2e3ca\transformed\animation-core-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.animation:animation-core-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\f9f263b85b97046bed994cfceae2e3ca\transformed\animation-core-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.material:material-ripple-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\fcbd3296ca8c5418841db49ed3febed4\transformed\material-ripple-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.material:material-ripple-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\fcbd3296ca8c5418841db49ed3febed4\transformed\material-ripple-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.animation:animation-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\0b64d9a77446aca32efdb00f2295e164\transformed\animation-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.animation:animation-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\0b64d9a77446aca32efdb00f2295e164\transformed\animation-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\465a4cede898096f0554cc3582f63f7c\transformed\foundation-layout-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\465a4cede898096f0554cc3582f63f7c\transformed\foundation-layout-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.foundation:foundation-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\759a25d6925a0845f8b5505ddd05d2a8\transformed\foundation-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.foundation:foundation-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\759a25d6925a0845f8b5505ddd05d2a8\transformed\foundation-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-tooling-data-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\9861dc889ff9ec8f21ae10779bcc30f7\transformed\ui-tooling-data-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-tooling-data-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\9861dc889ff9ec8f21ae10779bcc30f7\transformed\ui-tooling-data-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-unit-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\78d980ae147f072897e08d91c8c30a7e\transformed\ui-unit-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-unit-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\78d980ae147f072897e08d91c8c30a7e\transformed\ui-unit-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-geometry-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\25a1a7c2d23b071036b0263f5be81542\transformed\ui-geometry-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-geometry-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\25a1a7c2d23b071036b0263f5be81542\transformed\ui-geometry-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-util-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\4979012cc9d896e91abefeba6720946f\transformed\ui-util-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-util-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\4979012cc9d896e91abefeba6720946f\transformed\ui-util-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\bcabaf8fdfe5509616a5c4a54d32bfcc\transformed\ui-tooling-preview-release\AndroidManifest.xml:20:5-44
-MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\bcabaf8fdfe5509616a5c4a54d32bfcc\transformed\ui-tooling-preview-release\AndroidManifest.xml:20:5-44
-MERGED from [androidx.compose.ui:ui-graphics-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\50e241a9345fd4e50c32c2a67a79823d\transformed\ui-graphics-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-graphics-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\50e241a9345fd4e50c32c2a67a79823d\transformed\ui-graphics-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-text-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\16ab357cd67455dc0b56170107bde416\transformed\ui-text-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-text-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\16ab357cd67455dc0b56170107bde416\transformed\ui-text-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\298af2b270f00b61434235e2561e375b\transformed\emoji2-1.3.0\AndroidManifest.xml:21:5-44
-MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\298af2b270f00b61434235e2561e375b\transformed\emoji2-1.3.0\AndroidManifest.xml:21:5-44
-MERGED from [androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\268fefb4d639beb7c04ceb4fb8aee00d\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:21:5-44
-MERGED from [androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\268fefb4d639beb7c04ceb4fb8aee00d\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:21:5-44
-MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\21c5b39ae16710fa9e097dc4a18b15ee\transformed\lifecycle-runtime-compose-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\21c5b39ae16710fa9e097dc4a18b15ee\transformed\lifecycle-runtime-compose-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\9c2031fd02b1c418dd5bab756403eadc\transformed\lifecycle-livedata-core-2.8.6\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\9c2031fd02b1c418dd5bab756403eadc\transformed\lifecycle-livedata-core-2.8.6\AndroidManifest.xml:20:5-44
-MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\93a08e2044b04acb94315972e9b35b51\transformed\savedstate-ktx-1.2.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\93a08e2044b04acb94315972e9b35b51\transformed\savedstate-ktx-1.2.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\23b7808bfd5ada904ce3ed2aaa05c5e3\transformed\savedstate-1.2.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\23b7808bfd5ada904ce3ed2aaa05c5e3\transformed\savedstate-1.2.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\f225759e2da16845d49f1a4b73b1cd10\transformed\lifecycle-viewmodel-release\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\f225759e2da16845d49f1a4b73b1cd10\transformed\lifecycle-viewmodel-release\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\9a4fede67e5e0026c4b1dc38a93bf740\transformed\lifecycle-runtime-release\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\9a4fede67e5e0026c4b1dc38a93bf740\transformed\lifecycle-runtime-release\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\daa43f5956b6e138c8a09159298622a7\transformed\lifecycle-viewmodel-ktx-2.8.6\AndroidManifest.xml:5:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\daa43f5956b6e138c8a09159298622a7\transformed\lifecycle-viewmodel-ktx-2.8.6\AndroidManifest.xml:5:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\6a95a8e30d911affec203e8aec9082b7\transformed\lifecycle-viewmodel-savedstate-2.8.6\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\6a95a8e30d911affec203e8aec9082b7\transformed\lifecycle-viewmodel-savedstate-2.8.6\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\6a1ddada72e80ee648f9098545a5be3a\transformed\lifecycle-runtime-ktx-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\6a1ddada72e80ee648f9098545a5be3a\transformed\lifecycle-runtime-ktx-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\ca48b1c40d74e53443046b3b791c7b44\transformed\lifecycle-viewmodel-compose-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\ca48b1c40d74e53443046b3b791c7b44\transformed\lifecycle-viewmodel-compose-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.material:material-icons-core-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\e5288109cb5934201553b2689c1088e5\transformed\material-icons-core-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.material:material-icons-core-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\e5288109cb5934201553b2689c1088e5\transformed\material-icons-core-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\e9dd3176d0c51e71fcde9686e554ec87\transformed\ui-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\e9dd3176d0c51e71fcde9686e554ec87\transformed\ui-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-tooling-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\c07dfaaabecef9159defd68248e60482\transformed\ui-tooling-release\AndroidManifest.xml:20:5-44
-MERGED from [androidx.compose.ui:ui-tooling-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\c07dfaaabecef9159defd68248e60482\transformed\ui-tooling-release\AndroidManifest.xml:20:5-44
-MERGED from [androidx.activity:activity-compose:1.9.2] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\d601503487ff714288822965ed62f78c\transformed\activity-compose-1.9.2\AndroidManifest.xml:5:5-44
-MERGED from [androidx.activity:activity-compose:1.9.2] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\d601503487ff714288822965ed62f78c\transformed\activity-compose-1.9.2\AndroidManifest.xml:5:5-44
-MERGED from [androidx.activity:activity-ktx:1.9.2] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\b3ec75803ff1ce95b0f3620b377ff8ef\transformed\activity-ktx-1.9.2\AndroidManifest.xml:5:5-44
-MERGED from [androidx.activity:activity-ktx:1.9.2] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\b3ec75803ff1ce95b0f3620b377ff8ef\transformed\activity-ktx-1.9.2\AndroidManifest.xml:5:5-44
-MERGED from [androidx.activity:activity:1.9.2] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\b134e0beb1c9319d4920e52672c60b55\transformed\activity-1.9.2\AndroidManifest.xml:20:5-44
-MERGED from [androidx.activity:activity:1.9.2] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\b134e0beb1c9319d4920e52672c60b55\transformed\activity-1.9.2\AndroidManifest.xml:20:5-44
-MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\98ea118377253af46800177c22d66e58\transformed\autofill-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\98ea118377253af46800177c22d66e58\transformed\autofill-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.graphics:graphics-path:1.0.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\dd82a857236a433665dcc0b84055183f\transformed\graphics-path-1.0.1\AndroidManifest.xml:5:5-44
-MERGED from [androidx.graphics:graphics-path:1.0.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\dd82a857236a433665dcc0b84055183f\transformed\graphics-path-1.0.1\AndroidManifest.xml:5:5-44
-MERGED from [androidx.core:core:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\70506222e6844a22a941eb444887e810\transformed\core-1.13.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.core:core:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\70506222e6844a22a941eb444887e810\transformed\core-1.13.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\4b7c4d9c2bd9147d0513f44c56c304c2\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:20:5-21:38
-MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\4b7c4d9c2bd9147d0513f44c56c304c2\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:20:5-21:38
-MERGED from [androidx.core:core-ktx:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\70c759bc2b3d1b33705b52d77bf59deb\transformed\core-ktx-1.13.1\AndroidManifest.xml:5:5-44
-MERGED from [androidx.core:core-ktx:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\70c759bc2b3d1b33705b52d77bf59deb\transformed\core-ktx-1.13.1\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\79f1f80cb33e95b9fff8378f8e2e410d\transformed\runtime-saveable-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\79f1f80cb33e95b9fff8378f8e2e410d\transformed\runtime-saveable-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.runtime:runtime-android:1.7.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\1750d987de86986b464dd78b834b11e8\transformed\runtime-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.runtime:runtime-android:1.7.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\1750d987de86986b464dd78b834b11e8\transformed\runtime-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.annotation:annotation-experimental:1.4.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\f0c6696d0d7c214aae6b859aeded78b9\transformed\annotation-experimental-1.4.1\AndroidManifest.xml:5:5-44
-MERGED from [androidx.annotation:annotation-experimental:1.4.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\f0c6696d0d7c214aae6b859aeded78b9\transformed\annotation-experimental-1.4.1\AndroidManifest.xml:5:5-44
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\e43511cd447f286a6bd612636180c505\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\e43511cd447f286a6bd612636180c505\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\9d715a5c2709df4f293b5e5953d43534\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\9d715a5c2709df4f293b5e5953d43534\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\3852184f221ed60779eac34947b7f6b2\transformed\profileinstaller-1.3.1\AndroidManifest.xml:21:5-44
-MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\3852184f221ed60779eac34947b7f6b2\transformed\profileinstaller-1.3.1\AndroidManifest.xml:21:5-44
-MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\728e75ee62774bd76748dca7456236f1\transformed\startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
-MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\728e75ee62774bd76748dca7456236f1\transformed\startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
-MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\04763920dfa9571598362c88430ea9e2\transformed\tracing-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\04763920dfa9571598362c88430ea9e2\transformed\tracing-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\833d4dc7f7678a10d28164296165d8c9\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\833d4dc7f7678a10d28164296165d8c9\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common:2.8.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\f3a03691ed06395f62f665546661239d\transformed\navigation-common-2.8.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common:2.8.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\f3a03691ed06395f62f665546661239d\transformed\navigation-common-2.8.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.8.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\4068d9de4c06fffc23b1b28db745ed89\transformed\navigation-runtime-2.8.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.8.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\4068d9de4c06fffc23b1b28db745ed89\transformed\navigation-runtime-2.8.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.8.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\33d3e4b72a730f5eaa7a0febd1db3239\transformed\navigation-common-ktx-2.8.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.8.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\33d3e4b72a730f5eaa7a0febd1db3239\transformed\navigation-common-ktx-2.8.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.8.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\e7a114fdee0325a123cbdf7f2d8d71db\transformed\navigation-runtime-ktx-2.8.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.8.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\e7a114fdee0325a123cbdf7f2d8d71db\transformed\navigation-runtime-ktx-2.8.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-compose:2.8.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\9c0384ffe69caf5f43186cc97b2945c4\transformed\navigation-compose-2.8.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-compose:2.8.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\9c0384ffe69caf5f43186cc97b2945c4\transformed\navigation-compose-2.8.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material3:material3-android:1.3.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\213aa47bcc53a423b66d374af4426f91\transformed\material3-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material3:material3-android:1.3.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\213aa47bcc53a423b66d374af4426f91\transformed\material3-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material:material-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\2d3c23a7a91b3092c097ab69ab98858a\transformed\material-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\2d3c23a7a91b3092c097ab69ab98858a\transformed\material-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\443baeeabd06953d80cca9397e7db2d0\transformed\animation-core-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\443baeeabd06953d80cca9397e7db2d0\transformed\animation-core-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\1c4eb0f2a2992962aaa9ad1317569774\transformed\material-ripple-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\1c4eb0f2a2992962aaa9ad1317569774\transformed\material-ripple-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\384d4f51e0ac943389950a6645db721d\transformed\animation-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\384d4f51e0ac943389950a6645db721d\transformed\animation-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\afe437ee6dd55a7dba9d240cd407d5ac\transformed\foundation-layout-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\afe437ee6dd55a7dba9d240cd407d5ac\transformed\foundation-layout-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\57802f90bc2252a4231dddbbfdc5624f\transformed\foundation-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\57802f90bc2252a4231dddbbfdc5624f\transformed\foundation-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\529ac6f4c768acb18ba7c572541202af\transformed\ui-tooling-data-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\529ac6f4c768acb18ba7c572541202af\transformed\ui-tooling-data-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\6ba648c7cb3a8ceae0982204a3f0b773\transformed\ui-unit-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\6ba648c7cb3a8ceae0982204a3f0b773\transformed\ui-unit-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\52a3498986275349856d0f9050d164b0\transformed\ui-geometry-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\52a3498986275349856d0f9050d164b0\transformed\ui-geometry-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\c959d94a2eb5baa8cc45806172103965\transformed\ui-util-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\c959d94a2eb5baa8cc45806172103965\transformed\ui-util-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\e0cd379131024fc1a69571f10257e660\transformed\ui-tooling-preview-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\e0cd379131024fc1a69571f10257e660\transformed\ui-tooling-preview-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\9fd7e7dce5e7d9f68ca73fe155fe4313\transformed\ui-graphics-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\9fd7e7dce5e7d9f68ca73fe155fe4313\transformed\ui-graphics-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\c87f76b118a5ef4457d45bb5d32b40dc\transformed\ui-text-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\c87f76b118a5ef4457d45bb5d32b40dc\transformed\ui-text-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\e00fc5561e5feeb371de445190c8b5f0\transformed\emoji2-1.3.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\e00fc5561e5feeb371de445190c8b5f0\transformed\emoji2-1.3.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\616cc4d00d5f0861f22f6a9d12ef3911\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\616cc4d00d5f0861f22f6a9d12ef3911\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\116cba9cc5588985391c637a7f6da692\transformed\lifecycle-runtime-compose-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\116cba9cc5588985391c637a7f6da692\transformed\lifecycle-runtime-compose-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\956eff1e777770557dcfa82a5e63fbd1\transformed\lifecycle-livedata-core-2.8.6\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\956eff1e777770557dcfa82a5e63fbd1\transformed\lifecycle-livedata-core-2.8.6\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\c995ab0f53cd7507544c4e819d7f5258\transformed\savedstate-ktx-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\c995ab0f53cd7507544c4e819d7f5258\transformed\savedstate-ktx-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\687a98319893a3e0b6136d15fa0e862e\transformed\savedstate-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\687a98319893a3e0b6136d15fa0e862e\transformed\savedstate-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\c8510ac6fc0a2dda9b3fed332a2da644\transformed\lifecycle-viewmodel-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\c8510ac6fc0a2dda9b3fed332a2da644\transformed\lifecycle-viewmodel-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\57a8843529e3c1afd482c80f110b4568\transformed\lifecycle-runtime-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\57a8843529e3c1afd482c80f110b4568\transformed\lifecycle-runtime-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\fe3071f5cc98ee671691a598e584106e\transformed\lifecycle-viewmodel-ktx-2.8.6\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\fe3071f5cc98ee671691a598e584106e\transformed\lifecycle-viewmodel-ktx-2.8.6\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\8d46e5ebb68d435a68bcd96356a09f31\transformed\lifecycle-viewmodel-savedstate-2.8.6\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\8d46e5ebb68d435a68bcd96356a09f31\transformed\lifecycle-viewmodel-savedstate-2.8.6\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\988f2f15103c4343045be8d1ba33cf96\transformed\lifecycle-runtime-ktx-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\988f2f15103c4343045be8d1ba33cf96\transformed\lifecycle-runtime-ktx-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\9a7bec974a7ebb87df7f58f04d94f134\transformed\lifecycle-viewmodel-compose-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\9a7bec974a7ebb87df7f58f04d94f134\transformed\lifecycle-viewmodel-compose-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\c8e69f9246368b8285324ff29ad08e90\transformed\material-icons-core-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\c8e69f9246368b8285324ff29ad08e90\transformed\material-icons-core-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\a28aa8f50ef5fd7cd852cc36ab4a302b\transformed\ui-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\a28aa8f50ef5fd7cd852cc36ab4a302b\transformed\ui-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\447b0977b81cc9e8760c2258012b2386\transformed\ui-tooling-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\447b0977b81cc9e8760c2258012b2386\transformed\ui-tooling-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity-compose:1.9.2] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\145e73bf6e170812c6f37abbcc265d5d\transformed\activity-compose-1.9.2\AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-compose:1.9.2] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\145e73bf6e170812c6f37abbcc265d5d\transformed\activity-compose-1.9.2\AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.9.2] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\877675ef2848908f6d10aae550cc2384\transformed\activity-ktx-1.9.2\AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.9.2] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\877675ef2848908f6d10aae550cc2384\transformed\activity-ktx-1.9.2\AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity:1.9.2] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\9eed681bafbc919a372122a376a1fd4c\transformed\activity-1.9.2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.9.2] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\9eed681bafbc919a372122a376a1fd4c\transformed\activity-1.9.2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\73e62024c68ecf5d7a003f029c617d5f\transformed\autofill-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\73e62024c68ecf5d7a003f029c617d5f\transformed\autofill-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.graphics:graphics-path:1.0.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\4e1f18e70d3c4c78bcdd276c3f25a7e5\transformed\graphics-path-1.0.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.graphics:graphics-path:1.0.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\4e1f18e70d3c4c78bcdd276c3f25a7e5\transformed\graphics-path-1.0.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\21fd497e32b43db2991abaf10388e80e\transformed\core-1.13.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\21fd497e32b43db2991abaf10388e80e\transformed\core-1.13.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\5c5473cd04853367ca02a45468b794a9\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\5c5473cd04853367ca02a45468b794a9\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.core:core-ktx:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\059e292f1df68f0f202f7cdc4a0dc6bc\transformed\core-ktx-1.13.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\059e292f1df68f0f202f7cdc4a0dc6bc\transformed\core-ktx-1.13.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\f86e16945ac60f711a93a910b87b9cd3\transformed\runtime-saveable-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\f86e16945ac60f711a93a910b87b9cd3\transformed\runtime-saveable-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.7.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\5c0f945af3da4f65d54f05afc9bd1aa3\transformed\runtime-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.7.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\5c0f945af3da4f65d54f05afc9bd1aa3\transformed\runtime-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\afd90faada88d2a4e1a083185e11f468\transformed\annotation-experimental-1.4.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\afd90faada88d2a4e1a083185e11f468\transformed\annotation-experimental-1.4.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\8711b825638103dfe722c4a27f897c5c\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\8711b825638103dfe722c4a27f897c5c\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\ebb3da754cf0e9f25d4d6564c042c56d\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\ebb3da754cf0e9f25d4d6564c042c56d\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\7a08057dc7201b6b1495bf5c179e9b69\transformed\profileinstaller-1.3.1\AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\7a08057dc7201b6b1495bf5c179e9b69\transformed\profileinstaller-1.3.1\AndroidManifest.xml:21:5-44
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\36370c915b9901676289058282471b78\transformed\startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\36370c915b9901676289058282471b78\transformed\startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\2942e5c1b7e7cecc0ce9ebde394ae2a8\transformed\tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\2942e5c1b7e7cecc0ce9ebde394ae2a8\transformed\tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\a862623e549913722fd2c0a6d7ca2ae4\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\a862623e549913722fd2c0a6d7ca2ae4\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
 	android:targetSdkVersion
 		INJECTED from C:\Users\Sedat CANLI\Documents\Cadence\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
 		INJECTED from C:\Users\Sedat CANLI\Documents\Cadence\app\src\main\AndroidManifest.xml
 provider#androidx.startup.InitializationProvider
-ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\298af2b270f00b61434235e2561e375b\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
-MERGED from [androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\268fefb4d639beb7c04ceb4fb8aee00d\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:24:9-32:20
-MERGED from [androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\268fefb4d639beb7c04ceb4fb8aee00d\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:24:9-32:20
-MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\3852184f221ed60779eac34947b7f6b2\transformed\profileinstaller-1.3.1\AndroidManifest.xml:24:9-32:20
-MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\3852184f221ed60779eac34947b7f6b2\transformed\profileinstaller-1.3.1\AndroidManifest.xml:24:9-32:20
-MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\728e75ee62774bd76748dca7456236f1\transformed\startup-runtime-1.1.1\AndroidManifest.xml:26:9-30:34
-MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\728e75ee62774bd76748dca7456236f1\transformed\startup-runtime-1.1.1\AndroidManifest.xml:26:9-30:34
+ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\e00fc5561e5feeb371de445190c8b5f0\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\616cc4d00d5f0861f22f6a9d12ef3911\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\616cc4d00d5f0861f22f6a9d12ef3911\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\7a08057dc7201b6b1495bf5c179e9b69\transformed\profileinstaller-1.3.1\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\7a08057dc7201b6b1495bf5c179e9b69\transformed\profileinstaller-1.3.1\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\36370c915b9901676289058282471b78\transformed\startup-runtime-1.1.1\AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\36370c915b9901676289058282471b78\transformed\startup-runtime-1.1.1\AndroidManifest.xml:26:9-30:34
 	tools:node
-		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\298af2b270f00b61434235e2561e375b\transformed\emoji2-1.3.0\AndroidManifest.xml:28:13-31
+		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\e00fc5561e5feeb371de445190c8b5f0\transformed\emoji2-1.3.0\AndroidManifest.xml:28:13-31
 	android:authorities
-		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\298af2b270f00b61434235e2561e375b\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\e00fc5561e5feeb371de445190c8b5f0\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
 	android:exported
-		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\298af2b270f00b61434235e2561e375b\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\e00fc5561e5feeb371de445190c8b5f0\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
 	android:name
-		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\298af2b270f00b61434235e2561e375b\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\e00fc5561e5feeb371de445190c8b5f0\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
 meta-data#androidx.emoji2.text.EmojiCompatInitializer
-ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\298af2b270f00b61434235e2561e375b\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\e00fc5561e5feeb371de445190c8b5f0\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
 	android:value
-		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\298af2b270f00b61434235e2561e375b\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\e00fc5561e5feeb371de445190c8b5f0\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
 	android:name
-		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\298af2b270f00b61434235e2561e375b\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\e00fc5561e5feeb371de445190c8b5f0\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
 meta-data#androidx.lifecycle.ProcessLifecycleInitializer
-ADDED from [androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\268fefb4d639beb7c04ceb4fb8aee00d\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:29:13-31:52
+ADDED from [androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\616cc4d00d5f0861f22f6a9d12ef3911\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:29:13-31:52
 	android:value
-		ADDED from [androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\268fefb4d639beb7c04ceb4fb8aee00d\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:31:17-49
+		ADDED from [androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\616cc4d00d5f0861f22f6a9d12ef3911\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:31:17-49
 	android:name
-		ADDED from [androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\268fefb4d639beb7c04ceb4fb8aee00d\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:30:17-78
+		ADDED from [androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\616cc4d00d5f0861f22f6a9d12ef3911\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:30:17-78
 activity#androidx.compose.ui.tooling.PreviewActivity
-ADDED from [androidx.compose.ui:ui-tooling-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\c07dfaaabecef9159defd68248e60482\transformed\ui-tooling-release\AndroidManifest.xml:23:9-25:39
+ADDED from [androidx.compose.ui:ui-tooling-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\447b0977b81cc9e8760c2258012b2386\transformed\ui-tooling-release\AndroidManifest.xml:23:9-25:39
 	android:exported
-		ADDED from [androidx.compose.ui:ui-tooling-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\c07dfaaabecef9159defd68248e60482\transformed\ui-tooling-release\AndroidManifest.xml:25:13-36
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\447b0977b81cc9e8760c2258012b2386\transformed\ui-tooling-release\AndroidManifest.xml:25:13-36
 	android:name
-		ADDED from [androidx.compose.ui:ui-tooling-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\c07dfaaabecef9159defd68248e60482\transformed\ui-tooling-release\AndroidManifest.xml:24:13-71
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.7.0] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\447b0977b81cc9e8760c2258012b2386\transformed\ui-tooling-release\AndroidManifest.xml:24:13-71
 permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
-ADDED from [androidx.core:core:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\70506222e6844a22a941eb444887e810\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
+ADDED from [androidx.core:core:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\21fd497e32b43db2991abaf10388e80e\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
 	android:protectionLevel
-		ADDED from [androidx.core:core:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\70506222e6844a22a941eb444887e810\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
+		ADDED from [androidx.core:core:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\21fd497e32b43db2991abaf10388e80e\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
 	android:name
-		ADDED from [androidx.core:core:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\70506222e6844a22a941eb444887e810\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
+		ADDED from [androidx.core:core:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\21fd497e32b43db2991abaf10388e80e\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
 permission#com.cadence.speech.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
-ADDED from [androidx.core:core:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\70506222e6844a22a941eb444887e810\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
+ADDED from [androidx.core:core:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\21fd497e32b43db2991abaf10388e80e\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
 	android:protectionLevel
-		ADDED from [androidx.core:core:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\70506222e6844a22a941eb444887e810\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
+		ADDED from [androidx.core:core:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\21fd497e32b43db2991abaf10388e80e\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
 	android:name
-		ADDED from [androidx.core:core:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\70506222e6844a22a941eb444887e810\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
+		ADDED from [androidx.core:core:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\21fd497e32b43db2991abaf10388e80e\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
 uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
-ADDED from [androidx.core:core:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\70506222e6844a22a941eb444887e810\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
+ADDED from [androidx.core:core:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\21fd497e32b43db2991abaf10388e80e\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
 	android:name
-		ADDED from [androidx.core:core:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\70506222e6844a22a941eb444887e810\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
+		ADDED from [androidx.core:core:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\21fd497e32b43db2991abaf10388e80e\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
 uses-permission#com.cadence.speech.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
-ADDED from [androidx.core:core:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\70506222e6844a22a941eb444887e810\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
+ADDED from [androidx.core:core:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\21fd497e32b43db2991abaf10388e80e\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
 	android:name
-		ADDED from [androidx.core:core:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\70506222e6844a22a941eb444887e810\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
+		ADDED from [androidx.core:core:1.13.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\21fd497e32b43db2991abaf10388e80e\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
 meta-data#androidx.profileinstaller.ProfileInstallerInitializer
-ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\3852184f221ed60779eac34947b7f6b2\transformed\profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\7a08057dc7201b6b1495bf5c179e9b69\transformed\profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
 	android:value
-		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\3852184f221ed60779eac34947b7f6b2\transformed\profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\7a08057dc7201b6b1495bf5c179e9b69\transformed\profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
 	android:name
-		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\3852184f221ed60779eac34947b7f6b2\transformed\profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\7a08057dc7201b6b1495bf5c179e9b69\transformed\profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
 receiver#androidx.profileinstaller.ProfileInstallReceiver
-ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\3852184f221ed60779eac34947b7f6b2\transformed\profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\7a08057dc7201b6b1495bf5c179e9b69\transformed\profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
 	android:enabled
-		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\3852184f221ed60779eac34947b7f6b2\transformed\profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\7a08057dc7201b6b1495bf5c179e9b69\transformed\profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
 	android:exported
-		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\3852184f221ed60779eac34947b7f6b2\transformed\profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\7a08057dc7201b6b1495bf5c179e9b69\transformed\profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
 	android:permission
-		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\3852184f221ed60779eac34947b7f6b2\transformed\profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\7a08057dc7201b6b1495bf5c179e9b69\transformed\profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
 	android:directBootAware
-		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\3852184f221ed60779eac34947b7f6b2\transformed\profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\7a08057dc7201b6b1495bf5c179e9b69\transformed\profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
 	android:name
-		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\3852184f221ed60779eac34947b7f6b2\transformed\profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\7a08057dc7201b6b1495bf5c179e9b69\transformed\profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
 intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
-ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\3852184f221ed60779eac34947b7f6b2\transformed\profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\7a08057dc7201b6b1495bf5c179e9b69\transformed\profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
 action#androidx.profileinstaller.action.INSTALL_PROFILE
-ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\3852184f221ed60779eac34947b7f6b2\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\7a08057dc7201b6b1495bf5c179e9b69\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
 	android:name
-		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\3852184f221ed60779eac34947b7f6b2\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\7a08057dc7201b6b1495bf5c179e9b69\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
 intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
-ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\3852184f221ed60779eac34947b7f6b2\transformed\profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\7a08057dc7201b6b1495bf5c179e9b69\transformed\profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
 action#androidx.profileinstaller.action.SKIP_FILE
-ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\3852184f221ed60779eac34947b7f6b2\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\7a08057dc7201b6b1495bf5c179e9b69\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
 	android:name
-		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\3852184f221ed60779eac34947b7f6b2\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\7a08057dc7201b6b1495bf5c179e9b69\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
 intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
-ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\3852184f221ed60779eac34947b7f6b2\transformed\profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\7a08057dc7201b6b1495bf5c179e9b69\transformed\profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
 action#androidx.profileinstaller.action.SAVE_PROFILE
-ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\3852184f221ed60779eac34947b7f6b2\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\7a08057dc7201b6b1495bf5c179e9b69\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
 	android:name
-		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\3852184f221ed60779eac34947b7f6b2\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\7a08057dc7201b6b1495bf5c179e9b69\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
 intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
-ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\3852184f221ed60779eac34947b7f6b2\transformed\profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\7a08057dc7201b6b1495bf5c179e9b69\transformed\profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
 action#androidx.profileinstaller.action.BENCHMARK_OPERATION
-ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\3852184f221ed60779eac34947b7f6b2\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\7a08057dc7201b6b1495bf5c179e9b69\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
 	android:name
-		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\3852184f221ed60779eac34947b7f6b2\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Sedat CANLI\.gradle\caches\transforms-4\7a08057dc7201b6b1495bf5c179e9b69\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
