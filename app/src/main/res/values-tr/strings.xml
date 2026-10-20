@@ -25,9 +25,11 @@
     <string name="session_live_score">CANLI</string>
     <string name="session_avg_score">ORT.</string>
     <string name="transcript_label">Transkript</string>
+    <string name="transcript_listening">Dinliyorum…</string>
     <string name="transcript_downloading">Model indiriliyor… %1$d%%</string>
     <string name="transcript_loading">Model yükleniyor…</string>
     <string name="transcript_error">Transkript kullanılamıyor: %1$s</string>
+    <string name="settings_exit">Uygulamadan Çık</string>
 
     <string name="unit_per_min">/dk</string>
     <string name="unit_count">×</string>

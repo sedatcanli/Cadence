@@ -52,7 +52,7 @@ class VoskTranscriber(private val context: Context) {
         withContext(Dispatchers.IO) {
             runCatching {
                 val dir = modelDir()
-                if (!File(dir, "conf").isDirectory) {
+                if (!isModelReady(dir)) {
                     _state.update {
                         it.copy(status = TranscriptionStatus.DOWNLOADING, progress = 0, error = null)
                     }
@@ -63,6 +63,7 @@ class VoskTranscriber(private val context: Context) {
                 val loaded = Model(dir.absolutePath)
                 model = loaded
                 recognizer = Recognizer(loaded, SAMPLE_RATE)
+                Log.i(TAG, "Vosk ready with model $modelId")
                 _state.update { it.copy(status = TranscriptionStatus.READY, progress = 100) }
             }.onFailure { error ->
                 Log.e(TAG, "Vosk init failed", error)
@@ -116,6 +117,11 @@ class VoskTranscriber(private val context: Context) {
     }
 
     private fun modelDir(): File = File(context.filesDir, modelId)
+
+    private fun isModelReady(dir: File): Boolean =
+        File(dir, "final.mdl").isFile ||
+            File(dir, "am/final.mdl").isFile ||
+            File(dir, "conf/model.conf").isFile
 
     private fun downloadAndUnzip(target: File) {
         val archive = File(context.cacheDir, "$modelId.zip")

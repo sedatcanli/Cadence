@@ -137,15 +137,16 @@ fun SessionScreen(
 
         // Transcript display
         val transcription = state.transcription
-        val transcriptStatus = when (transcription.status) {
+        val statusText = when (transcription.status) {
             TranscriptionStatus.DOWNLOADING ->
                 stringResource(R.string.transcript_downloading, transcription.progress)
             TranscriptionStatus.LOADING -> stringResource(R.string.transcript_loading)
             TranscriptionStatus.ERROR ->
                 stringResource(R.string.transcript_error, transcription.error ?: "")
-            else -> null
+            TranscriptionStatus.READY, TranscriptionStatus.IDLE ->
+                if (transcription.text.isBlank()) stringResource(R.string.transcript_listening) else null
         }
-        if (transcriptStatus != null || transcription.text.isNotBlank()) {
+        if (state.isRunning || transcription.text.isNotBlank()) {
             Spacer(Modifier.height(16.dp))
             Column(
                 modifier = Modifier.fillMaxWidth(),
@@ -166,9 +167,9 @@ fun SessionScreen(
                         maxLines = 5,
                         overflow = TextOverflow.Ellipsis
                     )
-                } else if (transcriptStatus != null) {
+                } else if (statusText != null) {
                     Text(
-                        text = transcriptStatus,
+                        text = statusText,
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         textAlign = TextAlign.Center
