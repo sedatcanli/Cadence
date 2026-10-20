@@ -5,6 +5,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlin.math.sqrt
+import kotlin.math.roundToInt
 
 class MetricsEngine(
     private val sampleRate: Int = 16_000,
@@ -36,6 +37,14 @@ class MetricsEngine(
     private var lastRmsDb = -90f
     private var lastSpeaking = false
 
+    // Speech activity tracking
+    private var hasSpeechStarted = false
+    private var anySpeechDetected = false
+
+    // Running average score
+    private var scoreSum = 0f
+    private var scoreSnapshotCount = 0
+
     fun process(frame: ShortArray, timestampMs: Long) {
         if (totalFrames == 0) {
             lastSnapshotMs = 0L
@@ -46,36 +55,45 @@ class MetricsEngine(
         val rmsDb = vad.rmsDb(frame)
         lastSpeaking = speaking
         lastRmsDb = rmsDb
-        if (speaking) speechFrames++
-
-        val pitch = if (speaking) {
-            pitchDetector.detect(FloatArray(frame.size) { frame[it] / 32768f })
-        } else {
-            null
-        }
-
-        if (pitch != null && pitch in 70f..400f) {
-            pitchWindow.addLast(timestampMs to pitch)
-            while (pitchWindow.isNotEmpty() && timestampMs - pitchWindow.first().first > PITCH_WINDOW_MS) {
-                pitchWindow.removeFirst()
+        if (speaking) {
+            speechFrames++
+            if (!hasSpeechStarted) {
+                hasSpeechStarted = true
+                anySpeechDetected = true
             }
         }
 
-        updatePause(speaking, timestampMs)
-        syllableCounter.process(frame, timestampMs)
+        // Only process events and metrics if speech has started
+        if (hasSpeechStarted) {
+            val pitch = if (speaking) {
+                pitchDetector.detect(FloatArray(frame.size) { frame[it] / 32768f })
+            } else {
+                null
+            }
 
-        if (fillerDetector.update(speaking, timestampMs, pitch)) {
-            fillerCount++
-            emit(CoachingEvent.FILLER, timestampMs)
+            if (pitch != null && pitch in 70f..400f) {
+                pitchWindow.addLast(timestampMs to pitch)
+                while (pitchWindow.isNotEmpty() && timestampMs - pitchWindow.first().first > PITCH_WINDOW_MS) {
+                    pitchWindow.removeFirst()
+                }
+            }
+
+            updatePause(speaking, timestampMs)
+            syllableCounter.process(frame, timestampMs)
+
+            if (fillerDetector.update(speaking, timestampMs, pitch)) {
+                fillerCount++
+                emit(CoachingEvent.FILLER, timestampMs)
+            }
+
+            val pace = syllableCounter.syllablesPerMinute(timestampMs)
+            updatePace(pace, timestampMs)
+            updateVolume(speaking, rmsDb, timestampMs)
         }
-
-        val pace = syllableCounter.syllablesPerMinute(timestampMs)
-        updatePace(pace, timestampMs)
-        updateVolume(speaking, rmsDb, timestampMs)
 
         if (timestampMs - lastSnapshotMs >= SNAPSHOT_INTERVAL_MS) {
             lastSnapshotMs = timestampMs
-            publish(timestampMs, pace)
+            publish(timestampMs, syllableCounter.syllablesPerMinute(timestampMs))
         }
     }
 
@@ -134,14 +152,24 @@ class MetricsEngine(
         val speechRatio = if (totalFrames == 0) 0f else speechFrames.toFloat() / totalFrames
         val pitchStd = pitchStdDeviation()
         val duration = timestampMs.coerceAtLeast(1_000L)
-        val score = ScoreCalculator.score(
-            pace = pace,
-            fillerCount = fillerCount,
-            longPauseCount = longPauseCount,
-            pitchStdHz = pitchStd,
-            speechRatio = speechRatio,
-            durationMs = duration
-        )
+
+        var liveScore = 0
+        var averageScore = 0
+
+        if (hasSpeechStarted && anySpeechDetected) {
+            liveScore = ScoreCalculator.score(
+                pace = pace,
+                fillerCount = fillerCount,
+                longPauseCount = longPauseCount,
+                pitchStdHz = pitchStd,
+                speechRatio = speechRatio,
+                durationMs = duration
+            )
+
+            scoreSum += liveScore
+            scoreSnapshotCount++
+            averageScore = (scoreSum / scoreSnapshotCount).roundToInt()
+        }
 
         _metrics.value = LiveMetrics(
             elapsedMs = timestampMs,
@@ -153,7 +181,9 @@ class MetricsEngine(
             rmsDb = lastRmsDb,
             speechRatio = speechRatio,
             isSpeaking = lastSpeaking,
-            liveScore = score
+            liveScore = liveScore,
+            averageScore = averageScore,
+            hasAnySpeech = anySpeechDetected
         )
     }
 

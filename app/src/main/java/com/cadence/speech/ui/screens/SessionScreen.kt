@@ -87,7 +87,50 @@ fun SessionScreen(
 
         Spacer(Modifier.height(32.dp))
 
-        ScoreRing(score = metrics.liveScore, size = 156.dp, strokeWidth = 12.dp)
+        ScoreRing(
+                score = if (metrics.hasAnySpeech) metrics.averageScore else 0,
+                size = 156.dp,
+                strokeWidth = 12.dp,
+                caption = if (metrics.hasAnySpeech) stringResource(R.string.session_avg_score) else ""
+            )
+
+        if (metrics.hasAnySpeech) {
+            Spacer(Modifier.height(8.dp))
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(24.dp)
+            ) {
+                Column(modifier = Modifier.weight(1f), horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text(
+                        text = stringResource(R.string.session_live_score),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    Spacer(Modifier.height(4.dp))
+                    Text(
+                        text = metrics.liveScore.toString(),
+                        style = MaterialTheme.typography.titleLarge,
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.secondary
+                    )
+                }
+                Column(modifier = Modifier.weight(1f), horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text(
+                        text = stringResource(R.string.session_avg_score),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    Spacer(Modifier.height(4.dp))
+                    Text(
+                        text = metrics.averageScore.toString(),
+                        style = MaterialTheme.typography.titleLarge,
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.primary
+                    )
+                }
+            }
+            Spacer(Modifier.height(8.dp))
+        }
 
         Spacer(Modifier.height(32.dp))
 

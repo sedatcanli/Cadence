@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "C:\\Users\\Sedat CANLI\\.gradle\\daemon\\8.7\\com.cadence.speech.app-debug-51:\\drawable_ic_stat_cadence.xml.flat",
+        "source": "C:\\Users\\Sedat CANLI\\.gradle\\daemon\\8.7\\com.cadence.speech.app-main-53:\\drawable\\ic_stat_cadence.xml"
+    },
+    {
+        "merged": "C:\\Users\\Sedat CANLI\\.gradle\\daemon\\8.7\\com.cadence.speech.app-debug-51:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Sedat CANLI\\.gradle\\daemon\\8.7\\com.cadence.speech.app-main-53:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\Sedat CANLI\\.gradle\\daemon\\8.7\\com.cadence.speech.app-debug-51:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\Sedat CANLI\\.gradle\\daemon\\8.7\\com.cadence.speech.app-main-53:\\drawable\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.cadence.speech.app-debug-51:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.cadence.speech.app-main-53:/mipmap-anydpi-v26/ic_launcher.xml"
+    }
+]

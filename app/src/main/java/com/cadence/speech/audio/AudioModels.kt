@@ -16,7 +16,9 @@ data class LiveMetrics(
     val rmsDb: Float = -90f,
     val speechRatio: Float = 0f,
     val isSpeaking: Boolean = false,
-    val liveScore: Int = 0
+    val liveScore: Int = 0,
+    val averageScore: Int = 0,
+    val hasAnySpeech: Boolean = false
 )
 
 enum class CoachingEvent {
