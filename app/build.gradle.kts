@@ -4,6 +4,31 @@ plugins {
     alias(libs.plugins.kotlin.compose)
 }
 
+import java.io.File
+
+// Auto versioning from git
+fun getVersionCode(): Int {
+    try {
+        val process = Runtime.getRuntime().exec("git rev-list --count HEAD")
+        process.waitFor()
+        val output = process.inputStream.bufferedReader().readText().trim()
+        return output.toIntOrNull() ?: 1
+    } catch (e: Exception) {
+        return 1
+    }
+}
+
+fun getVersionName(): String {
+    try {
+        val process = Runtime.getRuntime().exec("git describe --tags --always --dirty=-dirty")
+        process.waitFor()
+        val output = process.inputStream.bufferedReader().readText().trim()
+        return if (output.startsWith("v")) output.substring(1) else output
+    } catch (e: Exception) {
+        return "0.1.0-dev"
+    }
+}
+
 android {
     namespace = "com.cadence.speech"
     compileSdk = 34
@@ -12,8 +37,8 @@ android {
         applicationId = "com.cadence.speech"
         minSdk = 26
         targetSdk = 34
-        versionCode = 1
-        versionName = "0.1.0"
+        versionCode = getVersionCode()
+        versionName = getVersionName()
     }
 
     buildTypes {
