@@ -97,7 +97,10 @@ class SessionController(
     }
 
     private fun startSpeechRecognizer() {
-        if (!SpeechRecognizer.isRecognitionAvailable(context)) return
+        if (!SpeechRecognizer.isRecognitionAvailable(context)) {
+            _state.update { it.copy(transcript = "SpeechRecognizer kullanılamıyor") }
+            return
+        }
 
         val recognizer = SpeechRecognizer.createSpeechRecognizer(context)
         speechRecognizer = recognizer
@@ -117,7 +120,19 @@ class SessionController(
             override fun onEndOfSpeech() {}
 
             override fun onError(error: Int) {
-                // Ignore common errors (no speech, timeout, etc.)
+                val errorMsg = when (error) {
+                    SpeechRecognizer.ERROR_NETWORK_TIMEOUT -> "Ağ zaman aşımı"
+                    SpeechRecognizer.ERROR_NETWORK -> "Ağ hatası"
+                    SpeechRecognizer.ERROR_AUDIO -> "Ses hatası"
+                    SpeechRecognizer.ERROR_SERVER -> "Sunucu hatası"
+                    SpeechRecognizer.ERROR_CLIENT -> "İstemci hatası"
+                    SpeechRecognizer.ERROR_SPEECH_TIMEOUT -> "Konuşma zaman aşımı"
+                    SpeechRecognizer.ERROR_NO_MATCH -> "Eşleşme yok"
+                    SpeechRecognizer.ERROR_RECOGNIZER_BUSY -> "Meşgul"
+                    SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS -> "İzin yok"
+                    else -> "Hata kodu: $error"
+                }
+                _state.update { it.copy(transcript = "STT Hatası: $errorMsg") }
             }
 
             override fun onResults(results: Bundle?) {
@@ -140,7 +155,7 @@ class SessionController(
         try {
             recognizer.startListening(intent)
         } catch (e: Exception) {
-            // Ignore if already listening
+            _state.update { it.copy(transcript = "STT Başlatılamadı: ${e.message}") }
         }
     }
 
