@@ -26,12 +26,32 @@ class UserPreferences(context: Context) {
         get() = prefs.getString(KEY_LANGUAGE, DEFAULT_LANGUAGE) ?: DEFAULT_LANGUAGE
         set(value) = prefs.edit().putString(KEY_LANGUAGE, value).apply()
 
+    fun usedSuggestionIds(): Set<String> {
+        val raw = prefs.getString(KEY_USED_SUGGESTIONS, null) ?: return emptySet()
+        return raw.split(',').filter { it.isNotBlank() }.toSet()
+    }
+
+    fun markSuggestionUsed(id: String) {
+        if (id.isBlank()) return
+        val ids = usedSuggestionIds().toMutableList()
+        if (id in ids) return
+        ids += id
+        val trimmed = if (ids.size > MAX_USED_SUGGESTIONS) {
+            ids.takeLast(MAX_USED_SUGGESTIONS)
+        } else {
+            ids
+        }
+        prefs.edit().putString(KEY_USED_SUGGESTIONS, trimmed.joinToString(",")).apply()
+    }
+
     private companion object {
         const val KEY_HAPTIC = "haptic_enabled"
         const val KEY_AUDIO = "audio_enabled"
         const val KEY_SENSITIVITY = "sensitivity"
         const val KEY_ONBOARDING = "onboarding_done"
         const val KEY_LANGUAGE = "transcription_language"
+        const val KEY_USED_SUGGESTIONS = "used_suggestions"
         const val DEFAULT_LANGUAGE = "en"
+        const val MAX_USED_SUGGESTIONS = 2_000
     }
 }

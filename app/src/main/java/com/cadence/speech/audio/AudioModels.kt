@@ -19,7 +19,8 @@ data class LiveMetrics(
     val liveScore: Int = 0,
     val averageScore: Int = 0,
     val hasAnySpeech: Boolean = false,
-    val transcript: String = ""
+    val transcript: String = "",
+    val scoreHistory: List<Int> = emptyList()
 )
 
 enum class CoachingEvent {

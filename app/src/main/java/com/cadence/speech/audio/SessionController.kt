@@ -3,6 +3,7 @@ package com.cadence.speech.audio
 import android.content.Context
 import android.os.SystemClock
 import com.cadence.speech.data.SessionRepository
+import com.cadence.speech.domain.RecommendationEngine
 import com.cadence.speech.domain.SessionMode
 import com.cadence.speech.domain.SessionReport
 import com.cadence.speech.domain.profile
@@ -130,7 +131,7 @@ class SessionController(
         val metrics = currentEngine?.snapshot() ?: LiveMetrics()
         val duration = (SystemClock.elapsedRealtime() - startedAtElapsed).coerceAtLeast(1_000L)
 
-        val report = SessionReport(
+        val baseReport = SessionReport(
             id = UUID.randomUUID().toString(),
             startedAt = startedAtWallClock,
             durationMs = duration,
@@ -144,6 +145,19 @@ class SessionController(
             speechRatio = metrics.speechRatio,
             transcript = transcript,
             transcriptMarked = transcriptMarked
+        )
+
+        val language = context.resources.configuration.locales[0].language
+        val suggestion = RecommendationEngine.suggest(
+            report = baseReport,
+            language = language,
+            usedIds = preferences.usedSuggestionIds()
+        )
+        preferences.markSuggestionUsed(suggestion.id)
+
+        val report = baseReport.copy(
+            recommendation = suggestion.text,
+            recommendationId = suggestion.id
         )
         repository.save(report)
 

@@ -44,6 +44,7 @@ import com.cadence.speech.transcription.LONG_PAUSE_MS
 import com.cadence.speech.transcription.TranscriptionStatus
 import com.cadence.speech.transcription.fillerRanges
 import com.cadence.speech.transcription.formatPause
+import com.cadence.speech.ui.components.AverageScoreChart
 import com.cadence.speech.ui.components.ScoreRing
 import com.cadence.speech.ui.components.StatPill
 import com.cadence.speech.ui.theme.Primary
@@ -113,37 +114,26 @@ fun SessionScreen(
             Spacer(Modifier.height(8.dp))
             Row(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(24.dp)
+                horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                Column(modifier = Modifier.weight(1f), horizontalAlignment = Alignment.CenterHorizontally) {
-                    Text(
-                        text = stringResource(R.string.session_live_score),
-                        style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                    Spacer(Modifier.height(4.dp))
-                    Text(
-                        text = metrics.liveScore.toString(),
-                        style = MaterialTheme.typography.titleLarge,
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.secondary
-                    )
-                }
-                Column(modifier = Modifier.weight(1f), horizontalAlignment = Alignment.CenterHorizontally) {
-                    Text(
-                        text = stringResource(R.string.session_avg_score),
-                        style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                    Spacer(Modifier.height(4.dp))
-                    Text(
-                        text = metrics.averageScore.toString(),
-                        style = MaterialTheme.typography.titleLarge,
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.primary
-                    )
-                }
+                Text(
+                    text = stringResource(R.string.session_avg_score),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+                Text(
+                    text = stringResource(R.string.session_live_score) + " " + metrics.liveScore,
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.secondary
+                )
             }
+            Spacer(Modifier.height(6.dp))
+            AverageScoreChart(
+                history = metrics.scoreHistory,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(64.dp)
+            )
             Spacer(Modifier.height(8.dp))
         }
 

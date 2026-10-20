@@ -180,7 +180,7 @@ fun ReportScreen(
         )
         Spacer(Modifier.height(8.dp))
         Text(
-            text = stringResource(insightText(report.insight())),
+            text = report.recommendation.ifBlank { stringResource(insightText(report.insight())) },
             style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.onBackground
         )

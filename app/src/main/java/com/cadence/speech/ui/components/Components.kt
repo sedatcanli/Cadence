@@ -96,6 +96,54 @@ fun ScoreRing(
 }
 
 @Composable
+fun AverageScoreChart(
+    history: List<Int>,
+    modifier: Modifier = Modifier
+) {
+    val lineColor = Primary
+    val gridColor = Color.White.copy(alpha = 0.07f)
+
+    Canvas(modifier = modifier) {
+        val gridStroke = 1.dp.toPx()
+        for (i in 1..3) {
+            val y = size.height * i / 4f
+            drawLine(
+                color = gridColor,
+                start = androidx.compose.ui.geometry.Offset(0f, y),
+                end = androidx.compose.ui.geometry.Offset(size.width, y),
+                strokeWidth = gridStroke
+            )
+        }
+
+        if (history.size < 2) return@Canvas
+
+        val points = history.takeLast(MAX_CHART_POINTS)
+        val stepX = size.width / (points.size - 1).coerceAtLeast(1)
+        val path = androidx.compose.ui.graphics.Path()
+        points.forEachIndexed { index, score ->
+            val x = index * stepX
+            val y = size.height - (score.coerceIn(0, 100) / 100f) * size.height
+            if (index == 0) path.moveTo(x, y) else path.lineTo(x, y)
+        }
+        drawPath(
+            path = path,
+            color = lineColor,
+            style = Stroke(width = 2.dp.toPx(), cap = StrokeCap.Round)
+        )
+
+        val lastX = (points.size - 1) * stepX
+        val lastY = size.height - (points.last().coerceIn(0, 100) / 100f) * size.height
+        drawCircle(
+            color = lineColor,
+            radius = 3.dp.toPx(),
+            center = androidx.compose.ui.geometry.Offset(lastX, lastY)
+        )
+    }
+}
+
+private const val MAX_CHART_POINTS = 180
+
+@Composable
 fun MetricRow(
     label: String,
     value: String,

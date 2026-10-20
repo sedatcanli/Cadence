@@ -19,7 +19,9 @@ data class SessionReport(
     val pitchStdHz: Float,
     val speechRatio: Float,
     val transcript: String = "",
-    val transcriptMarked: String = ""
+    val transcriptMarked: String = "",
+    val recommendation: String = "",
+    val recommendationId: String = ""
 )
 
 enum class Insight {

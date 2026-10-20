@@ -61,6 +61,8 @@ class SessionRepository(context: Context) {
         put("speechRatio", speechRatio.toDouble())
         put("transcript", transcript)
         put("transcriptMarked", transcriptMarked)
+        put("recommendation", recommendation)
+        put("recommendationId", recommendationId)
     }
 
     private fun JSONObject.toReport() = SessionReport(
@@ -76,6 +78,8 @@ class SessionRepository(context: Context) {
         pitchStdHz = getDouble("pitchStdHz").toFloat(),
         speechRatio = getDouble("speechRatio").toFloat(),
         transcript = optString("transcript"),
-        transcriptMarked = optString("transcriptMarked")
+        transcriptMarked = optString("transcriptMarked"),
+        recommendation = optString("recommendation"),
+        recommendationId = optString("recommendationId")
     )
 }

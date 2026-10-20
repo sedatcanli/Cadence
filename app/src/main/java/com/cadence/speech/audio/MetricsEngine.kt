@@ -49,6 +49,9 @@ class MetricsEngine(
     private var scoreSum = 0f
     private var scoreSnapshotCount = 0
 
+    private val scoreHistory = ArrayDeque<Int>()
+    private var lastHistoryMs = 0L
+
     fun process(frame: ShortArray, timestampMs: Long) {
         if (totalFrames == 0) {
             lastSnapshotMs = 0L
@@ -174,6 +177,14 @@ class MetricsEngine(
             scoreSum += liveScore
             scoreSnapshotCount++
             averageScore = (scoreSum / scoreSnapshotCount).roundToInt()
+
+            if (timestampMs - lastHistoryMs >= SCORE_HISTORY_INTERVAL_MS) {
+                lastHistoryMs = timestampMs
+                scoreHistory.addLast(averageScore)
+                while (scoreHistory.size > SCORE_HISTORY_MAX) {
+                    scoreHistory.removeFirst()
+                }
+            }
         }
 
         _metrics.value = LiveMetrics(
@@ -189,7 +200,8 @@ class MetricsEngine(
             liveScore = liveScore,
             averageScore = averageScore,
             hasAnySpeech = anySpeechDetected,
-            transcript = ""
+            transcript = "",
+            scoreHistory = scoreHistory.toList()
         )
     }
 
@@ -208,5 +220,7 @@ class MetricsEngine(
         const val SNAPSHOT_INTERVAL_MS = 100L
         const val PITCH_WINDOW_MS = 10_000L
         const val PAUSE_THRESHOLD_MS = 700L
+        const val SCORE_HISTORY_INTERVAL_MS = 1_000L
+        const val SCORE_HISTORY_MAX = 300
     }
 }
