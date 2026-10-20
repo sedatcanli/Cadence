@@ -25,6 +25,9 @@
     <string name="session_live_score">LIVE</string>
     <string name="session_avg_score">AVG.</string>
     <string name="transcript_label">Transkript</string>
+    <string name="transcript_downloading">Model indiriliyor… %1$d%%</string>
+    <string name="transcript_loading">Model yükleniyor…</string>
+    <string name="transcript_error">Transkript kullanılamıyor: %1$s</string>
 
     <string name="unit_per_min">/min</string>
     <string name="unit_count">×</string>

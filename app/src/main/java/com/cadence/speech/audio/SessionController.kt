@@ -1,18 +1,15 @@
 package com.cadence.speech.audio
 
 import android.content.Context
-import android.content.Intent
-import android.os.Bundle
 import android.os.SystemClock
-import android.speech.RecognitionListener
-import android.speech.RecognizerIntent
-import android.speech.SpeechRecognizer
 import com.cadence.speech.data.SessionRepository
 import com.cadence.speech.domain.SessionMode
 import com.cadence.speech.domain.SessionReport
 import com.cadence.speech.feedback.FeedbackDispatcher
 import com.cadence.speech.service.SessionService
 import com.cadence.speech.settings.UserPreferences
+import com.cadence.speech.transcription.TranscriptionState
+import com.cadence.speech.transcription.VoskTranscriber
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -31,7 +28,7 @@ data class SessionUiState(
     val metrics: LiveMetrics = LiveMetrics(),
     val lastReportId: String? = null,
     val error: String? = null,
-    val transcript: String = ""
+    val transcription: TranscriptionState = TranscriptionState()
 )
 
 class SessionController(
@@ -49,7 +46,7 @@ class SessionController(
 
     private var engine: MetricsEngine? = null
     private var capture: AudioCapture? = null
-    private var speechRecognizer: SpeechRecognizer? = null
+    private var transcriber: VoskTranscriber? = null
     private var mode: SessionMode = SessionMode.FREE
     private var startedAtWallClock = 0L
     private var startedAtElapsed = 0L
@@ -68,20 +65,25 @@ class SessionController(
         )
         this.engine = engine
 
-        _state.value = SessionUiState(isRunning = true, startedAt = startedAtWallClock, transcript = "")
+        val transcriber = VoskTranscriber(context)
+        this.transcriber = transcriber
+
+        _state.value = SessionUiState(
+            isRunning = true,
+            startedAt = startedAtWallClock,
+            transcription = transcriber.state.value
+        )
 
         SessionService.start(context)
 
         val capture = AudioCapture()
         this.capture = capture
 
-        // Start SpeechRecognizer for on-device transcription
-        startSpeechRecognizer()
-
         jobs += scope.launch {
             runCatching {
                 capture.frames().collect { frame ->
                     engine.process(frame.samples, frame.timestampMs)
+                    transcriber.accept(frame.samples)
                 }
             }.onFailure { error ->
                 _state.update { it.copy(error = error.message) }
@@ -94,68 +96,15 @@ class SessionController(
                 _state.update { it.copy(metrics = metrics) }
             }
         }
-    }
 
-    private fun startSpeechRecognizer() {
-        if (!SpeechRecognizer.isRecognitionAvailable(context)) {
-            _state.update { it.copy(transcript = "SpeechRecognizer kullanılamıyor") }
-            return
+        jobs += scope.launch {
+            transcriber.state.collect { transcription ->
+                _state.update { it.copy(transcription = transcription) }
+            }
         }
 
-        val recognizer = SpeechRecognizer.createSpeechRecognizer(context)
-        speechRecognizer = recognizer
-
-        val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).apply {
-            putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
-            putExtra(RecognizerIntent.EXTRA_LANGUAGE, "tr-TR")
-            putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, true)
-            putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 1)
-        }
-
-        recognizer.setRecognitionListener(object : RecognitionListener {
-            override fun onReadyForSpeech(params: Bundle?) {}
-            override fun onBeginningOfSpeech() {}
-            override fun onRmsChanged(rmsdB: Float) {}
-            override fun onBufferReceived(buffer: ByteArray?) {}
-            override fun onEndOfSpeech() {}
-
-            override fun onError(error: Int) {
-                val errorMsg = when (error) {
-                    SpeechRecognizer.ERROR_NETWORK_TIMEOUT -> "Ağ zaman aşımı"
-                    SpeechRecognizer.ERROR_NETWORK -> "Ağ hatası"
-                    SpeechRecognizer.ERROR_AUDIO -> "Ses hatası"
-                    SpeechRecognizer.ERROR_SERVER -> "Sunucu hatası"
-                    SpeechRecognizer.ERROR_CLIENT -> "İstemci hatası"
-                    SpeechRecognizer.ERROR_SPEECH_TIMEOUT -> "Konuşma zaman aşımı"
-                    SpeechRecognizer.ERROR_NO_MATCH -> "Eşleşme yok"
-                    SpeechRecognizer.ERROR_RECOGNIZER_BUSY -> "Meşgul"
-                    SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS -> "İzin yok"
-                    else -> "Hata kodu: $error"
-                }
-                _state.update { it.copy(transcript = "STT Hatası: $errorMsg") }
-            }
-
-            override fun onResults(results: Bundle?) {
-                val matches = results?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
-                matches?.firstOrNull()?.let { finalText ->
-                    _state.update { it.copy(transcript = finalText) }
-                }
-            }
-
-            override fun onPartialResults(partialResults: Bundle?) {
-                val matches = partialResults?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
-                matches?.firstOrNull()?.let { partialText ->
-                    _state.update { it.copy(transcript = partialText) }
-                }
-            }
-
-            override fun onEvent(eventType: Int, params: Bundle?) {}
-        })
-
-        try {
-            recognizer.startListening(intent)
-        } catch (e: Exception) {
-            _state.update { it.copy(transcript = "STT Başlatılamadı: ${e.message}") }
+        jobs += scope.launch {
+            transcriber.prepare()
         }
     }
 
@@ -168,10 +117,8 @@ class SessionController(
         jobs.clear()
         SessionService.stop(context)
 
-        // Stop SpeechRecognizer
-        speechRecognizer?.stopListening()
-        speechRecognizer?.destroy()
-        speechRecognizer = null
+        transcriber?.close()
+        transcriber = null
 
         val metrics = currentEngine?.snapshot() ?: LiveMetrics()
         val duration = (SystemClock.elapsedRealtime() - startedAtElapsed).coerceAtLeast(1_000L)
@@ -210,7 +157,7 @@ class SessionController(
         capture?.stop()
         jobs.forEach { it.cancel() }
         scope.cancel()
-        speechRecognizer?.destroy()
-        speechRecognizer = null
+        transcriber?.close()
+        transcriber = null
     }
 }

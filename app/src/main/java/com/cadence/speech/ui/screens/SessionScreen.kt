@@ -31,6 +31,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.cadence.speech.R
 import com.cadence.speech.di.AppContainer
+import com.cadence.speech.transcription.TranscriptionStatus
 import com.cadence.speech.ui.components.ScoreRing
 import com.cadence.speech.ui.components.StatPill
 import com.cadence.speech.ui.theme.Primary
@@ -135,8 +136,16 @@ fun SessionScreen(
         }
 
         // Transcript display
-        val transcript = state.transcript
-        if (transcript.isNotBlank()) {
+        val transcription = state.transcription
+        val transcriptStatus = when (transcription.status) {
+            TranscriptionStatus.DOWNLOADING ->
+                stringResource(R.string.transcript_downloading, transcription.progress)
+            TranscriptionStatus.LOADING -> stringResource(R.string.transcript_loading)
+            TranscriptionStatus.ERROR ->
+                stringResource(R.string.transcript_error, transcription.error ?: "")
+            else -> null
+        }
+        if (transcriptStatus != null || transcription.text.isNotBlank()) {
             Spacer(Modifier.height(16.dp))
             Column(
                 modifier = Modifier.fillMaxWidth(),
@@ -148,14 +157,23 @@ fun SessionScreen(
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
                 Spacer(Modifier.height(4.dp))
-                Text(
-                    text = transcript,
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onBackground,
-                    textAlign = TextAlign.Center,
-                    maxLines = 5,
-                    overflow = TextOverflow.Ellipsis
-                )
+                if (transcription.text.isNotBlank()) {
+                    Text(
+                        text = transcription.text,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onBackground,
+                        textAlign = TextAlign.Center,
+                        maxLines = 5,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                } else if (transcriptStatus != null) {
+                    Text(
+                        text = transcriptStatus,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        textAlign = TextAlign.Center
+                    )
+                }
             }
         }
 

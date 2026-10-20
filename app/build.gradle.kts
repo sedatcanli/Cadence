@@ -41,9 +41,19 @@ android {
         versionName = getVersionName()
     }
 
+    signingConfigs {
+        getByName("debug") {
+            storeFile = rootProject.file("debug.keystore")
+            storePassword = "android"
+            keyAlias = "androiddebugkey"
+            keyPassword = "android"
+        }
+    }
+
     buildTypes {
         debug {
             isDebuggable = true
+            signingConfig = signingConfigs.getByName("debug")
         }
         release {
             isMinifyEnabled = false
@@ -87,6 +97,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.vosk.android)
 
     debugImplementation(libs.androidx.ui.tooling)
 }
