@@ -16,11 +16,37 @@ data class VoiceModel(
 
 val VOICE_MODELS = listOf(
     VoiceModel("en", "English", "vosk-model-small-en-us-0.15"),
+    VoiceModel("en-IN", "English (India)", "vosk-model-small-en-in-0.4"),
     VoiceModel("tr", "Türkçe", "vosk-model-small-tr-0.3"),
     VoiceModel("de", "Deutsch", "vosk-model-small-de-0.15"),
     VoiceModel("fr", "Français", "vosk-model-small-fr-0.22"),
     VoiceModel("es", "Español", "vosk-model-small-es-0.42"),
-    VoiceModel("ru", "Русский", "vosk-model-small-ru-0.22")
+    VoiceModel("pt", "Português", "vosk-model-small-pt-0.3"),
+    VoiceModel("it", "Italiano", "vosk-model-small-it-0.22"),
+    VoiceModel("nl", "Nederlands", "vosk-model-small-nl-0.22"),
+    VoiceModel("ca", "Català", "vosk-model-small-ca-0.4"),
+    VoiceModel("ru", "Русский", "vosk-model-small-ru-0.22"),
+    VoiceModel("uk", "Українська", "vosk-model-small-uk-v3-nano"),
+    VoiceModel("pl", "Polski", "vosk-model-small-pl-0.22"),
+    VoiceModel("cs", "Čeština", "vosk-model-small-cs-0.4-rhasspy"),
+    VoiceModel("sv", "Svenska", "vosk-model-small-sv-rhasspy-0.15"),
+    VoiceModel("hi", "हिन्दी", "vosk-model-small-hi-0.22"),
+    VoiceModel("gu", "ગુજરાતી", "vosk-model-small-gu-0.42"),
+    VoiceModel("te", "తెలుగు", "vosk-model-small-te-0.42"),
+    VoiceModel("ar", "العربية", "vosk-model-ar-mgb2-0.4"),
+    VoiceModel("fa", "فارسی", "vosk-model-small-fa-0.42"),
+    VoiceModel("tg", "Тоҷикӣ", "vosk-model-small-tg-0.22"),
+    VoiceModel("uz", "Oʻzbekcha", "vosk-model-small-uz-0.22"),
+    VoiceModel("kk", "Қазақша", "vosk-model-small-kz-0.42"),
+    VoiceModel("ky", "Кыргызча", "vosk-model-small-ky-0.42"),
+    VoiceModel("ka", "ქართული", "vosk-model-small-ka-0.42"),
+    VoiceModel("zh", "中文", "vosk-model-small-cn-0.22"),
+    VoiceModel("ja", "日本語", "vosk-model-small-ja-0.22"),
+    VoiceModel("ko", "한국어", "vosk-model-small-ko-0.22"),
+    VoiceModel("vi", "Tiếng Việt", "vosk-model-small-vn-0.4"),
+    VoiceModel("tl", "Filipino", "vosk-model-tl-ph-generic-0.6"),
+    VoiceModel("eo", "Esperanto", "vosk-model-small-eo-0.42"),
+    VoiceModel("br", "Brezhoneg", "vosk-model-br-0.8")
 )
 
 fun voiceModelFor(code: String): VoiceModel =

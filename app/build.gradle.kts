@@ -4,30 +4,14 @@ plugins {
     alias(libs.plugins.kotlin.compose)
 }
 
-import java.io.File
+import java.util.Properties
 
-// Auto versioning from git
-fun getVersionCode(): Int {
-    try {
-        val process = Runtime.getRuntime().exec("git rev-list --count HEAD")
-        process.waitFor()
-        val output = process.inputStream.bufferedReader().readText().trim()
-        return output.toIntOrNull() ?: 1
-    } catch (e: Exception) {
-        return 1
-    }
+val versionProps = Properties().apply {
+    val file = rootProject.file("version.properties")
+    if (file.exists()) file.inputStream().use { load(it) }
 }
-
-fun getVersionName(): String {
-    try {
-        val process = Runtime.getRuntime().exec("git describe --tags --always --dirty=-dirty")
-        process.waitFor()
-        val output = process.inputStream.bufferedReader().readText().trim()
-        return if (output.startsWith("v")) output.substring(1) else output
-    } catch (e: Exception) {
-        return "0.1.0-dev"
-    }
-}
+val appVersionName = versionProps.getProperty("versionName", "10.200")
+val appVersionCode = appVersionName.replace(".", "").toIntOrNull() ?: 1
 
 android {
     namespace = "com.cadence.speech"
@@ -37,12 +21,18 @@ android {
         applicationId = "com.cadence.speech"
         minSdk = 26
         targetSdk = 34
-        versionCode = getVersionCode()
-        versionName = getVersionName()
+        versionCode = appVersionCode
+        versionName = appVersionName
     }
 
     signingConfigs {
         getByName("debug") {
+            storeFile = rootProject.file("debug.keystore")
+            storePassword = "android"
+            keyAlias = "androiddebugkey"
+            keyPassword = "android"
+        }
+        create("release") {
             storeFile = rootProject.file("debug.keystore")
             storePassword = "android"
             keyAlias = "androiddebugkey"
@@ -56,7 +46,9 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
         release {
+            isDebuggable = false
             isMinifyEnabled = false
+            signingConfig = signingConfigs.getByName("release")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
