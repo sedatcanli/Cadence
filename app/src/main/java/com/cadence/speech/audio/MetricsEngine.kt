@@ -55,6 +55,7 @@ class MetricsEngine(
 
     private val scoreHistory = ArrayDeque<Int>()
     private val paceHistory = ArrayDeque<Int>()
+    private val speechHistory = ArrayDeque<Boolean>()
     private val recentScores = ArrayDeque<Pair<Long, Int>>()
     private val fillerMarkers = mutableListOf<Int>()
     private val pauseMarkers = mutableListOf<Int>()
@@ -281,6 +282,11 @@ class MetricsEngine(
             100
         }
 
+        speechHistory.addLast(lastSpeaking)
+        while (speechHistory.size > SPEECH_HISTORY_MAX) {
+            speechHistory.removeFirst()
+        }
+
         _metrics.value = LiveMetrics(
             elapsedMs = timestampMs,
             pacePerMinute = pace,
@@ -298,6 +304,7 @@ class MetricsEngine(
             calibrationProgress = calibrationProgress,
             hasAnySpeech = hasSpeechStarted,
             transcript = "",
+            speechHistory = speechHistory.toList(),
             scoreHistory = scoreHistory.toList(),
             paceHistory = paceHistory.toList(),
             fillerMarkers = fillerMarkers.toList(),
@@ -325,5 +332,6 @@ class MetricsEngine(
         const val SCORE_HISTORY_INTERVAL_MS = 1_000L
         const val SCORE_HISTORY_MAX = 300
         const val RECENT_SCORE_WINDOW_MS = 10_000L
+        const val SPEECH_HISTORY_MAX = 100
     }
 }

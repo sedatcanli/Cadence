@@ -1,6 +1,11 @@
 package com.cadence.speech.ui.components
 
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -15,6 +20,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange
@@ -33,6 +39,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.CornerRadius
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
@@ -472,5 +480,72 @@ fun StatPill(label: String, value: String, modifier: Modifier = Modifier) {
             style = MaterialTheme.typography.labelSmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
+    }
+}
+
+@Composable
+fun SpeakingBadge(isSpeaking: Boolean, modifier: Modifier = Modifier) {
+    val pulse by rememberInfiniteTransition(label = "speechPulse").animateFloat(
+        initialValue = 0.2f,
+        targetValue = 1f,
+        animationSpec = infiniteRepeatable(tween(650), RepeatMode.Reverse),
+        label = "speechPulseAlpha"
+    )
+    val idleColor = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.45f)
+    Row(
+        modifier = modifier,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Box(modifier = Modifier.size(14.dp), contentAlignment = Alignment.Center) {
+            if (isSpeaking) {
+                Box(
+                    modifier = Modifier
+                        .size(14.dp)
+                        .background(Primary.copy(alpha = 0.22f * pulse), CircleShape)
+                )
+            }
+            Box(
+                modifier = Modifier
+                    .size(7.dp)
+                    .background(if (isSpeaking) Primary else idleColor, CircleShape)
+            )
+        }
+        Spacer(Modifier.width(6.dp))
+        Text(
+            text = stringResource(
+                if (isSpeaking) R.string.session_speech_detected else R.string.session_silence
+            ),
+            style = MaterialTheme.typography.labelSmall,
+            color = if (isSpeaking) Primary else MaterialTheme.colorScheme.onSurfaceVariant
+        )
+    }
+}
+
+@Composable
+fun SpeechTimeline(history: List<Boolean>, modifier: Modifier = Modifier) {
+    Canvas(
+        modifier = modifier
+            .fillMaxWidth()
+            .height(8.dp)
+    ) {
+        val corner = CornerRadius(size.height / 2)
+        drawRoundRect(
+            color = Color.White.copy(alpha = 0.06f),
+            size = size,
+            cornerRadius = corner
+        )
+        if (history.isEmpty()) return@Canvas
+        val gap = 1.dp.toPx()
+        val barWidth = ((size.width - gap * (history.size - 1)) / history.size)
+            .coerceAtLeast(1f)
+        history.forEachIndexed { index, spoken ->
+            drawRoundRect(
+                color = if (spoken) Primary.copy(alpha = 0.85f)
+                else Color.White.copy(alpha = 0.10f),
+                topLeft = Offset(index * (barWidth + gap), 0f),
+                size = Size(barWidth, size.height),
+                cornerRadius = corner
+            )
+        }
     }
 }

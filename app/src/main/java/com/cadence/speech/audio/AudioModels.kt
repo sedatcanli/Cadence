@@ -23,6 +23,7 @@ data class LiveMetrics(
     val calibrationProgress: Int = 100,
     val hasAnySpeech: Boolean = false,
     val transcript: String = "",
+    val speechHistory: List<Boolean> = emptyList(),
     val scoreHistory: List<Int> = emptyList(),
     val paceHistory: List<Int> = emptyList(),
     val fillerMarkers: List<Int> = emptyList(),

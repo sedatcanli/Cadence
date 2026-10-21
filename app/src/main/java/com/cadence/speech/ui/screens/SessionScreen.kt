@@ -47,6 +47,8 @@ import com.cadence.speech.transcription.formatPause
 import com.cadence.speech.ui.components.ChartLegend
 import com.cadence.speech.ui.components.LiveScoreRing
 import com.cadence.speech.ui.components.ScoreChart
+import com.cadence.speech.ui.components.SpeakingBadge
+import com.cadence.speech.ui.components.SpeechTimeline
 import com.cadence.speech.ui.components.StatPill
 import com.cadence.speech.ui.theme.Primary
 
@@ -79,11 +81,20 @@ fun SessionScreen(
             .padding(horizontal = 24.dp, vertical = 32.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(
-            text = stringResource(R.string.session_live).uppercase(),
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.secondary
-        )
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = stringResource(R.string.session_live).uppercase(),
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.secondary
+            )
+            if (!metrics.isCalibrating) {
+                SpeakingBadge(isSpeaking = metrics.isSpeaking)
+            }
+        }
 
         Spacer(Modifier.height(18.dp))
 
@@ -126,6 +137,10 @@ fun SessionScreen(
                 textAlign = TextAlign.Center
             )
         }
+
+        Spacer(Modifier.height(12.dp))
+        SpeechTimeline(history = metrics.speechHistory)
+        Spacer(Modifier.height(12.dp))
 
         if (metrics.hasAnySpeech) {
             Spacer(Modifier.height(8.dp))
