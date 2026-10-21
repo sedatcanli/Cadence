@@ -22,6 +22,8 @@
     <string name="stop_session">Durdur</string>
     <string name="session_live">Canlı seans</string>
     <string name="session_tip">Konuşmaya devam et. Kısa bir titreşim bir şey yakaladığımız anlamına gelir.</string>
+    <string name="session_calibrating">Ortam gürültüsü öğreniliyor… %1$d%%</string>
+    <string name="session_waiting_speech">Puanlama için konuşmaya başla</string>
 
     <string name="metric_pace">Tempo</string>
     <string name="metric_fillers">Dolgu</string>

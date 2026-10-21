@@ -133,7 +133,7 @@ fun LiveScoreRing(
         }
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             Text(
-                text = if (hasSpeech) recent.toString() else "0",
+                text = if (hasSpeech) recent.toString() else "—",
                 style = MaterialTheme.typography.displaySmall,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.onBackground
@@ -146,12 +146,12 @@ fun LiveScoreRing(
             Spacer(Modifier.height(4.dp))
             Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                 Text(
-                    text = "${stringResource(R.string.session_now)} $live",
+                    text = "${stringResource(R.string.session_now)} ${if (hasSpeech) live else "—"}",
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.secondary
                 )
                 Text(
-                    text = "${stringResource(R.string.session_overall)} $overall",
+                    text = "${stringResource(R.string.session_overall)} ${if (hasSpeech) overall else "—"}",
                     style = MaterialTheme.typography.labelSmall,
                     color = Primary
                 )

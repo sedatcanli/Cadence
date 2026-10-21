@@ -113,6 +113,20 @@ fun SessionScreen(
             strokeWidth = 12.dp
         )
 
+        if (!metrics.hasAnySpeech) {
+            Spacer(Modifier.height(10.dp))
+            Text(
+                text = if (metrics.isCalibrating) {
+                    stringResource(R.string.session_calibrating, metrics.calibrationProgress)
+                } else {
+                    stringResource(R.string.session_waiting_speech)
+                },
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.secondary,
+                textAlign = TextAlign.Center
+            )
+        }
+
         if (metrics.hasAnySpeech) {
             Spacer(Modifier.height(8.dp))
             Text(

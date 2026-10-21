@@ -19,6 +19,8 @@ data class LiveMetrics(
     val liveScore: Int = 0,
     val recentScore: Int = 0,
     val averageScore: Int = 0,
+    val isCalibrating: Boolean = false,
+    val calibrationProgress: Int = 100,
     val hasAnySpeech: Boolean = false,
     val transcript: String = "",
     val scoreHistory: List<Int> = emptyList(),

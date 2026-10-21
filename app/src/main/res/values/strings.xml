@@ -22,6 +22,8 @@
     <string name="stop_session">Stop</string>
     <string name="session_live">Live session</string>
     <string name="session_tip">Keep talking. A short vibration means we caught something.</string>
+    <string name="session_calibrating">Learning room noise… %1$d%%</string>
+    <string name="session_waiting_speech">Start speaking to begin scoring</string>
 
     <string name="metric_pace">Pace</string>
     <string name="metric_fillers">Fillers</string>

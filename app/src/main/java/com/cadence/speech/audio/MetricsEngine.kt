@@ -28,8 +28,9 @@ class MetricsEngine(
     private val pitchWindow = ArrayDeque<Pair<Long, Float>>()
     private val cooldowns = mutableMapOf<CoachingEvent, Long>()
 
-    private var totalFrames = 0
-    private var speechFrames = 0
+    private var sessionStartMs = -1L
+    private var scoringFrames = 0
+    private var scoringSpeechFrames = 0
     private var fillerCount = 0
     private var pauseCount = 0
     private var longPauseCount = 0
@@ -43,7 +44,10 @@ class MetricsEngine(
 
     // Speech activity tracking
     private var hasSpeechStarted = false
-    private var anySpeechDetected = false
+    private var scoringStartMs = -1L
+    private var speechOnsetMs = -1L
+    private var lastRawSpeechMs = -1L
+    private var onsetSpeechMs = 0L
 
     // Running average score
     private var scoreSum = 0f
@@ -60,26 +64,62 @@ class MetricsEngine(
     private var recentScore = 0
 
     fun process(frame: ShortArray, timestampMs: Long) {
-        if (totalFrames == 0) {
-            lastSnapshotMs = 0L
+        val frameMs = frame.size * 1000L / sampleRate
+        if (sessionStartMs < 0) {
+            sessionStartMs = timestampMs
+            lastSnapshotMs = timestampMs
         }
-        totalFrames++
+
+        if (!vad.isCalibrated) {
+            vad.calibrate(frame, timestampMs)
+            lastRmsDb = vad.rmsDb(frame)
+            lastSpeaking = false
+            if (timestampMs - lastSnapshotMs >= SNAPSHOT_INTERVAL_MS) {
+                lastSnapshotMs = timestampMs
+                publish(timestampMs, 0)
+            }
+            return
+        }
 
         val speaking = vad.isSpeech(frame)
+        val rawSpeech = vad.lastFrameSpeech
         val rmsDb = vad.rmsDb(frame)
         lastSpeaking = speaking
         lastRmsDb = rmsDb
-        if (speaking) {
-            speechFrames++
-            if (!hasSpeechStarted) {
+
+        if (!hasSpeechStarted) {
+            if (rawSpeech) {
+                if (speechOnsetMs < 0) {
+                    speechOnsetMs = timestampMs
+                    onsetSpeechMs = 0L
+                }
+                onsetSpeechMs += frameMs
+                lastRawSpeechMs = timestampMs
+            } else if (speechOnsetMs >= 0 && timestampMs - lastRawSpeechMs > ONSET_GAP_MS) {
+                speechOnsetMs = -1L
+                onsetSpeechMs = 0L
+            }
+
+            if (speechOnsetMs >= 0 && onsetSpeechMs >= SPEECH_ONSET_MS) {
                 hasSpeechStarted = true
-                anySpeechDetected = true
-                chartStartMs = timestampMs
+                scoringStartMs = speechOnsetMs
+                chartStartMs = speechOnsetMs
+                scoringFrames = 0
+                scoringSpeechFrames = 0
+                scoreSum = 0f
+                scoreSnapshotCount = 0
+                recentScores.clear()
+                recentScore = 0
+                speechOnsetMs = -1L
+                onsetSpeechMs = 0L
             }
         }
 
-        // Only process events and metrics if speech has started
+        // Only process events and metrics after real speech has begun
         if (hasSpeechStarted) {
+            scoringFrames++
+            if (speaking) scoringSpeechFrames++
+
             val pitch = if (speaking) {
                 pitchDetector.detect(FloatArray(frame.size) { frame[it] / 32768f })
             } else {
@@ -179,14 +219,19 @@ class MetricsEngine(
     }
 
     private fun publish(timestampMs: Long, pace: Int) {
-        val speechRatio = if (totalFrames == 0) 0f else speechFrames.toFloat() / totalFrames
+        val speechRatio = if (scoringFrames == 0) 0f
+        else scoringSpeechFrames.toFloat() / scoringFrames
         val pitchStd = pitchStdDeviation()
-        val duration = timestampMs.coerceAtLeast(1_000L)
+        val duration = if (scoringStartMs >= 0) {
+            (timestampMs - scoringStartMs).coerceAtLeast(1_000L)
+        } else {
+            0L
+        }
 
         var liveScore = 0
         var averageScore = 0
 
-        if (hasSpeechStarted && anySpeechDetected) {
+        if (hasSpeechStarted) {
             liveScore = ScoreCalculator.score(
                 pace = pace,
                 fillerCount = fillerCount,
@@ -227,6 +272,15 @@ class MetricsEngine(
             }
         }
 
+        val calibrating = !vad.isCalibrated
+        val calibrationProgress = if (calibrating) {
+            ((timestampMs - sessionStartMs) * 100 / vad.calibrationMs)
+                .toInt()
+                .coerceIn(0, 99)
+        } else {
+            100
+        }
+
         _metrics.value = LiveMetrics(
             elapsedMs = timestampMs,
             pacePerMinute = pace,
@@ -240,7 +294,9 @@ class MetricsEngine(
             liveScore = liveScore,
             recentScore = recentScore,
             averageScore = averageScore,
-            hasAnySpeech = anySpeechDetected,
+            isCalibrating = calibrating,
+            calibrationProgress = calibrationProgress,
+            hasAnySpeech = hasSpeechStarted,
             transcript = "",
             scoreHistory = scoreHistory.toList(),
             paceHistory = paceHistory.toList(),
@@ -262,6 +318,8 @@ class MetricsEngine(
 
     private companion object {
         const val SNAPSHOT_INTERVAL_MS = 100L
+        const val SPEECH_ONSET_MS = 500L
+        const val ONSET_GAP_MS = 250L
         const val PITCH_WINDOW_MS = 10_000L
         const val PAUSE_THRESHOLD_MS = 700L
         const val SCORE_HISTORY_INTERVAL_MS = 1_000L
