@@ -21,6 +21,7 @@ import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -53,7 +54,8 @@ fun ReportScreen(
     onNewSession: () -> Unit,
     onBack: () -> Unit
 ) {
-    val report = remember(reportId) { container.repository.get(reportId) }
+    val sessions by container.repository.sessions.collectAsState()
+    val report = sessions.firstOrNull { it.id == reportId }
     val context = LocalContext.current
     var showExport by remember { mutableStateOf(false) }
     var markPausesAndFillers by remember { mutableStateOf(true) }

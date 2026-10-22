@@ -60,6 +60,7 @@ class SessionController(
         startedAtWallClock = System.currentTimeMillis()
         startedAtElapsed = SystemClock.elapsedRealtime()
         preferences.onboardingDone = true
+        preferences.pendingReportId = null
 
         val profile = mode.profile()
         val cooldown = (profile.cooldownMs / preferences.sensitivity).toLong().coerceIn(1_500L, 10_000L)
@@ -117,57 +118,69 @@ class SessionController(
         if (!_state.value.isRunning) return
 
         val currentEngine = engine
-        capture?.stop()
-        jobs.forEach { it.cancel() }
-        jobs.clear()
-        SessionService.stop(context)
+        val reportId = UUID.randomUUID().toString()
+        try {
+            runCatching { capture?.stop() }
+            jobs.forEach { it.cancel() }
+            jobs.clear()
+            runCatching { SessionService.stop(context) }
 
-        transcriber?.flush()
-        val transcript = transcriber?.plainText().orEmpty()
-        val transcriptMarked = transcriber?.markedText().orEmpty()
-        transcriber?.close()
-        transcriber = null
+            val transcript = runCatching {
+                transcriber?.flush()
+                transcriber?.plainText().orEmpty()
+            }.getOrDefault("")
+            val transcriptMarked = runCatching {
+                transcriber?.markedText().orEmpty()
+            }.getOrDefault("")
+            runCatching { transcriber?.close() }
+            transcriber = null
 
-        val metrics = currentEngine?.snapshot() ?: LiveMetrics()
-        val duration = (SystemClock.elapsedRealtime() - startedAtElapsed).coerceAtLeast(1_000L)
+            val metrics = currentEngine?.snapshot() ?: LiveMetrics()
+            val duration = (SystemClock.elapsedRealtime() - startedAtElapsed).coerceAtLeast(1_000L)
 
-        val baseReport = SessionReport(
-            id = UUID.randomUUID().toString(),
-            startedAt = startedAtWallClock,
-            durationMs = duration,
-            mode = mode,
-            score = metrics.averageScore,
-            pace = metrics.pacePerMinute,
-            fillerCount = metrics.fillerCount,
-            pauseCount = metrics.pauseCount,
-            longPauseCount = metrics.longPauseCount,
-            pitchStdHz = metrics.pitchStdHz,
-            speechRatio = metrics.speechRatio,
-            transcript = transcript,
-            transcriptMarked = transcriptMarked,
-            scoreHistory = metrics.scoreHistory,
-            paceHistory = metrics.paceHistory,
-            fillerMarkers = metrics.fillerMarkers,
-            pauseMarkers = metrics.pauseMarkers
-        )
+            val baseReport = SessionReport(
+                id = reportId,
+                startedAt = startedAtWallClock,
+                durationMs = duration,
+                mode = mode,
+                score = metrics.averageScore,
+                pace = metrics.pacePerMinute,
+                fillerCount = metrics.fillerCount,
+                pauseCount = metrics.pauseCount,
+                longPauseCount = metrics.longPauseCount,
+                pitchStdHz = metrics.pitchStdHz,
+                speechRatio = metrics.speechRatio,
+                transcript = transcript,
+                transcriptMarked = transcriptMarked,
+                scoreHistory = metrics.scoreHistory,
+                paceHistory = metrics.paceHistory,
+                fillerMarkers = metrics.fillerMarkers,
+                pauseMarkers = metrics.pauseMarkers
+            )
 
-        val language = context.resources.configuration.locales[0].language
-        val suggestion = RecommendationEngine.suggest(
-            report = baseReport,
-            language = language,
-            usedIds = preferences.usedSuggestionIds()
-        )
-        preferences.markSuggestionUsed(suggestion.id)
+            val language = context.resources.configuration.locales[0].language
+            val suggestion = runCatching {
+                RecommendationEngine.suggest(
+                    report = baseReport,
+                    language = language,
+                    usedIds = preferences.usedSuggestionIds()
+                )
+            }.getOrNull()
+            if (suggestion != null) {
+                runCatching { preferences.markSuggestionUsed(suggestion.id) }
+            }
 
-        val report = baseReport.copy(
-            recommendation = suggestion.text,
-            recommendationId = suggestion.id
-        )
-        repository.save(report)
-
-        engine = null
-        capture = null
-        _state.value = SessionUiState(isRunning = false, lastReportId = report.id)
+            val report = baseReport.copy(
+                recommendation = suggestion?.text.orEmpty(),
+                recommendationId = suggestion?.id.orEmpty()
+            )
+            runCatching { repository.save(report) }
+            preferences.pendingReportId = reportId
+        } finally {
+            engine = null
+            capture = null
+            _state.value = SessionUiState(isRunning = false, lastReportId = reportId)
+        }
     }
 
     fun consumeLastReport(): String? {
@@ -181,6 +194,7 @@ class SessionController(
     }
 
     fun dispose() {
+        runCatching { stop() }
         capture?.stop()
         jobs.forEach { it.cancel() }
         scope.cancel()

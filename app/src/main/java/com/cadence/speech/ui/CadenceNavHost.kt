@@ -1,6 +1,9 @@
 package com.cadence.speech.ui
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -24,6 +27,23 @@ object Routes {
 @Composable
 fun CadenceNavHost(container: AppContainer) {
     val navController = rememberNavController()
+    val sessionState by container.sessionController.state.collectAsState()
+
+    LaunchedEffect(sessionState.lastReportId) {
+        val id = sessionState.lastReportId
+            ?: container.preferences.pendingReportId
+            ?: return@LaunchedEffect
+        container.sessionController.consumeLastReport()
+        container.preferences.pendingReportId = null
+        val alreadyOpen = navController.currentBackStackEntry
+            ?.arguments?.getString("id") == id
+        if (!alreadyOpen) {
+            navController.navigate(Routes.report(id)) {
+                popUpTo(Routes.HOME)
+                launchSingleTop = true
+            }
+        }
+    }
 
     val navigateMain: (String) -> Unit = { route ->
         navController.navigate(route) {
@@ -46,14 +66,7 @@ fun CadenceNavHost(container: AppContainer) {
         }
 
         composable(Routes.SESSION) {
-            SessionScreen(
-                container = container,
-                onFinished = { id ->
-                    navController.navigate(Routes.report(id)) {
-                        popUpTo(Routes.HOME)
-                    }
-                }
-            )
+            SessionScreen(container = container)
         }
 
         composable(Routes.REPORT) { entry ->

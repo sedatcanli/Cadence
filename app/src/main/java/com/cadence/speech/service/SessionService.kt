@@ -47,6 +47,11 @@ class SessionService : Service() {
 
     override fun onBind(intent: Intent?): IBinder? = null
 
+    override fun onTaskRemoved(rootIntent: Intent?) {
+        (application as CadenceApp).container.sessionController.stop()
+        super.onTaskRemoved(rootIntent)
+    }
+
     private fun createChannel() {
         val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         val channel = NotificationChannel(

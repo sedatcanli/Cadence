@@ -54,18 +54,9 @@ import com.cadence.speech.ui.theme.Primary
 
 @Composable
 fun SessionScreen(
-    container: AppContainer,
-    onFinished: (String) -> Unit
+    container: AppContainer
 ) {
     val state by container.sessionController.state.collectAsState()
-
-    LaunchedEffect(state.lastReportId) {
-        val id = state.lastReportId
-        if (id != null) {
-            container.sessionController.consumeLastReport()
-            onFinished(id)
-        }
-    }
 
     BackHandler(enabled = state.isRunning) {
         container.sessionController.stop()

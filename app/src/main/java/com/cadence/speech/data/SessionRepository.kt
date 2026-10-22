@@ -9,6 +9,8 @@ import kotlinx.coroutines.flow.asStateFlow
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.File
+import java.nio.file.Files
+import java.nio.file.StandardCopyOption
 
 class SessionRepository(context: Context) {
 
@@ -33,7 +35,18 @@ class SessionRepository(context: Context) {
         runCatching {
             val array = JSONArray()
             reports.forEach { array.put(it.toJson()) }
-            file.writeText(array.toString())
+            val temp = File(file.parentFile, "${file.name}.tmp")
+            temp.writeText(array.toString())
+            try {
+                Files.move(
+                    temp.toPath(),
+                    file.toPath(),
+                    StandardCopyOption.REPLACE_EXISTING,
+                    StandardCopyOption.ATOMIC_MOVE
+                )
+            } catch (error: Exception) {
+                Files.move(temp.toPath(), file.toPath(), StandardCopyOption.REPLACE_EXISTING)
+            }
         }
     }
 

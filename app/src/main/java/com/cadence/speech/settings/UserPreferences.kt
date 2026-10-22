@@ -32,6 +32,15 @@ class UserPreferences(context: Context) {
         get() = prefs.getString(KEY_UI_LANGUAGE, "").orEmpty()
         set(value) = prefs.edit().putString(KEY_UI_LANGUAGE, value).apply()
 
+    var pendingReportId: String?
+        get() = prefs.getString(KEY_PENDING_REPORT, null)
+        set(value) {
+            val editor = prefs.edit()
+            if (value.isNullOrBlank()) editor.remove(KEY_PENDING_REPORT)
+            else editor.putString(KEY_PENDING_REPORT, value)
+            editor.apply()
+        }
+
     var paywallAcknowledged: Boolean
         get() = prefs.getBoolean(KEY_PAYWALL_ACK, false)
         set(value) = prefs.edit().putBoolean(KEY_PAYWALL_ACK, value).apply()
@@ -84,6 +93,7 @@ class UserPreferences(context: Context) {
         const val KEY_FIRST_USE = "first_use_at"
         const val KEY_PROFILE_NAME = "profile_name"
         const val KEY_UI_LANGUAGE = "ui_language"
+        const val KEY_PENDING_REPORT = "pending_report_id"
         const val KEY_PAYWALL_ACK = "paywall_acknowledged"
         const val DEFAULT_LANGUAGE = "en"
         const val MAX_USED_SUGGESTIONS = 2_000
